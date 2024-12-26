@@ -162,6 +162,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      brightnessctl
       git
       helix
       hyprpaper
