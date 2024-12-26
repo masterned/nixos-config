@@ -125,7 +125,9 @@
         "wheel"
       ];
       packages = with pkgs; [
+        bacon
         firefox
+        rustup
         thunderbird
       ];
       useDefaultShell = true;
@@ -165,6 +167,7 @@
   environment = {
     systemPackages = with pkgs; [
       brightnessctl
+      gcc
       git
       helix
       hyprpaper
