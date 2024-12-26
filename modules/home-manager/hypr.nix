@@ -224,6 +224,9 @@
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        ",XF86AudioPlay, exec, playerctl play-pause"
+        ",XF86AudioPrev, exec, playerctl previous"
+        ",XF86AudioNext, exec, playerctl next"
       ];
 
       windowrulev2 = [

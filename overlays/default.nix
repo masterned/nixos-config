@@ -5,6 +5,12 @@
 
     hyprland = inputs.hyprland.packages.${final.system}.hyprland;
 
+    mpv = prev.mpv.override {
+      scripts = [
+        final.mpvScripts.mpris
+      ];
+    };
+
     wezterm = inputs.wezterm.packages.${final.system}.default;
   };
 

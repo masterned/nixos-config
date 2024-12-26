@@ -70,6 +70,8 @@
 
   services = {
     hypridle.enable = true;
+
+    playerctld.enable = true;
   };
 
   # Enable the X11 windowing system.
@@ -168,6 +170,7 @@
       hyprpaper
       jujutsu
       nushell
+      mpv
       starship
       yazi
     ];
