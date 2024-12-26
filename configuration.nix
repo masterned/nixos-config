@@ -126,9 +126,11 @@
       ];
       packages = with pkgs; [
         bacon
+        discord
         firefox
         floorp
         rustup
+        signal-desktop
         thunderbird
       ];
       useDefaultShell = true;
