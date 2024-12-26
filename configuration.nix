@@ -127,6 +127,7 @@
       packages = with pkgs; [
         bacon
         firefox
+        floorp
         rustup
         thunderbird
       ];

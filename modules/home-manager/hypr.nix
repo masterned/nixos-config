@@ -166,7 +166,7 @@
         "SUPER, Q, killactive"
         "SUPER, ESCAPE, exec, hyprlock"
         "SUPER, F, exec, nautilus"
-        "SUPER, B, exec, firefox"
+        "SUPER, B, exec, floorp"
         "SUPER, M, exec, discord"
         "SUPER, V, exec, alacritty --class clipse -e clipse"
 
