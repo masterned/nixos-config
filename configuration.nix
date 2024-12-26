@@ -52,6 +52,9 @@
   };
 
   programs = {
+    hyprland.enable = true;
+    hyprlock.enable = true;
+
     nh = {
       enable = true;
 
@@ -63,6 +66,10 @@
         extraArgs = "--keep 5 --keep-since 3d";
       };
     };
+  };
+
+  services = {
+    hypridle.enable = true;
   };
 
   # Enable the X11 windowing system.
@@ -84,7 +91,10 @@
   services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
+
+  security.pam.services.hyprlock = {};
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -154,6 +164,7 @@
     systemPackages = with pkgs; [
       git
       helix
+      hyprpaper
       jujutsu
       nushell
       starship
@@ -225,6 +236,17 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals =
+      with pkgs;
+      lib.mkForce [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gnome
+      ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

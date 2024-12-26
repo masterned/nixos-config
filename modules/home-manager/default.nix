@@ -1,0 +1,3 @@
+{
+  hypr = import ./hypr.nix;
+}

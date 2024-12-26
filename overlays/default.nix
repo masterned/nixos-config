@@ -3,6 +3,8 @@
   modifications = final: prev: {
     helix = inputs.helix.packages.${final.system}.default;
 
+    hyprland = inputs.hyprland.packages.${final.system}.hyprland;
+
     wezterm = inputs.wezterm.packages.${final.system}.default;
   };
 

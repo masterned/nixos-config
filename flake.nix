@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
     stylix.url = "github:danth/stylix";
 
     wezterm = {
@@ -30,6 +32,8 @@
   in
   {
     overlays = import ./overlays { inherit inputs; };
+
+    homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
       cygnus = nixpkgs.lib.nixosSystem {

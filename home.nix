@@ -3,10 +3,15 @@
   pkgs,
   inputs,
   outputs,
+  lib,
   ...
 }:
 
 {
+  imports = [
+    outputs.homeManagerModules.hypr
+  ];
+  
   nixpkgs = {
     config.allowUnfree = true;
 
@@ -89,6 +94,15 @@
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
+
+    fuzzel = {
+      enable = true;
+      settings = {
+        main = {
+          font = lib.mkForce "DejaVu Sans:size=16";
+        };
+      };
+    };
 
     helix = {
       enable = true;
