@@ -189,4 +189,6 @@
       enableNushellIntegration = true;
     };
   };
+
+  stylix.targets.hyprlock.enable = false;
 }

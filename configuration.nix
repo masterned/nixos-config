@@ -186,6 +186,10 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    material-symbols
+  ];
+
   stylix = {
     enable = true;
 
