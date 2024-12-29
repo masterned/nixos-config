@@ -110,13 +110,13 @@
         listener = [
           # Turn down screen brightness after 1.5mins
           {
-            timeout = 150;
-            on-timeout = "brightnessctl -s set 10";
+            timeout = 90;
+            on-timeout = "brightnessctl -s set 0";
             on-resume = "brightnessctl -r";
           }
           # Turn off keyboard backlight after 1.5mins
           {
-            timeout = 150;
+            timeout = 90;
             on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
             on-resume = "brightnessctl -rd rgb:kbd_backlight";
           }
