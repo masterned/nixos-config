@@ -131,6 +131,7 @@
         floorp
         rustup
         signal-desktop
+        taskwarrior3
         thunderbird
       ];
       useDefaultShell = true;
