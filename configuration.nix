@@ -178,6 +178,7 @@
       nushell
       mpv
       starship
+      tealdeer
       yazi
     ];
 
