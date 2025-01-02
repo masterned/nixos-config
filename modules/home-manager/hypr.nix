@@ -39,7 +39,7 @@
         # clock
         {
           monitor = "";
-          text = "$TIME";
+          text = "cmd[update:1000] echo \"$(date +%H:%M:%S)\" ";
           shadow_passes = 2;
           shadow_boost = 0.75;
           color = "rgba(ffffffff)";
