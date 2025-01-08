@@ -69,6 +69,8 @@
   };
 
   services = {
+    fwupd.enable = true;
+
     hypridle.enable = true;
 
     playerctld.enable = true;
