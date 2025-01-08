@@ -69,6 +69,12 @@
   };
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     fwupd.enable = true;
 
     hypridle.enable = true;
