@@ -137,6 +137,7 @@
         discord
         firefox
         floorp
+        onlyoffice-desktopeditors
         rustup
         signal-desktop
         taskwarrior3
