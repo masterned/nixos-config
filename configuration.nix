@@ -94,7 +94,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   security.pam.services.hyprlock = {};
   security.rtkit.enable = true;
