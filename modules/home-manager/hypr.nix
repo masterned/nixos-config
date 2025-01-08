@@ -172,6 +172,7 @@
       "exec-once" = [
         "hyprpaper"
         "hypridle"
+        "systemctl --user start hyprpolkitagent"
       ];
 
       general = {

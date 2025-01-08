@@ -184,6 +184,7 @@
       git
       helix
       hyprpaper
+      hyprpolkitagent
       jujutsu
       nushell
       mpv
