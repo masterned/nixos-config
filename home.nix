@@ -11,7 +11,7 @@
   imports = [
     outputs.homeManagerModules.hypr
   ];
-  
+
   nixpkgs = {
     config.allowUnfree = true;
 
@@ -110,10 +110,15 @@
       defaultEditor = true;
 
       languages = {
-        languages = [
+        language-server = {
+          nixd = {
+            command = "${pkgs.nixd}/bin/nixd";
+          };
+        };
+        language = [
           {
             name = "nix";
-            auto-format = true;
+            language-servers = [ "nixd" ];
           }
         ];
       };
