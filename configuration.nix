@@ -72,6 +72,8 @@
         extraArgs = "--keep 5 --keep-since 3d";
       };
     };
+
+    nm-applet.enable = true;
   };
 
   services = {
@@ -80,6 +82,8 @@
       nssmdns4 = true;
       openFirewall = true;
     };
+
+    blueman.enable = true;
 
     fwupd.enable = true;
 
@@ -130,7 +134,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.nushell;
-    
+
     users.spencer = {
       isNormalUser = true;
       description = "Spencer Dent";
@@ -188,7 +192,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = [ inputs.ashell.defaultPackage.x86_64-linux ] ++ (with pkgs; [
       brightnessctl
       gcc
       git
@@ -196,13 +200,16 @@
       hyprpaper
       hyprpolkitagent
       jujutsu
+      libnotify
+      networkmanagerapplet
       nixfmt-rfc-style
       nushell
       mpv
       starship
+      swaynotificationcenter
       tealdeer
       yazi
-    ];
+    ]);
 
     variables = {
       EDITOR = "hx";

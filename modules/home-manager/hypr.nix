@@ -173,6 +173,8 @@
         "hyprpaper"
         "hypridle"
         "systemctl --user start hyprpolkitagent"
+        "ashell"
+        "swaync"
       ];
 
       general = {
