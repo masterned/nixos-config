@@ -137,6 +137,7 @@
         discord
         firefox
         floorp
+        gimp
         onlyoffice-desktopeditors
         rustup
         signal-desktop
