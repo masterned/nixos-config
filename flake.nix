@@ -33,6 +33,8 @@
     system = "x86_64-linux";
   in
   {
+    formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+    
     overlays = import ./overlays { inherit inputs; };
 
     homeManagerModules = import ./modules/home-manager;

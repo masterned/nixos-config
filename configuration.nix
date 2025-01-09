@@ -159,6 +159,8 @@
   };
 
   nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
     settings = {
       experimental-features = [
         "nix-command"
@@ -188,6 +190,7 @@
       hyprpaper
       hyprpolkitagent
       jujutsu
+      nixfmt-rfc-style
       nushell
       mpv
       starship
