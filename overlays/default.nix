@@ -1,6 +1,14 @@
 { inputs, ... }:
 {
   modifications = final: prev: {
+    floorp = prev.floorp.override {
+      extraPolicies = {
+        WindowsSSO = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+      };
+    };
+
     helix = inputs.helix.packages.${final.system}.default;
 
     hyprland = inputs.hyprland.packages.${final.system}.hyprland;
