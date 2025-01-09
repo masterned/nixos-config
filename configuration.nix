@@ -139,6 +139,7 @@
         floorp
         gimp
         onlyoffice-desktopeditors
+        remmina
         rustup
         signal-desktop
         taskwarrior3
