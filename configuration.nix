@@ -242,6 +242,7 @@
         brightnessctl
         gcc
         git
+        gnomeExtensions.pop-shell
         helix
         hyprpaper
         hyprpolkitagent

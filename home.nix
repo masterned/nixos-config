@@ -91,6 +91,21 @@
     # EDITOR = "emacs";
   };
 
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          pop-shell.extensionUuid
+        ];
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        focus-mode = "mouse";
+      };
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
