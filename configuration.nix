@@ -166,6 +166,13 @@
     rtkit.enable = true;
   };
 
+  system = {
+    autoUpgrade = {
+      enable = true;
+      dates = "weekly";
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.nushell;
@@ -207,6 +214,8 @@
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     settings = {
+      auto-optimise-store = true;
+
       experimental-features = [
         "nix-command"
         "flakes"
