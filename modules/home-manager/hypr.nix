@@ -243,7 +243,8 @@
       };
 
       gestures = {
-        workspace_swipe = false;
+        workspace_swipe = true;
+        workspace_swipe_invert = false;
       };
 
       "$mod" = "SUPER";
