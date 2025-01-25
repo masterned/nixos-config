@@ -231,6 +231,8 @@
       misc = {
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
       };
 
       input = {
@@ -253,7 +255,7 @@
         "CTRL ALT, DELETE, exit"
         "SUPER, T, exec, [floating; tile] wezterm start --always-new-process"
         "SUPER, Q, killactive"
-        "SUPER, ESCAPE, exec, hyprlock"
+        "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
         "SUPER, F, exec, nautilus"
         "SUPER, B, exec, floorp"
         "SUPER, M, exec, discord"
