@@ -190,6 +190,7 @@
         firefox
         floorp
         gimp
+        grimblast
         onlyoffice-desktopeditors
         remmina
         rustup
