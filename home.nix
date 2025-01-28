@@ -219,4 +219,38 @@
   };
 
   stylix.targets.hyprlock.enable = false;
+
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "x-scheme-handler/http" = ["floorp.desktop"];
+      "x-scheme-handler/https" = ["floorp.desktop"];
+      "x-scheme-handler/chrome" = ["floorp.desktop"];
+      "text/html" = ["floorp.desktop"];
+      "application/x-extension-htm" = ["floorp.desktop"];
+      "application/x-extension-html" = ["floorp.desktop"];
+      "application/x-extension-shtml" = ["floorp.desktop"];
+      "application/xhtml+xml" = ["floorp.desktop"];
+      "application/x-extension-xhtml" = ["floorp.desktop"];
+      "application/x-extension-xht" = ["floorp.desktop"];
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
+      "image/jpeg" = ["org.gnome.Loupe.desktop"];
+      "image/png" = ["org.gnome.Loupe.desktop"];
+    };
+    defaultApplications = {
+      "x-scheme-handler/http" = ["floorp.desktop"];
+      "x-scheme-handler/https" = ["floorp.desktop"];
+      "x-scheme-handler/chrome" = ["floorp.desktop"];
+      "text/html" = ["floorp.desktop"];
+      "application/x-extension-htm" = ["floorp.desktop"];
+      "application/x-extension-html" = ["floorp.desktop"];
+      "application/x-extension-shtml" = ["floorp.desktop"];
+      "application/xhtml+xml" = ["floorp.desktop"];
+      "application/x-extension-xhtml" = ["floorp.desktop"];
+      "application/x-extension-xht" = ["floorp.desktop"];
+      "application/pdf" = ["org.pwmt.zathura.desktop"];
+      "image/jpeg" = ["org.gnome.Loupe.desktop"];
+      "image/png" = ["org.gnome.Loupe.desktop"];
+    };
+  };
 }
