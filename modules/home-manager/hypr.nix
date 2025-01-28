@@ -249,6 +249,13 @@
         workspace_swipe_invert = false;
       };
 
+      group = {
+        groupbar = {
+          font_size = 20;
+          height = 28;
+        };
+      };
+
       "$mod" = "SUPER";
 
       bind = [
@@ -290,6 +297,7 @@
 
         "SUPER, S, togglespecialworkspace, magic"
         "SUPER SHIFT, S, movetoworkspace, special:magic"
+        "SUPER, G, togglegroup"
 
         "SUPER, mouse_down, workspace, e+1"
         "SUPER, mouse_up, workspace, e-1"
