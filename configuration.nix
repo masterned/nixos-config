@@ -197,6 +197,7 @@
         signal-desktop
         taskwarrior3
         thunderbird
+        zathura
       ];
       useDefaultShell = true;
     };
