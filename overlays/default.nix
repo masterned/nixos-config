@@ -3,7 +3,7 @@
   modifications = final: prev: {
     floorp = prev.floorp.override {
       extraPolicies = {
-        WindowsSSO = true;
+        # WindowsSSO = true;
         DisablePocket = true;
         DisableTelemetry = true;
       };
