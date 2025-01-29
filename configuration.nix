@@ -24,8 +24,15 @@
       efi.canTouchEfiVariables = true;
     };
 
-    initrd.luks.devices."luks-b9ce3219-26fc-4eca-ba70-d402e918a306".device =
-      "/dev/disk/by-uuid/b9ce3219-26fc-4eca-ba70-d402e918a306";
+    initrd = {
+      luks.devices."luks-b9ce3219-26fc-4eca-ba70-d402e918a306".device =
+        "/dev/disk/by-uuid/b9ce3219-26fc-4eca-ba70-d402e918a306";
+      systemd.enable = true;
+    };
+
+    plymouth = {
+      enable = true;
+    };
   };
 
   networking = {
