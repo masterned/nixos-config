@@ -334,6 +334,7 @@
         "suppressevent maximize, class:.*"
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
+        "idleinhibit focus, fullscreen: 1"
       ];
     };
   };
