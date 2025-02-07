@@ -248,6 +248,7 @@
     systemPackages =
       [ inputs.ashell.defaultPackage.x86_64-linux ]
       ++ (with pkgs; [
+        bottom
         brightnessctl
         gcc
         git
