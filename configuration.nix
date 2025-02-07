@@ -264,6 +264,7 @@
         starship
         swaynotificationcenter
         tealdeer
+        vulnix
         yazi
       ]);
 
