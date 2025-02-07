@@ -194,7 +194,6 @@
       packages = with pkgs; [
         bacon
         discord
-        firefox
         floorp
         gimp
         grimblast
