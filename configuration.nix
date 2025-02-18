@@ -149,6 +149,24 @@
 
     pulseaudio.enable = false;
 
+    syncthing = {
+      enable = true;
+      dataDir = "/home/spencer";
+      openDefaultPorts = true;
+      configDir = "/home/spencer/.config/syncthing";
+      user = "spencer";
+      group = "users";
+      guiAddress = "0.0.0.0:8384";
+
+      settings = {
+        folders = {
+          "cygnus_public" = {
+            path = "/home/spencer/Public";
+          };
+        };
+      };
+    };
+
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
