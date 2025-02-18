@@ -202,6 +202,8 @@
           passes = 1;
           vibrancy = 0.1696;
         };
+
+        # screen_shader = "/home/spencer/Workspaces/nixos/modules/home-manager/extra_dark.frag";
       };
 
       animations = {
