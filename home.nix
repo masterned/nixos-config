@@ -181,6 +181,32 @@
       };
     };
 
+    mpv = {
+      enable = true;
+
+      config = {
+        ytdl-format = "bestvideo[height<=?720]+bestaudio";
+      };
+    };
+
+    newsboat = {
+      enable = true;
+
+      extraConfig = ''
+          macro v set browser "mpv %u" ; open-in-browser ; set browser "${pkgs.xdg-utils}/bin/xdg-open"
+        '';
+
+      urls = [
+        {
+          title = "Dreams of Autonomy";
+          tags = [
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCEEVcDuBRDiwxfXAgQjLGug";
+        }
+      ];
+    };
+
     nushell = {
       enable = true;
       extraConfig = ''
