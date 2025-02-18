@@ -197,6 +197,7 @@
         floorp
         gimp
         grimblast
+        newsboat
         onlyoffice-desktopeditors
         remmina
         rustup
@@ -255,6 +256,7 @@
         helix
         hyprpaper
         hyprpolkitagent
+        imv
         jujutsu
         libnotify
         networkmanagerapplet
