@@ -198,11 +198,109 @@
 
       urls = [
         {
+          title = "Brodie Robertson";
+          tags = [
+            "linux"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA";
+        }
+        {
+          title = "Continuous Delivery";
+          tags = [
+            "software-development"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCCfqyGl3nq_V0bo64CjZh8g";
+        }
+        {
+          title = "Dogen";
+          tags = [
+            "japanese"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCSX0NhNdBA-ZnEFkYFzdw4A";
+        }
+        {
           title = "Dreams of Autonomy";
           tags = [
             "youtube"
           ];
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCEEVcDuBRDiwxfXAgQjLGug";
+        }
+        {
+          title = "Dreams of Code";
+          tags = [
+            "software-development"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCWQaM7SpSECp9FELz-cHzuQ";
+        }
+        {
+          title = "Driving 4 Answers";
+          tags = [
+            "engineering"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCwosUnVH6AINmxtqkNJ3Fbg";
+        }
+        {
+          title = "FortNine";
+          tags = [
+            "engineering"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCNSMdQtn1SuFzCZjfK2C7dQ";
+        }
+        {
+          title = "Jacob Sorber";
+          tags = [
+            "software-development"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCwd5VFu4KoJNjkWJZMFJGHQ";
+        }
+        {
+          title = "Jeremy Chone";
+          tags = [
+            "rust"
+            "software-development"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCiT_r1GD7JSftnbViKHcOtQ";
+        }
+        {
+          title = "Mental Outlaw";
+          tags = [
+            "linux"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
+        }
+        {
+          title = "Technology Connections";
+          tags = [
+            "linux"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q";
+        }
+        {
+          title = "Vimjoyer";
+          tags = [
+            "technology"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC_zBdZ0_H_jn41FDRG7q4Tw";
+        }
+        {
+          title = "Zee Bashew";
+          tags = [
+            "dnd"
+            "ttrpgs"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCCXR2kCo7Lcw_BKwWxo09kw";
         }
       ];
     };
