@@ -110,6 +110,44 @@
     #   enable = true;
     #   enableSSHSupport = true;
     # };
+
+    regreet = {
+      enable = true;
+
+      font = {
+        name = "DejaVu Sans";
+      };
+
+      settings = {
+        default_session = {
+          command = "Hyprland";
+          user = "greeter";
+        };
+
+        gtk = {
+          application_prefer_dark_theme = true;
+        };
+
+        commands = {
+          reboot = ["systemctl" "reboot"];
+          poweroff = ["systemctl" "poweroff"];
+          x11_prefix = ["startx" "/usr/bin/env"];
+        };
+
+        appearance = {
+          greeting_msg = "Make sure to get some sleep!";
+        };
+
+        widget = {
+          clock = {
+            format = "%a %Y-%m-%d %H:%M:%S";
+            resolution = "500ms";
+            timezone = "America/NewYork";
+            label_width = 150;
+          };
+        };
+      };
+    };
   };
 
   # List services that you want to enable:
@@ -172,7 +210,7 @@
       enable = true;
 
       # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
+      # displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
 
       # Enable touchpad support (enabled default in most desktopManager).
