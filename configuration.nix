@@ -313,6 +313,7 @@
         hyprpaper
         hyprpicker
         hyprsunset
+        hyprsysteminfo
         hyprpolkitagent
         imv
         jujutsu
