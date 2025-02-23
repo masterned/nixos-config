@@ -273,6 +273,7 @@
         gnomeExtensions.pop-shell
         helix
         hyprpaper
+        hyprpicker
         hyprpolkitagent
         imv
         jujutsu
