@@ -160,6 +160,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
+    package = null;
+    portalPackage = null;
+
     settings = {
       monitor = ",preferred,auto,1.5";
 
@@ -338,6 +341,10 @@
         "size 622 652, class:(clipse)"
         "idleinhibit focus, fullscreen: 1"
       ];
+    };
+
+    systemd = {
+      variables = ["--all"];
     };
   };
 }
