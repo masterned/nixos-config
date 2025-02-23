@@ -312,6 +312,7 @@
         helix
         hyprpaper
         hyprpicker
+        hyprsunset
         hyprpolkitagent
         imv
         jujutsu
