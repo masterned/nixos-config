@@ -175,6 +175,7 @@
       "exec-once" = [
         "hyprpaper"
         "hypridle"
+        "hyprsunset"
         "systemctl --user start hyprpolkitagent"
         "ashell"
         "swaync"
