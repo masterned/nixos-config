@@ -249,6 +249,7 @@
       ];
       packages = with pkgs; [
         bacon
+        brave
         discord
         floorp
         gimp
