@@ -129,9 +129,18 @@
         };
 
         commands = {
-          reboot = ["systemctl" "reboot"];
-          poweroff = ["systemctl" "poweroff"];
-          x11_prefix = ["startx" "/usr/bin/env"];
+          reboot = [
+            "systemctl"
+            "reboot"
+          ];
+          poweroff = [
+            "systemctl"
+            "poweroff"
+          ];
+          x11_prefix = [
+            "startx"
+            "/usr/bin/env"
+          ];
         };
 
         appearance = {
@@ -302,6 +311,30 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
+    gnome.excludePackages = with pkgs; [
+      baobab
+      cheese
+      eog
+      epiphany
+      evince
+      gedit
+      geary
+      gnome-backgrounds
+      gnome-connections
+      gnome-console
+      gnome-contacts
+      gnome-maps
+      gnome-music
+      gnome-photos
+      gnome-software
+      gnome-system-monitor
+      gnome-tour
+      gnome-weather
+      orca
+      simple-scan
+      totem
+      yelp
+    ];
     systemPackages =
       [ inputs.ashell.defaultPackage.x86_64-linux ]
       ++ (with pkgs; [
