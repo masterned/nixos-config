@@ -66,6 +66,9 @@
     bluetooth = {
       enable = true;
     };
+    keyboard = {
+      zsa.enable = true;
+    };
   };
 
   # Select internationalisation properties.
