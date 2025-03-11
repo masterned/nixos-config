@@ -164,7 +164,10 @@
     portalPackage = null;
 
     settings = {
-      monitor = ",preferred,auto,1.5";
+      monitor = [
+        "DP-2,preferred,auto,auto"
+        ",preferred,auto,1.5"
+      ];
 
       env = [
         "XCURSOR_THEME,Bibata-Original-Ice"
