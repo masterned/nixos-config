@@ -349,6 +349,7 @@
         helix
         hyprpaper
         hyprpicker
+        hyprsome
         hyprsunset
         hyprsysteminfo
         hyprpolkitagent
