@@ -20,6 +20,8 @@
     };
 
     wezterm = inputs.wezterm.packages.${final.system}.default;
+
+    zen-browser = inputs.zen-browser.packages.${final.system}.default;
   };
 
   stable-packages = final: _prev: {
