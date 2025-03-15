@@ -365,6 +365,7 @@
         tealdeer
         vulnix
         yazi
+        zen-browser
       ]);
 
     variables = {
