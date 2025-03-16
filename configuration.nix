@@ -345,6 +345,7 @@
         gcc
         git
         gnomeExtensions.pop-shell
+        gtypist
         helix
         hyprpaper
         hyprpicker
