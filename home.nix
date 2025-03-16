@@ -215,6 +215,14 @@
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCCfqyGl3nq_V0bo64CjZh8g";
         }
         {
+          title = "Disney Parks";
+          tags = [
+            "disney"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC1xwwLwm6WSMbUn_Tp597hQ";
+        }
+        {
           title = "Dogen";
           tags = [
             "japanese"
@@ -279,6 +287,15 @@
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
         }
         {
+          title = "Sorcerer Radio";
+          tags = [
+            "disney"
+            "music"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCKSs6PXgeYDSHTcGdaItJYw";
+        }
+        {
           title = "Technology Connections";
           tags = [
             "linux"
@@ -293,6 +310,14 @@
             "youtube"
           ];
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC_zBdZ0_H_jn41FDRG7q4Tw";
+        }
+        {
+          title = "Walt Disney Imagineering";
+          tags = [
+            "disney"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4DavIB24rEr5waVY5AgZLg";
         }
         {
           title = "Zee Bashew";
