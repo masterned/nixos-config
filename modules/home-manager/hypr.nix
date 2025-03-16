@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 {
   programs.hyprlock = {
     enable = true;
@@ -369,7 +369,7 @@
     };
 
     systemd = {
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
   };
 }
