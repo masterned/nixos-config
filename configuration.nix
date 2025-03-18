@@ -342,6 +342,7 @@
       ++ (with pkgs; [
         bottom
         brightnessctl
+        dust
         gcc
         git
         gnomeExtensions.pop-shell
