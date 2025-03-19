@@ -165,8 +165,7 @@
 
     settings = {
       monitor = [
-        "DP-2,preferred,auto,auto"
-        ",preferred,auto,1.5"
+        ",preferred,auto,auto"
       ];
 
       workspace = [
