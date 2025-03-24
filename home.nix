@@ -384,6 +384,24 @@
     };
   };
 
+  services = {
+    mpd = {
+      enable = true;
+
+      extraConfig = ''
+          audio_output {
+            type "pipewire"
+            name "PipeWire Sound Server"
+          }
+          auto_update "yes"
+        '';
+
+      musicDirectory = "/home/spencer/Music";
+    };
+
+    mpd-mpris.enable = true;
+  };
+
   stylix.targets.hyprlock.enable = false;
 
   xdg.mimeApps = {
