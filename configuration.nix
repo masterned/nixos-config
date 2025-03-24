@@ -6,6 +6,7 @@
   pkgs,
   inputs,
   outputs,
+  config,
   ...
 }:
 
@@ -173,7 +174,10 @@
 
     fwupd.enable = true;
 
+    gvfs.enable = true;
+
     hypridle.enable = true;
+
 
     # Enable the OpenSSH daemon.
     # services.openssh.enable = true;
@@ -185,6 +189,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+
       # If you want to use JACK applications, uncomment this
       #jack.enable = true;
 
@@ -268,6 +273,7 @@
         newsboat
         onlyoffice-desktopeditors
         remmina
+        rmpc
         rustup
         signal-desktop
         taskwarrior3
@@ -438,4 +444,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  systemd.services.mpd.environment = { XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}"; };
 }
