@@ -213,6 +213,14 @@
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCCfqyGl3nq_V0bo64CjZh8g";
         }
         {
+          title = "Cowboy Kent Rollins";
+          tags = [
+            "food"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UClrMJRlvoyoWsVlB-7c61PQ";
+        }
+        {
           title = "Disney Parks";
           tags = [
             "disney"
@@ -250,6 +258,14 @@
             "youtube"
           ];
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCwosUnVH6AINmxtqkNJ3Fbg";
+        }
+        {
+          title = "Feral Foraging";
+          tags = [
+            "food"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCmngd6QbE67Dvc9kRnrlToA";
         }
         {
           title = "FortNine";
