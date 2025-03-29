@@ -221,6 +221,14 @@
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UClrMJRlvoyoWsVlB-7c61PQ";
         }
         {
+          title = "DFBGuide";
+          tags = [
+            "disney"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCnpWedLQdHpZqhgTLdB9Yyg";
+        }
+        {
           title = "Disney Parks";
           tags = [
             "disney"
@@ -316,6 +324,14 @@
             "youtube"
           ];
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q";
+        }
+        {
+          title = "The Dungeon Coach";
+          tags = [
+            "ttrpgs"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCz8xkTADYdRQR7GP-f2PjOA";
         }
         {
           title = "Vimjoyer";
