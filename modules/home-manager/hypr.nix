@@ -202,7 +202,6 @@
         "hypridle"
         "hyprsunset"
         "systemctl --user start hyprpolkitagent"
-        "ashell"
         "swaync"
       ];
 

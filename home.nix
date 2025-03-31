@@ -192,8 +192,8 @@
       enable = true;
 
       extraConfig = ''
-          macro v set browser "mpv %u" ; open-in-browser ; set browser "${pkgs.xdg-utils}/bin/xdg-open"
-        '';
+        macro v set browser "mpv %u" ; open-in-browser ; set browser "${pkgs.xdg-utils}/bin/xdg-open"
+      '';
 
       urls = [
         {
@@ -378,6 +378,31 @@
 
     starship.enable = true;
 
+    waybar = {
+      enable = true;
+
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 30;
+
+          output = [
+            "eDP-1"
+          ];
+
+          modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+          modules-center = [ "mpd" "clock" ];
+          modules-right = [ "temperature" "battery" "bluetooth" "network" ];
+
+          clock = {
+            interval = 1;
+            format = "{:%Y-%m-%d %H:%M:%S}";
+          };
+        };
+      };
+    };
+
     wezterm = {
       enable = true;
 
@@ -405,12 +430,12 @@
       enable = true;
 
       extraConfig = ''
-          audio_output {
-            type "pipewire"
-            name "PipeWire Sound Server"
-          }
-          auto_update "yes"
-        '';
+        audio_output {
+          type "pipewire"
+          name "PipeWire Sound Server"
+        }
+        auto_update "yes"
+      '';
 
       musicDirectory = "/home/spencer/Music";
     };
@@ -423,34 +448,34 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      "x-scheme-handler/http" = ["userapp-Zen-JDMZ32.desktop"];
-      "x-scheme-handler/https" = ["userapp-Zen-JDMZ32.desktop"];
-      "x-scheme-handler/chrome" = ["userapp-Zen-JDMZ32.desktop"];
-      "text/html" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-htm" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-html" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-shtml" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/xhtml+xml" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-xhtml" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-xht" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/pdf" = ["org.pwmt.zathura.desktop"];
-      "image/jpeg" = ["org.gnome.Loupe.desktop"];
-      "image/png" = ["org.gnome.Loupe.desktop"];
+      "x-scheme-handler/http" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "x-scheme-handler/https" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "x-scheme-handler/chrome" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "text/html" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-htm" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-html" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-shtml" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/xhtml+xml" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-xhtml" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-xht" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+      "image/png" = [ "org.gnome.Loupe.desktop" ];
     };
     defaultApplications = {
-      "x-scheme-handler/http" = ["userapp-Zen-JDMZ32.desktop"];
-      "x-scheme-handler/https" = ["userapp-Zen-JDMZ32.desktop"];
-      "x-scheme-handler/chrome" = ["userapp-Zen-JDMZ32.desktop"];
-      "text/html" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-htm" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-html" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-shtml" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/xhtml+xml" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-xhtml" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/x-extension-xht" = ["userapp-Zen-JDMZ32.desktop"];
-      "application/pdf" = ["org.pwmt.zathura.desktop"];
-      "image/jpeg" = ["org.gnome.Loupe.desktop"];
-      "image/png" = ["org.gnome.Loupe.desktop"];
+      "x-scheme-handler/http" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "x-scheme-handler/https" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "x-scheme-handler/chrome" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "text/html" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-htm" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-html" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-shtml" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/xhtml+xml" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-xhtml" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/x-extension-xht" = [ "userapp-Zen-JDMZ32.desktop" ];
+      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+      "image/png" = [ "org.gnome.Loupe.desktop" ];
     };
   };
 }
