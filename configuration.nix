@@ -160,6 +160,8 @@
         };
       };
     };
+
+    waybar.enable = true;
   };
 
   # List services that you want to enable:
@@ -262,6 +264,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "input"
       ];
       packages = with pkgs; [
         bacon
@@ -344,8 +347,7 @@
       yelp
     ];
     systemPackages =
-      [ inputs.ashell.defaultPackage.x86_64-linux ]
-      ++ (with pkgs; [
+      with pkgs; [
         bottom
         brightnessctl
         dust
@@ -373,7 +375,7 @@
         vulnix
         yazi
         zen-browser
-      ]);
+      ];
 
     variables = {
       EDITOR = "hx";
