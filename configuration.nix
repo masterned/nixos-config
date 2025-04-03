@@ -271,6 +271,7 @@
         brave
         discord
         floorp
+        fzf
         gimp
         grimblast
         newsboat
@@ -282,6 +283,7 @@
         taskwarrior3
         thunderbird
         zathura
+        zoxide
       ];
       useDefaultShell = true;
     };

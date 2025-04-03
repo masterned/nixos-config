@@ -89,6 +89,8 @@
     # EDITOR = "emacs";
   };
 
+  home.shell.enableNushellIntegration = true;
+
   dconf = {
     enable = true;
     settings = {
@@ -124,6 +126,8 @@
         };
       };
     };
+
+    fzf.enable = true;
 
     helix = {
       enable = true;
@@ -391,9 +395,20 @@
             "eDP-1"
           ];
 
-          modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-          modules-center = [ "mpd" "clock" ];
-          modules-right = [ "temperature" "battery" "bluetooth" "network" ];
+          modules-left = [
+            "hyprland/workspaces"
+            "hyprland/window"
+          ];
+          modules-center = [
+            "mpd"
+            "clock"
+          ];
+          modules-right = [
+            "temperature"
+            "battery"
+            "bluetooth"
+            "network"
+          ];
 
           clock = {
             interval = 1;
@@ -423,6 +438,8 @@
       enable = true;
       enableNushellIntegration = true;
     };
+
+    zoxide.enable = true;
   };
 
   services = {
