@@ -391,7 +391,8 @@
   stylix = {
     enable = true;
 
-    image = ./assets/images/spaceMountain_conceptArt.jpg;
+    image = ./assets/images/neo_EPCOT.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
     cursor = {
       package = pkgs.bibata-cursors;

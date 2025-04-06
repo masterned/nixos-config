@@ -13,7 +13,7 @@
 
       background = {
         color = "rgba(000000ff)";
-        path = "/home/spencer/Workspaces/nixos/assets/images/spaceMountain_conceptArt.jpg";
+        path = "/home/spencer/Workspaces/nixos/assets/images/neo_EPCOT.jpg";
         blur_passes = 2;
         blur_size = 5;
       };
@@ -142,18 +142,6 @@
 
     hyprpaper = {
       enable = true;
-
-      settings = {
-        preload = [
-          "/home/spencer/Workspaces/nixos/assets/images/spaceMountain_conceptArt.jpg"
-        ];
-
-        wallpaper = [
-          "/home/spencer/Workspaces/nixos/assets/images/spaceMountain_conceptArt.jpg"
-        ];
-
-        splash = false;
-      };
     };
   };
 
