@@ -180,7 +180,6 @@
 
     hypridle.enable = true;
 
-
     # Enable the OpenSSH daemon.
     # services.openssh.enable = true;
 
@@ -348,36 +347,35 @@
       totem
       yelp
     ];
-    systemPackages =
-      with pkgs; [
-        bottom
-        brightnessctl
-        dust
-        gcc
-        git
-        gnomeExtensions.pop-shell
-        gtypist
-        helix
-        hyprpaper
-        hyprpicker
-        hyprsome
-        hyprsunset
-        hyprsysteminfo
-        hyprpolkitagent
-        imv
-        jujutsu
-        libnotify
-        networkmanagerapplet
-        nixfmt-rfc-style
-        nushell
-        mpv
-        starship
-        swaynotificationcenter
-        tealdeer
-        vulnix
-        yazi
-        zen-browser
-      ];
+    systemPackages = with pkgs; [
+      bottom
+      brightnessctl
+      dust
+      gcc
+      git
+      gnomeExtensions.pop-shell
+      gtypist
+      helix
+      hyprpaper
+      hyprpicker
+      hyprsome
+      hyprsunset
+      hyprsysteminfo
+      hyprpolkitagent
+      imv
+      jujutsu
+      libnotify
+      networkmanagerapplet
+      nixfmt-rfc-style
+      nushell
+      mpv
+      starship
+      swaynotificationcenter
+      tealdeer
+      vulnix
+      yazi
+      zen-browser
+    ];
 
     variables = {
       EDITOR = "hx";
@@ -450,5 +448,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  systemd.services.mpd.environment = { XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}"; };
+  systemd.services.mpd.environment = {
+    XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
+  };
 }
