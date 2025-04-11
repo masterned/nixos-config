@@ -293,6 +293,11 @@
         "SUPER, up, movefocus, u"
         "SUPER, down, movefocus, d"
 
+        "SUPER, H, movefocus, l"
+        "SUPER, L, movefocus, r"
+        "SUPER, K, movefocus, u"
+        "SUPER, J, movefocus, d"
+
         "SUPER, 1, exec, hyprsome workspace 1"
         "SUPER, 2, exec, hyprsome workspace 2"
         "SUPER, 3, exec, hyprsome workspace 3"
