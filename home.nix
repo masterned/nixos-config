@@ -305,6 +305,24 @@
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCiT_r1GD7JSftnbViKHcOtQ";
         }
         {
+          title = "Jon Gjengset";
+          tags = [
+            "rust"
+            "software-development"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC_iD0xppBwwsrM9DegC5cQQ";
+        }
+        {
+          title = "Logan Smith";
+          tags = [
+            "rust"
+            "software-development"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCnHX5FjwtQpxkCGziuh4NJA";
+        }
+        {
           title = "Mental Outlaw";
           tags = [
             "linux"
