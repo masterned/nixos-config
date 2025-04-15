@@ -267,7 +267,9 @@
       ];
       packages = with pkgs; [
         bacon
+        bat
         brave
+        cargo-expand
         discord
         floorp
         fzf
