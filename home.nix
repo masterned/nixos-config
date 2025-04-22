@@ -415,7 +415,6 @@
 
           modules-left = [
             "hyprland/workspaces"
-            "hyprland/window"
           ];
           modules-center = [
             "mpd"
@@ -423,9 +422,9 @@
           ];
           modules-right = [
             "temperature"
-            "battery"
             "bluetooth"
             "network"
+            "upower"
           ];
 
           clock = {
