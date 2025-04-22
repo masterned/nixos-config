@@ -432,6 +432,11 @@
             interval = 1;
             format = "{:%Y-%m-%d %H:%M:%S}";
           };
+
+          network = {
+            "format-wifi" = "{essid} ({signalStrength}%) ";
+            "format-ethernet" = "{ipadder}/{cidr} ";
+          };
         };
       };
     };
