@@ -283,6 +283,7 @@
         signal-desktop
         taskwarrior3
         thunderbird
+        wlogout
         zathura
         zoxide
       ];
