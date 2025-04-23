@@ -423,6 +423,7 @@
           modules-right = [
             "network"
             "backlight"
+            "wireplumber"
             "upower"
           ];
 
@@ -442,6 +443,17 @@
           network = {
             "format-wifi" = "{essid} ({signalStrength}%) ";
             "format-ethernet" = "{ipadder}/{cidr} ";
+          };
+
+          wireplumber = {
+            format = "{volume}% {icon}";
+            "format-muted" = "";
+            "on-click" = "helvum";
+            "format-icons" = [
+              ""
+              ""
+              ""
+            ];
           };
         };
       };
