@@ -425,6 +425,7 @@
             "backlight"
             "wireplumber"
             "battery"
+            "custom/power"
           ];
 
           backlight = {
@@ -455,6 +456,12 @@
           clock = {
             interval = 1;
             format = "{:%Y-%m-%d %H:%M:%S}";
+          };
+
+          "custom/power" = {
+            "format" = " ⏻ ";
+            tooltip = false;
+            "on-click" = "${pkgs.wlogout}/bin/wlogout -p layer-shell";
           };
 
           network = {
