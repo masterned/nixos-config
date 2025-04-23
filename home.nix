@@ -421,11 +421,18 @@
             "clock"
           ];
           modules-right = [
-            "temperature"
-            "bluetooth"
             "network"
+            "backlight"
             "upower"
           ];
+
+          backlight = {
+            "format" = "{percent}% {icon}";
+            "format-icons" = [
+              ""
+              ""
+            ];
+          };
 
           clock = {
             interval = 1;
