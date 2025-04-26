@@ -389,6 +389,9 @@
   };
 
   fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
     material-symbols
   ];
 
@@ -416,6 +419,10 @@
       serif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
       };
       sizes = {
         applications = 12;
