@@ -7,6 +7,7 @@
 
 {
   imports = [
+    outputs.homeManagerModules.helix
     outputs.homeManagerModules.hypr
   ];
 
@@ -129,43 +130,6 @@
 
     fzf.enable = true;
 
-    helix = {
-      enable = true;
-
-      defaultEditor = true;
-
-      languages = {
-        language-server = {
-          nixd = {
-            command = "${pkgs.nixd}/bin/nixd";
-          };
-        };
-        language = [
-          {
-            name = "nix";
-            language-servers = [ "nixd" ];
-          }
-        ];
-      };
-
-      settings = {
-        editor = {
-          line-number = "relative";
-          mouse = false;
-          lsp.display-messages = true;
-
-          cursor-shape = {
-            insert = "bar";
-            normal = "block";
-            select = "underline";
-          };
-
-          file-picker = {
-            hidden = false;
-          };
-        };
-      };
-    };
 
     jujutsu = {
       enable = true;
