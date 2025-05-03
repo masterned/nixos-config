@@ -472,7 +472,7 @@
           wireplumber = {
             format = "{volume}% {icon}";
             "format-muted" = "";
-            "on-click" = "helvum";
+            "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
             "format-icons" = [
               ""
               ""
