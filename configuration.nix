@@ -375,6 +375,7 @@
       nixfmt-rfc-style
       nushell
       mpv
+      pavucontrol
       starship
       swaynotificationcenter
       tealdeer
