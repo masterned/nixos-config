@@ -392,7 +392,7 @@
         }
       '';
       extraEnv = ''
-        $env.FLAKE = "/home/spencer/Workspaces/nixos"
+        $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
         $env.EDITOR = "hx"
         $env.VISUAL = "hx"
       '';
