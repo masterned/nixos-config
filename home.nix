@@ -486,6 +486,7 @@
       musicDirectory = "/home/spencer/Music";
     };
 
+    mpd-discord-rpc.enable = true;
     mpd-mpris.enable = true;
   };
 
