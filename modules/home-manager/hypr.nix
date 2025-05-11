@@ -281,7 +281,7 @@
       "$mod" = "SUPER";
 
       bind = [
-        "CTRL ALT, DELETE, exit"
+        "CTRL ALT, DELETE, exec, uwsm stop"
         "SUPER, T, exec, [floating; tile] wezterm start --always-new-process"
         "SUPER, Q, killactive"
         "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
@@ -362,6 +362,7 @@
     };
 
     systemd = {
+      enable = false;
       variables = [ "--all" ];
     };
   };
