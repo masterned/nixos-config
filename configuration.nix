@@ -176,6 +176,8 @@
 
     fwupd.enable = true;
 
+    gnome.gnome-keyring.enable = true;
+
     gvfs.enable = true;
 
     hypridle.enable = true;
@@ -244,7 +246,13 @@
   };
 
   security = {
-    pam.services.hyprlock = { };
+    pam.services = {
+      greetd = {
+        enable = true;
+        enableGnomeKeyring = true;
+      };
+      hyprlock = { };
+    };
     rtkit.enable = true;
   };
 
