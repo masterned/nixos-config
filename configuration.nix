@@ -281,6 +281,7 @@
         newsboat
         onlyoffice-desktopeditors
         remmina
+        ripgrep
         rmpc
         rustup
         signal-desktop
