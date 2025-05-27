@@ -287,6 +287,15 @@
           url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCnHX5FjwtQpxkCGziuh4NJA";
         }
         {
+          title = "Luke Smith";
+          tags = [
+            "linux"
+            "philosophy"
+            "youtube"
+          ];
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA";
+        }
+        {
           title = "Mental Outlaw";
           tags = [
             "linux"
