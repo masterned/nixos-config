@@ -184,9 +184,9 @@
           position = "top";
           height = 30;
 
-          output = [
-            "eDP-1"
-          ];
+          # output = [
+          #   "eDP-1"
+          # ];
 
           modules-left = [
             "hyprland/workspaces"
