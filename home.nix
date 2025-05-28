@@ -38,7 +38,29 @@
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
-    packages = [
+    packages = with pkgs; [
+        bacon
+        bat
+        brave
+        cargo-expand
+        discord
+        floorp
+        fzf
+        gimp
+        grimblast
+        helvum
+        newsboat
+        onlyoffice-desktopeditors
+        remmina
+        ripgrep
+        rmpc
+        rustup
+        signal-desktop
+        taskwarrior3
+        thunderbird
+        wlogout
+        zathura
+        zoxide
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
       # pkgs.hello
