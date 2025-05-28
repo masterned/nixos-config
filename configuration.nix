@@ -278,30 +278,6 @@
         "wheel"
         "input"
       ];
-      packages = with pkgs; [
-        bacon
-        bat
-        brave
-        cargo-expand
-        discord
-        floorp
-        fzf
-        gimp
-        grimblast
-        helvum
-        newsboat
-        onlyoffice-desktopeditors
-        remmina
-        ripgrep
-        rmpc
-        rustup
-        signal-desktop
-        taskwarrior3
-        thunderbird
-        wlogout
-        zathura
-        zoxide
-      ];
       useDefaultShell = true;
     };
   };
