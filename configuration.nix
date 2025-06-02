@@ -169,6 +169,8 @@
 
   # List services that you want to enable:
   services = {
+    atd.enable = true;
+
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -256,6 +258,7 @@
       isNormalUser = true;
       description = "Spencer Dent";
       extraGroups = [
+        "atd"
         "networkmanager"
         "wheel"
         "input"
@@ -300,6 +303,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      at
       bottom
       brightnessctl
       dust
