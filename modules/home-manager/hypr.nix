@@ -134,10 +134,10 @@
             on-timeout = "loginctl lock-session";
           }
           # Suspend PC after 30mins
-          {
-            timeout = 1800;
-            on-timeout = "systemctl suspend";
-          }
+          # {
+          #   timeout = 1800;
+          #   on-timeout = "systemctl suspend";
+          # }
         ];
       };
     };
