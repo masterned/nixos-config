@@ -47,6 +47,16 @@
       floorp
       fzf
       gimp
+      gnome-calculator
+      gnome-calendar
+      gnome-characters
+      gnome-clocks
+      gnome-disk-utility
+      gnome-font-viewer
+      gnome-text-editor
+      loupe
+      nautilus
+      seahorse
       grimblast
       helvum
       newsboat
@@ -120,25 +130,7 @@
 
   dconf = {
     enable = true;
-    settings = {
-      "org/gnome/shell" = {
-        disable-user-extensions = false;
-        enabled-extensions = with pkgs.gnomeExtensions; [
-          pop-shell.extensionUuid
-        ];
-      };
-      "org/gnome/shell/extensions/pop-shell" = {
-        active-hint = true;
-        active-hint-border-radius = "uint32 5";
-        hint-color-rgba = "rgba(153,211,255,0.9)";
-        tile-by-default = true;
-        gap-inner = "uint32 2";
-        gap-outer = "uint32 2";
-      };
-      "org/gnome/desktop/wm/preferences" = {
-        focus-mode = "mouse";
-      };
-    };
+    settings = { };
   };
 
   # Let Home Manager install and manage itself.

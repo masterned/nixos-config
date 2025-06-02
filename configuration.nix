@@ -228,24 +228,6 @@
         };
       };
     };
-
-    xserver = {
-      # Enable the X11 windowing system.
-      enable = true;
-
-      # Enable the GNOME Desktop Environment.
-      # displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
-      # Enable touchpad support (enabled default in most desktopManager).
-      # libinput.enable = true;
-
-      # Configure keymap in X11
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
   };
 
   security = {
@@ -317,37 +299,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {
-    gnome.excludePackages = with pkgs; [
-      baobab
-      cheese
-      eog
-      epiphany
-      evince
-      gedit
-      geary
-      gnome-backgrounds
-      gnome-connections
-      gnome-console
-      gnome-contacts
-      gnome-maps
-      gnome-music
-      gnome-photos
-      gnome-software
-      gnome-system-monitor
-      gnome-tour
-      gnome-weather
-      orca
-      simple-scan
-      totem
-      yelp
-    ];
     systemPackages = with pkgs; [
       bottom
       brightnessctl
       dust
       gcc
       git
-      gnomeExtensions.pop-shell
       gtypist
       helix
       hyprpaper
