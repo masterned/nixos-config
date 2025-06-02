@@ -193,6 +193,10 @@
         $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
         $env.EDITOR = "hx"
         $env.VISUAL = "hx"
+
+        def rand_pw [] {
+          open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
+        }
       '';
     };
 
