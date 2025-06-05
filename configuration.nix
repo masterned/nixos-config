@@ -66,6 +66,7 @@
     bluetooth = {
       enable = true;
     };
+    graphics.enable = true;
     keyboard = {
       zsa.enable = true;
     };
