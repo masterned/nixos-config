@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 {
   programs.hyprlock = {
     enable = true;
@@ -150,10 +150,16 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    package = null;
-    portalPackage = null;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     settings = {
+      debug = {
+        disable_logs = false;
+        enable_stdout_logs = true;
+      };
+
       monitor = [
         ",preferred,auto,auto"
       ];
