@@ -137,6 +137,12 @@
   programs = {
     home-manager.enable = true;
 
+    direnv = {
+      enable = true;
+      enableNushellIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     fuzzel = {
       enable = true;
       settings = {
