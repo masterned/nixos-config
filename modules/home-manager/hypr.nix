@@ -334,7 +334,7 @@
         "SUPER, mouse_left, workspace, e+1"
         "SUPER, mouse_right, workspace, e-1"
 
-        ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png"
+        ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
       ];
 
       bindm = [
