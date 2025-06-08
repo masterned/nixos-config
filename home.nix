@@ -44,6 +44,7 @@
       brave
       cargo-expand
       discord
+      ffmpeg
       floorp
       fzf
       gimp
@@ -69,6 +70,7 @@
       taskwarrior3
       thunderbird
       wlogout
+      yt-dlp
       zathura
       zoxide
       # # Adds the 'hello' command to your environment. It prints a friendly
@@ -205,10 +207,11 @@
         #![enable(unwrap_newtypes)]
         #![enable(unwrap_variant_newtypes)]
         (
-            address: "127.0.0.1:6600",
+            address: "/tmp/mpd_socket",
             password: None,
             theme: None,
-            cache_dir: None,
+            cache_dir: Some("/tmp/rmpc/cache"),
+            lyrics_dir: Some("/home/spencer/.cache/rmpc/lyrics"),
             on_song_change: None,
             volume_step: 5,
             max_fps: 30,
@@ -466,6 +469,8 @@
           name "PipeWire Sound Server"
         }
         auto_update "yes"
+
+        bind_to_address "/tmp/mpd_socket"
       '';
 
       musicDirectory = "/home/spencer/Music";
