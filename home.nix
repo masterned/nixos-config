@@ -68,6 +68,7 @@
       rustup
       signal-desktop
       taskwarrior3
+      tiled
       thunderbird
       wlogout
       yt-dlp
