@@ -154,6 +154,10 @@
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
+    plugins = [
+      inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+    ];
+
     settings = {
       debug = {
         disable_logs = false;
@@ -335,6 +339,8 @@
         "SUPER, mouse_right, workspace, e-1"
 
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+
+        "SUPER, A, overview:toggle"
       ];
 
       bindm = [
@@ -357,6 +363,20 @@
         ",XF86AudioPrev, exec, playerctl previous"
         ",XF86AudioNext, exec, playerctl next"
       ];
+
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method = "center current";
+
+          enable_gesture = true;
+          gesture_fingers = 3;
+          gesture_distance = 300;
+          gesture_positive = true;
+        };
+      };
 
       windowrulev2 = [
         "suppressevent maximize, class:.*"
