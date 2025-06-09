@@ -60,6 +60,7 @@
       seahorse
       grimblast
       helvum
+      mangohud
       newsboat
       onlyoffice-desktopeditors
       remmina

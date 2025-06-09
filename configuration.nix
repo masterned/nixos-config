@@ -103,6 +103,8 @@
     };
     hyprlock.enable = true;
 
+    gamemode.enable = true;
+
     nh = {
       enable = true;
 
@@ -170,6 +172,11 @@
           };
         };
       };
+    };
+
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
     };
 
     waybar.enable = true;
