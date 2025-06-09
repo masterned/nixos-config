@@ -174,6 +174,10 @@
       };
     };
 
+    ssh = {
+      startAgent = true;
+    };
+
     steam = {
       enable = true;
       gamescopeSession.enable = true;
