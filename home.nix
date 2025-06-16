@@ -55,6 +55,7 @@
       gnome-disk-utility
       gnome-font-viewer
       gnome-text-editor
+      inkscape
       loupe
       nautilus
       seahorse
