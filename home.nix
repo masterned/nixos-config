@@ -10,6 +10,7 @@
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.hypr
     outputs.homeManagerModules.newsboat
+    outputs.homeManagerModules.zen-browser
   ];
 
   nixpkgs = {
