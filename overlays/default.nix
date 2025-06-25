@@ -16,6 +16,7 @@
     mpv = prev.mpv.override {
       scripts = [
         final.mpvScripts.mpris
+        final.mpvScripts.skipsilence
       ];
     };
 

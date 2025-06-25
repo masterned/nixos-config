@@ -99,7 +99,8 @@
       withUWSM = true;
 
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
     hyprlock.enable = true;
 
@@ -200,7 +201,10 @@
 
     fwupd.enable = true;
 
-    gnome.gnome-keyring.enable = true;
+    gnome = {
+      gcr-ssh-agent.enable = false;
+      gnome-keyring.enable = true;
+    };
 
     gvfs.enable = true;
 

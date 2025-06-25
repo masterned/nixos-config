@@ -18,6 +18,16 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA";
       }
       {
+        title = "chris biscardi";
+        tags = [
+          "bevy"
+          "rust"
+          "game-development"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCiSIL42pQRpc-8JNiYDFyzQ";
+      }
+      {
         title = "Continuous Delivery";
         tags = [
           "software-development"
@@ -103,6 +113,16 @@
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCwd5VFu4KoJNjkWJZMFJGHQ";
+      }
+      {
+        title = "Jacques";
+        tags = [
+          "bevy"
+          "rust"
+          "software development"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCtLGtHHHkr_UBuRcp9pDiYw";
       }
       {
         title = "Jeremy Chone";
