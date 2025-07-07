@@ -67,6 +67,7 @@
       mangohud
       newsboat
       onlyoffice-desktopeditors
+      posting
       remmina
       ripgrep
       rmpc
