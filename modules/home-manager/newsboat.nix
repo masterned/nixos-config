@@ -44,6 +44,14 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UClrMJRlvoyoWsVlB-7c61PQ";
       }
       {
+        title = "DevOps Toolbox";
+        tags = [
+          "devops"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCYeiozh-4QwuC1sjgCmB92w";
+      }
+      {
         title = "DFBGuide";
         tags = [
           "disney"
@@ -169,6 +177,15 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
       }
       {
+        title = "Slow Your Roll";
+        tags = [
+          "dc20"
+          "ttrpg"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCdxehAZcCMOQ60azrTU283Q";
+      }
+      {
         title = "Sorcerer Radio";
         tags = [
           "disney"
@@ -188,10 +205,20 @@
       {
         title = "The Dungeon Coach";
         tags = [
+          "dc20"
           "ttrpgs"
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCz8xkTADYdRQR7GP-f2PjOA";
+      }
+      {
+        title = "TnTori";
+        tags = [
+          "dc20"
+          "ttrpgs"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCEa1G5kDN_xOcGUmq8utbNQ";
       }
       {
         title = "Vimjoyer";
