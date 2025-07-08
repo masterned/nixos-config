@@ -146,6 +146,12 @@
   programs = {
     home-manager.enable = true;
 
+    atuin = {
+      enable = true;
+
+      enableNushellIntegration = true;
+    };
+
     direnv = {
       enable = true;
       enableNushellIntegration = true;
