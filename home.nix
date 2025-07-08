@@ -254,7 +254,10 @@
     mpd-mpris.enable = true;
   };
 
-  stylix.targets.hyprlock.enable = false;
+  stylix.targets = {
+    helix.enable = false;
+    hyprlock.enable = false;
+  };
 
   xdg.mimeApps = {
     enable = true;
