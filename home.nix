@@ -240,6 +240,10 @@
   };
 
   services = {
+    gpg-agent = {
+      enable = true;
+    };
+
     mpd = {
       enable = true;
 
