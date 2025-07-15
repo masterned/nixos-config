@@ -19,12 +19,6 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-
-      inputs.hyprland.follows = "hyprland";
-    };
-
     stylix.url = "github:danth/stylix";
 
     wezterm = {

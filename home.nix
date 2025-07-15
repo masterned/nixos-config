@@ -67,6 +67,7 @@
       mangohud
       newsboat
       onlyoffice-desktopeditors
+      posting
       remmina
       ripgrep
       rmpc
@@ -144,6 +145,12 @@
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
+
+    atuin = {
+      enable = true;
+
+      enableNushellIntegration = true;
+    };
 
     direnv = {
       enable = true;
@@ -312,6 +319,10 @@
   };
 
   services = {
+    gpg-agent = {
+      enable = true;
+    };
+
     mpd = {
       enable = true;
 
@@ -332,7 +343,10 @@
     mpd-mpris.enable = true;
   };
 
-  stylix.targets.hyprlock.enable = false;
+  stylix.targets = {
+    helix.enable = false;
+    hyprlock.enable = false;
+  };
 
   xdg.mimeApps = {
     enable = true;

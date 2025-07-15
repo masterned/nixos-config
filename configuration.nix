@@ -7,6 +7,7 @@
   inputs,
   outputs,
   config,
+  lib,
   ...
 }:
 
@@ -191,6 +192,8 @@
   services = {
     atd.enable = true;
 
+    auto-cpufreq.enable = true;
+
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -231,6 +234,8 @@
       #media-session.enable = true;
     };
 
+    power-profiles-daemon.enable = lib.mkForce false;
+
     # Enable CUPS to print documents.
     printing.enable = true;
 
@@ -252,6 +257,10 @@
           };
         };
       };
+    };
+
+    tlp = {
+      enable = true;
     };
   };
 

@@ -155,7 +155,6 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     plugins = [
-      inputs.hyprspace.packages.${pkgs.system}.Hyprspace
     ];
 
     settings = {
@@ -339,8 +338,6 @@
         "SUPER, mouse_right, workspace, e-1"
 
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
-
-        "SUPER, A, overview:toggle"
       ];
 
       bindm = [

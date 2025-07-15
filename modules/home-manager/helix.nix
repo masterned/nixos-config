@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-
   programs.helix = {
     enable = true;
 
@@ -34,6 +33,18 @@
 
         file-picker = {
           hidden = false;
+        };
+      };
+
+      theme = "nord-night_transparent";
+    };
+
+    themes = {
+      "nord-night_transparent" = {
+        inherits = "nord-night";
+
+        "ui.background" = {
+          fg = "foreground";
         };
       };
     };
