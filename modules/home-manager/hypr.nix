@@ -263,6 +263,7 @@
         key_press_enables_dpms = true;
         enable_swallow = true;
         swallow_regex = "^org.wezfurlong.wezterm$";
+        vfr = true;
       };
 
       input = {
