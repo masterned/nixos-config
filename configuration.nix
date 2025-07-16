@@ -258,10 +258,6 @@
         };
       };
     };
-
-    tlp = {
-      enable = true;
-    };
   };
 
   security = {
