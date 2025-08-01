@@ -241,6 +241,10 @@
 
     pulseaudio.enable = false;
 
+    seatd = {
+      enable = true;
+    };
+
     syncthing = {
       enable = true;
       dataDir = "/home/spencer";
