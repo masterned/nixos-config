@@ -341,7 +341,6 @@
       dust
       gcc
       git
-      gtypist
       helix
       hyprpaper
       hyprpicker
