@@ -68,6 +68,7 @@
       newsboat
       onlyoffice-desktopeditors
       posting
+      protonup
       remmina
       ripgrep
       rmpc
@@ -96,25 +97,9 @@
       # '';
     };
 
-    # Home Manager can also manage your environment variables through
-    # 'home.sessionVariables'. These will be explicitly sourced when using a
-    # shell provided by Home Manager. If you don't want to manage your shell
-    # through Home Manager then you have to manually source 'hm-session-vars.sh'
-    # located at either
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/spencer/etc/profile.d/hm-session-vars.sh
-    #
-    sessionVariables = {
-      # EDITOR = "emacs";
-    };
+    # > Since I'm using nushell as my default shell, the session
+    # > session variables are overwritten by the nushell config.
+    # sessionVariables = { };
 
     shell.enableNushellIntegration = true;
   };
@@ -188,6 +173,7 @@
         $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
         $env.EDITOR = "hx"
         $env.VISUAL = "hx"
+        $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
 
         def rand_pw [] {
           open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32

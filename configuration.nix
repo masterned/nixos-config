@@ -356,6 +356,7 @@
       nushell
       mpv
       pavucontrol
+      protonup
       starship
       swaynotificationcenter
       tealdeer
