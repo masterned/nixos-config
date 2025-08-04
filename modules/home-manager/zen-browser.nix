@@ -118,5 +118,10 @@
         MoreFromMozilla = false;
       };
     };
+    profiles = {
+      "Default Profile" = {};
+    };
   };
+
+  stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
 }
