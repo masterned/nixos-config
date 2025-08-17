@@ -443,7 +443,22 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
+  systemd = {
+    services.mpd.environment = {
+      XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
+    };
+
+    user.services = {
+      hyprsunset = {
+        description = "Run hyprsunset check every hour";
+        script = "/home/spencer/Workspaces/nixos/scripts/sunsetter.sh";
+        serviceConfig = {
+          Restart = "always";
+          RuntimeMaxSec = 3600;
+          Type = "simple";
+        };
+        wantedBy = [ "default.target" ];
+      };
+    };
   };
 }
