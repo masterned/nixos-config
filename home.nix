@@ -68,34 +68,18 @@
       newsboat
       onlyoffice-desktopeditors
       posting
+      protonup
       remmina
       ripgrep
       rmpc
       rustup
       signal-desktop
       taskwarrior3
-      tiled
       thunderbird
       wlogout
       yt-dlp
       zathura
       zoxide
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
-
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -113,28 +97,11 @@
       # '';
     };
 
-    # Home Manager can also manage your environment variables through
-    # 'home.sessionVariables'. These will be explicitly sourced when using a
-    # shell provided by Home Manager. If you don't want to manage your shell
-    # through Home Manager then you have to manually source 'hm-session-vars.sh'
-    # located at either
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/spencer/etc/profile.d/hm-session-vars.sh
-    #
-    sessionVariables = {
-      # EDITOR = "emacs";
-    };
+    # > Since I'm using nushell as my default shell, the session
+    # > session variables are overwritten by the nushell config.
+    # sessionVariables = { };
 
     shell.enableNushellIntegration = true;
-
   };
 
   dconf = {
@@ -206,6 +173,8 @@
         $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
         $env.EDITOR = "hx"
         $env.VISUAL = "hx"
+        $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
+        $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
 
         def rand_pw [] {
           open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32

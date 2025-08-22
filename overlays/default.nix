@@ -1,6 +1,8 @@
 { inputs, ... }:
 {
   modifications = final: prev: {
+    atuin = inputs.atuin.packages.${final.system}.default;
+    
     floorp = prev.floorp.override {
       extraPolicies = {
         # WindowsSSO = true;
@@ -16,6 +18,7 @@
     mpv = prev.mpv.override {
       scripts = [
         final.mpvScripts.mpris
+        final.mpvScripts.mpv-discord
         final.mpvScripts.skipsilence
       ];
     };
