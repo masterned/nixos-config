@@ -192,7 +192,7 @@
   services = {
     atd.enable = true;
 
-    auto-cpufreq.enable = true;
+    # auto-cpufreq.enable = true;
 
     avahi = {
       enable = true;
@@ -261,6 +261,12 @@
           };
         };
       };
+    };
+
+    tlp.enable = lib.mkForce false;
+
+    tuned = {
+      enable = true;
     };
   };
 
