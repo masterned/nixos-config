@@ -50,6 +50,7 @@
       ffmpeg
       floorp
       fzf
+      ghostty
       gimp
       gnome-calculator
       gnome-calendar
@@ -85,6 +86,10 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
+      ".config/ghostty/config".text = ''
+          theme = nord
+          background-opacity = 0.9
+      '';
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
       # # the Nix store. Activating the configuration will then make '~/.screenrc' a
       # # symlink to the Nix store copy.
