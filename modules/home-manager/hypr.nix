@@ -285,7 +285,7 @@
 
       bind = [
         "CTRL ALT, DELETE, exec, uwsm stop"
-        "SUPER, T, exec, [floating; tile] wezterm start --always-new-process"
+        "SUPER, T, exec, ghostty"
         "SUPER, Q, killactive"
         "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
         "SUPER, F, exec, nautilus"
