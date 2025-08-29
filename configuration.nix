@@ -282,10 +282,9 @@
   };
 
   system = {
-    autoUpgrade = {
-      enable = true;
-      dates = "weekly";
-    };
+    # autoUpgrade = {
+    #   enable = true;
+    # };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
