@@ -192,7 +192,6 @@
 
       "exec-once" = [
         "hypridle"
-        "hyprsunset"
         "systemctl --user start hyprpolkitagent"
         "swaync"
       ];
