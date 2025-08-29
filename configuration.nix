@@ -454,16 +454,16 @@
     };
 
     user.services = {
-      hyprsunset = {
-        description = "Run hyprsunset check every hour";
-        script = "/home/spencer/Workspaces/nixos/scripts/sunsetter.sh";
-        serviceConfig = {
-          Restart = "always";
-          RuntimeMaxSec = 3600;
-          Type = "simple";
-        };
-        wantedBy = [ "default.target" ];
-      };
+      # hyprsunset = {
+      #   description = "Run hyprsunset check every hour";
+      #   script = "/home/spencer/Workspaces/nixos/scripts/sunsetter.sh";
+      #   serviceConfig = {
+      #     Restart = "always";
+      #     RuntimeMaxSec = 3600;
+      #     Type = "simple";
+      #   };
+      #   wantedBy = [ "default.target" ];
+      # };
     };
   };
 }
