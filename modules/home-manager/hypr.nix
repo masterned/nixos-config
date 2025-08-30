@@ -192,7 +192,6 @@
 
       "exec-once" = [
         "hypridle"
-        "hyprsunset"
         "systemctl --user start hyprpolkitagent"
         "swaync"
       ];
@@ -256,7 +255,7 @@
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         enable_swallow = true;
-        swallow_regex = "^org.wezfurlong.wezterm$";
+        swallow_regex = "^(?:org\.wezfurlong\.wezterm|com\.mitchellh\.ghostty)$";
         vfr = true;
       };
 
@@ -285,7 +284,7 @@
 
       bind = [
         "CTRL ALT, DELETE, exec, uwsm stop"
-        "SUPER, T, exec, [floating; tile] wezterm start --always-new-process"
+        "SUPER, T, exec, ghostty"
         "SUPER, Q, killactive"
         "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
         "SUPER, F, exec, nautilus"

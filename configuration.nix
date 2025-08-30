@@ -192,7 +192,7 @@
   services = {
     atd.enable = true;
 
-    auto-cpufreq.enable = true;
+    # auto-cpufreq.enable = true;
 
     avahi = {
       enable = true;
@@ -262,6 +262,12 @@
         };
       };
     };
+
+    tlp.enable = lib.mkForce false;
+
+    tuned = {
+      enable = true;
+    };
   };
 
   security = {
@@ -276,10 +282,9 @@
   };
 
   system = {
-    autoUpgrade = {
-      enable = true;
-      dates = "weekly";
-    };
+    # autoUpgrade = {
+    #   enable = true;
+    # };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -449,16 +454,16 @@
     };
 
     user.services = {
-      hyprsunset = {
-        description = "Run hyprsunset check every hour";
-        script = "/home/spencer/Workspaces/nixos/scripts/sunsetter.sh";
-        serviceConfig = {
-          Restart = "always";
-          RuntimeMaxSec = 3600;
-          Type = "simple";
-        };
-        wantedBy = [ "default.target" ];
-      };
+      # hyprsunset = {
+      #   description = "Run hyprsunset check every hour";
+      #   script = "/home/spencer/Workspaces/nixos/scripts/sunsetter.sh";
+      #   serviceConfig = {
+      #     Restart = "always";
+      #     RuntimeMaxSec = 3600;
+      #     Type = "simple";
+      #   };
+      #   wantedBy = [ "default.target" ];
+      # };
     };
   };
 }

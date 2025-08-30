@@ -50,6 +50,7 @@
       ffmpeg
       floorp
       fzf
+      ghostty
       gimp
       gnome-calculator
       gnome-calendar
@@ -85,6 +86,10 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
+      ".config/ghostty/config".text = ''
+          theme = nord
+          background-opacity = 0.9
+      '';
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
       # # the Nix store. Activating the configuration will then make '~/.screenrc' a
       # # symlink to the Nix store copy.
@@ -174,7 +179,7 @@
         $env.EDITOR = "hx"
         $env.VISUAL = "hx"
         $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
-        $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
+        $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
 
         def rand_pw [] {
           open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
