@@ -332,6 +332,7 @@
         "SUPER, mouse_right, workspace, e-1"
 
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+        "CTRL, Print, exec, pkill wl-screenrec || wl-screenrec -g \"$(slurp)\""
       ];
 
       bindm = [

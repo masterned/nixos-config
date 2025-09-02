@@ -362,10 +362,12 @@
       mpv
       pavucontrol
       protonup
+      slurp
       starship
       swaynotificationcenter
       tealdeer
       vulnix
+      wl-screenrec
       yazi
       zen-browser
     ];
