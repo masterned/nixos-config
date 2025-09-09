@@ -373,7 +373,7 @@
         };
       };
 
-      windowrulev2 = [
+      windowrule = [
         "suppressevent maximize, class:.*"
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
