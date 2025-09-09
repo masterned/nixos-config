@@ -268,8 +268,11 @@
         };
       };
 
+      gesture = [
+        "3, horizontal, workspace"
+      ];
+
       gestures = {
-        workspace_swipe = true;
         workspace_swipe_invert = false;
       };
 
@@ -332,6 +335,7 @@
         "SUPER, mouse_right, workspace, e-1"
 
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+        "CTRL, Print, exec, pkill wl-screenrec || wl-screenrec -g \"$(slurp)\""
       ];
 
       bindm = [
@@ -369,7 +373,7 @@
         };
       };
 
-      windowrulev2 = [
+      windowrule = [
         "suppressevent maximize, class:.*"
         "float, class:(clipse)"
         "size 622 652, class:(clipse)"
