@@ -48,7 +48,7 @@
       cargo-expand
       discord
       ffmpeg
-      floorp
+      floorp-bin
       fzf
       ghostty
       gimp
