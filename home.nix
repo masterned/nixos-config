@@ -188,22 +188,6 @@
 
     starship.enable = true;
 
-    wezterm = {
-      enable = true;
-
-      extraConfig = ''
-        local wezerm = require 'wezterm'
-
-        local config = wezterm.config_builder()
-
-        config.hide_tab_bar_if_only_one_tab = true
-
-        config.check_for_updates = false
-
-        return config
-      '';
-    };
-
     yazi = {
       enable = true;
       enableNushellIntegration = true;

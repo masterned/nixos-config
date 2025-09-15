@@ -255,7 +255,7 @@
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         enable_swallow = true;
-        swallow_regex = "^(?:org\.wezfurlong\.wezterm|com\.mitchellh\.ghostty)$";
+        swallow_regex = "^com\.mitchellh\.ghostty$";
         vfr = true;
       };
 
