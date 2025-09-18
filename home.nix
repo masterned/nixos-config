@@ -86,7 +86,7 @@
     # plain files is through 'home.file'.
     file = {
       ".config/ghostty/config".text = ''
-          theme = nord
+          theme = Nord
           background-opacity = 0.9
       '';
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
