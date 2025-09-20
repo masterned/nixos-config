@@ -78,6 +78,7 @@
       thunderbird
       wlogout
       yt-dlp
+      youtube-tui
       zathura
       zoxide
     ];
