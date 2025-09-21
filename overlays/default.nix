@@ -2,14 +2,6 @@
 {
   modifications = final: prev: {
     atuin = inputs.atuin.packages.${final.system}.default;
-    
-    floorp = prev.floorp.override {
-      extraPolicies = {
-        # WindowsSSO = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-      };
-    };
 
     helix = inputs.helix.packages.${final.system}.default;
 
@@ -22,8 +14,6 @@
         final.mpvScripts.skipsilence
       ];
     };
-
-    wezterm = inputs.wezterm.packages.${final.system}.default;
 
     zen-browser = inputs.zen-browser.packages.${final.system}.default;
   };

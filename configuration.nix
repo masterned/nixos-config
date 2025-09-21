@@ -360,6 +360,7 @@
       nixfmt-rfc-style
       nushell
       mpv
+      mprocs
       pavucontrol
       protonup
       slurp
