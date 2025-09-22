@@ -83,23 +83,11 @@
       zoxide
     ];
 
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
-    # plain files is through 'home.file'.
     file = {
-      ".config/ghostty/config".text = ''
+      ".config/ghostty/config".text = /* config */ ''
           theme = Nord
           background-opacity = 0.9
       '';
-      # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-      # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-      # # symlink to the Nix store copy.
-      # ".screenrc".source = dotfiles/screenrc;
-
-      # # You can also set the file content immediately.
-      # ".gradle/gradle.properties".text = ''
-      #   org.gradle.console=verbose
-      #   org.gradle.daemon.idletimeout=3600000
-      # '';
     };
 
     # > Since I'm using nushell as my default shell, the session
@@ -168,13 +156,13 @@
 
     nushell = {
       enable = true;
-      extraConfig = ''
+      extraConfig = /* nu */ ''
         $env.config = {
           show_banner: false
           edit_mode: vi
         }
       '';
-      extraEnv = ''
+      extraEnv = /* nu */ ''
         $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
         $env.EDITOR = "hx"
         $env.VISUAL = "hx"
@@ -205,7 +193,7 @@
     mpd = {
       enable = true;
 
-      extraConfig = ''
+      extraConfig = /* config */ ''
         audio_output {
           type "pipewire"
           name "PipeWire Sound Server"

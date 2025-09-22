@@ -4,7 +4,7 @@
 
     enable = true;
 
-    extraConfig = ''
+    extraConfig = /* config */ ''
       macro v set browser "mpv %u" ; open-in-browser ; set browser "${pkgs.xdg-utils}/bin/xdg-open"
 
       # unbind keys
