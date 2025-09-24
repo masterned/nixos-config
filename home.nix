@@ -84,10 +84,11 @@
     ];
 
     file = {
-      ".config/ghostty/config".text = /* config */ ''
+      ".config/ghostty/config".text = # config
+        ''
           theme = Nord
           background-opacity = 0.9
-      '';
+        '';
     };
 
     # > Since I'm using nushell as my default shell, the session
@@ -114,6 +115,22 @@
       settings = {
         auto_sync = false;
         update_check = false;
+      };
+    };
+
+    bottom = {
+      enable = true;
+
+      settings = {
+        flags = {
+          battery = true;
+          disable_advanced_kill = true;
+          temperature_type = "c";
+        };
+
+        styles = {
+          theme = "nord";
+        };
       };
     };
 
@@ -161,23 +178,25 @@
 
     nushell = {
       enable = true;
-      extraConfig = /* nu */ ''
-        $env.config = {
-          show_banner: false
-          edit_mode: vi
-        }
-      '';
-      extraEnv = /* nu */ ''
-        $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
-        $env.EDITOR = "hx"
-        $env.VISUAL = "hx"
-        $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
-        $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
+      extraConfig = # nu
+        ''
+          $env.config = {
+            show_banner: false
+            edit_mode: vi
+          }
+        '';
+      extraEnv = # nu
+        ''
+          $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
+          $env.EDITOR = "hx"
+          $env.VISUAL = "hx"
+          $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
+          $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
 
-        def rand_pw [] {
-          open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
-        }
-      '';
+          def rand_pw [] {
+            open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
+          }
+        '';
     };
 
     starship.enable = true;
@@ -198,15 +217,16 @@
     mpd = {
       enable = true;
 
-      extraConfig = /* config */ ''
-        audio_output {
-          type "pipewire"
-          name "PipeWire Sound Server"
-        }
-        auto_update "yes"
+      extraConfig = # config
+        ''
+          audio_output {
+            type "pipewire"
+            name "PipeWire Sound Server"
+          }
+          auto_update "yes"
 
-        bind_to_address "/tmp/mpd_socket"
-      '';
+          bind_to_address "/tmp/mpd_socket"
+        '';
 
       musicDirectory = "/home/spencer/Music";
     };
