@@ -50,7 +50,7 @@
       ffmpeg
       fzf
       ghostty
-      gimp
+      gimp3
       gnome-calculator
       gnome-calendar
       gnome-characters
