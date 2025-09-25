@@ -12,6 +12,7 @@
     outputs.homeManagerModules.newsboat
     outputs.homeManagerModules.rmpc
     outputs.homeManagerModules.waybar
+    outputs.homeManagerModules.youtube-tui
     outputs.homeManagerModules.zen-browser
   ];
 
