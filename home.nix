@@ -62,6 +62,7 @@
       inkscape
       loupe
       nautilus
+      obs-studio
       seahorse
       grimblast
       helvum
