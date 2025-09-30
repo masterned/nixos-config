@@ -7,6 +7,7 @@
 
 {
   imports = [
+    outputs.homeManagerModules.gnome-software
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.hypr
     outputs.homeManagerModules.newsboat
@@ -52,18 +53,8 @@
       fzf
       ghostty
       gimp3
-      gnome-calculator
-      gnome-calendar
-      gnome-characters
-      gnome-clocks
-      gnome-disk-utility
-      gnome-font-viewer
-      gnome-text-editor
       inkscape
-      loupe
-      nautilus
       obs-studio
-      seahorse
       helvum
       mangohud
       newsboat
