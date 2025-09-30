@@ -126,8 +126,6 @@
 
   # List services that you want to enable:
   services = {
-    atd.enable = true;
-
     # auto-cpufreq.enable = true;
 
     avahi = {
@@ -191,7 +189,6 @@
       isNormalUser = true;
       description = "Spencer Dent";
       extraGroups = [
-        "atd"
         "networkmanager"
         "wheel"
         "input"
@@ -236,7 +233,6 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
-      at
       bottom
       dust
       gcc
