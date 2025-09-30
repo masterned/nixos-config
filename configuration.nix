@@ -15,7 +15,11 @@
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    inputs.stylix.nixosModules.stylix
+    outputs.nixosModules.hypr
+    outputs.nixosModules.regreet
+    outputs.nixosModules.steam
+    outputs.nixosModules.stylix
+    outputs.nixosModules.syncthing
   ];
 
   boot = {
@@ -95,18 +99,6 @@
       enable = true;
     };
 
-    hyprland = {
-      enable = true;
-      withUWSM = true;
-
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage =
-        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    };
-    hyprlock.enable = true;
-
-    gamemode.enable = true;
-
     nh = {
       enable = true;
 
@@ -119,8 +111,6 @@
       };
     };
 
-    nm-applet.enable = true;
-
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     # mtr.enable = true;
@@ -129,63 +119,9 @@
     #   enableSSHSupport = true;
     # };
 
-    regreet = {
-      enable = true;
-
-      font = {
-        name = "DejaVu Sans";
-      };
-
-      settings = {
-        default_session = {
-          command = "uwsm start hyprland-uwsm.desktop";
-          user = "greeter";
-        };
-
-        gtk = {
-          application_prefer_dark_theme = true;
-        };
-
-        commands = {
-          reboot = [
-            "systemctl"
-            "reboot"
-          ];
-          poweroff = [
-            "systemctl"
-            "poweroff"
-          ];
-          x11_prefix = [
-            "startx"
-            "/usr/bin/env"
-          ];
-        };
-
-        appearance = {
-          greeting_msg = "Make sure to get some sleep!";
-        };
-
-        widget = {
-          clock = {
-            format = "%a %Y-%m-%d %H:%M:%S";
-            resolution = "500ms";
-            timezone = "America/NewYork";
-            label_width = 150;
-          };
-        };
-      };
-    };
-
     ssh = {
       startAgent = true;
     };
-
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-
-    waybar.enable = true;
   };
 
   # List services that you want to enable:
@@ -211,27 +147,18 @@
 
     gvfs.enable = true;
 
-    hypridle.enable = true;
-
     # Enable the OpenSSH daemon.
     # services.openssh.enable = true;
 
-    playerctld.enable = true;
-
     pipewire = {
       enable = true;
+
       alsa.enable = true;
       alsa.support32Bit = true;
+
       pulse.enable = true;
 
       wireplumber.enable = true;
-
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
     };
 
     power-profiles-daemon.enable = lib.mkForce false;
@@ -241,45 +168,14 @@
 
     pulseaudio.enable = false;
 
-    seatd = {
-      enable = true;
-    };
-
-    syncthing = {
-      enable = true;
-      dataDir = "/home/spencer";
-      openDefaultPorts = true;
-      configDir = "/home/spencer/.config/syncthing";
-      user = "spencer";
-      group = "users";
-      guiAddress = "0.0.0.0:8384";
-
-      settings = {
-        folders = {
-          "cygnus_public" = {
-            path = "/home/spencer/Public";
-          };
-        };
-      };
-    };
+    seatd.enable = true;
 
     tlp.enable = lib.mkForce false;
 
-    tuned = {
-      enable = true;
-    };
+    tuned.enable = true;
   };
 
-  security = {
-    pam.services = {
-      greetd = {
-        enable = true;
-        enableGnomeKeyring = true;
-      };
-      hyprlock = { };
-    };
-    rtkit.enable = true;
-  };
+  security.rtkit.enable = true;
 
   system = {
     # autoUpgrade = {
@@ -342,33 +238,19 @@
     systemPackages = with pkgs; [
       at
       bottom
-      brightnessctl
       dust
       gcc
       git
       helix
-      hyprpaper
-      hyprpicker
-      hyprsome
-      hyprsunset
-      hyprsysteminfo
-      hyprpolkitagent
       imv
       jujutsu
-      libnotify
-      networkmanagerapplet
       nixfmt-rfc-style
       nushell
       mpv
       mprocs
-      pavucontrol
-      protonup
-      slurp
       starship
-      swaynotificationcenter
       tealdeer
       vulnix
-      wl-screenrec
       yazi
       zen-browser
     ];
@@ -385,64 +267,6 @@
     material-symbols
   ];
 
-  stylix = {
-    enable = true;
-
-    image = ./assets/images/neo_EPCOT.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Ice";
-      size = 24;
-    };
-
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.fira-code;
-        name = "FiraCode Nerd Font Mono";
-      };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-      sizes = {
-        applications = 12;
-        terminal = 12;
-        desktop = 10;
-        popups = 10;
-      };
-    };
-
-    opacity = {
-      applications = 1.0;
-      terminal = 0.95;
-      desktop = 1.0;
-      popups = 0.95;
-    };
-
-    polarity = "dark";
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals =
-      with pkgs;
-      lib.mkForce [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-        xdg-desktop-portal-gnome
-      ];
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -451,22 +275,9 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  systemd = {
-    services.mpd.environment = {
+  systemd.services = {
+    mpd.environment = {
       XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
-    };
-
-    user.services = {
-      # hyprsunset = {
-      #   description = "Run hyprsunset check every hour";
-      #   script = "/home/spencer/Workspaces/nixos/scripts/sunsetter.sh";
-      #   serviceConfig = {
-      #     Restart = "always";
-      #     RuntimeMaxSec = 3600;
-      #     Type = "simple";
-      #   };
-      #   wantedBy = [ "default.target" ];
-      # };
     };
   };
 }

@@ -64,7 +64,6 @@
       nautilus
       obs-studio
       seahorse
-      grimblast
       helvum
       mangohud
       newsboat
@@ -78,7 +77,6 @@
       signal-desktop
       taskwarrior3
       thunderbird
-      wlogout
       yt-dlp
       youtube-tui
       zathura
