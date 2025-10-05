@@ -70,7 +70,6 @@
       thunderbird
       yt-dlp
       youtube-tui
-      zathura
       zoxide
     ];
 
@@ -195,6 +194,10 @@
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+    };
+
+    zathura = {
+      enable = true;
     };
 
     zoxide.enable = true;
