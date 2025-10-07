@@ -68,6 +68,7 @@
       signal-desktop
       taskwarrior3
       thunderbird
+      vscode-langservers-extracted
       yt-dlp
       youtube-tui
       zoxide
