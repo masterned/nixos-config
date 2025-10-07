@@ -8,6 +8,7 @@
   outputs,
   config,
   lib,
+  system,
   ...
 }:
 
@@ -199,7 +200,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs outputs;
+      inherit inputs outputs system;
     };
     users = {
       "spencer" = import ./home.nix;
