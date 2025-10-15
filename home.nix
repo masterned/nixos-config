@@ -222,8 +222,6 @@
 
           bind_to_address "/tmp/mpd_socket"
         '';
-
-      musicDirectory = "/home/spencer/Music";
     };
 
     mpd-discord-rpc.enable = true;
@@ -235,17 +233,23 @@
     hyprlock.enable = false;
   };
 
-  xdg.mimeApps = {
+  xdg = {
     enable = true;
-    associations.added = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-      "image/png" = [ "org.gnome.Loupe.desktop" ];
+
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+        "image/png" = [ "org.gnome.Loupe.desktop" ];
+      };
+      defaultApplications = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+        "image/png" = [ "org.gnome.Loupe.desktop" ];
+      };
     };
-    defaultApplications = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-      "image/png" = [ "org.gnome.Loupe.desktop" ];
-    };
+
+    userDirs.enable = true;
   };
 }
