@@ -240,13 +240,13 @@
       enable = true;
       associations.added = {
         "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-        "image/png" = [ "org.gnome.Loupe.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
       };
       defaultApplications = {
         "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-        "image/png" = [ "org.gnome.Loupe.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
       };
     };
 
