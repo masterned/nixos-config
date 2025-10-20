@@ -7,11 +7,13 @@
 
 {
   imports = [
+    outputs.homeManagerModules.gnome-software
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.hypr
     outputs.homeManagerModules.newsboat
     outputs.homeManagerModules.rmpc
     outputs.homeManagerModules.waybar
+    outputs.homeManagerModules.youtube-tui
     outputs.homeManagerModules.zen-browser
   ];
 
@@ -50,19 +52,9 @@
       ffmpeg
       fzf
       ghostty
-      gimp
-      gnome-calculator
-      gnome-calendar
-      gnome-characters
-      gnome-clocks
-      gnome-disk-utility
-      gnome-font-viewer
-      gnome-text-editor
+      gimp3
       inkscape
-      loupe
-      nautilus
-      seahorse
-      grimblast
+      obs-studio
       helvum
       mangohud
       newsboat
@@ -76,30 +68,18 @@
       signal-desktop
       taskwarrior3
       thunderbird
-      wlogout
+      vscode-langservers-extracted
       yt-dlp
       youtube-tui
-      zathura
       zoxide
     ];
 
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
-    # plain files is through 'home.file'.
     file = {
-      ".config/ghostty/config".text = ''
+      ".config/ghostty/config".text = # config
+        ''
           theme = Nord
           background-opacity = 0.9
-      '';
-      # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-      # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-      # # symlink to the Nix store copy.
-      # ".screenrc".source = dotfiles/screenrc;
-
-      # # You can also set the file content immediately.
-      # ".gradle/gradle.properties".text = ''
-      #   org.gradle.console=verbose
-      #   org.gradle.daemon.idletimeout=3600000
-      # '';
+        '';
     };
 
     # > Since I'm using nushell as my default shell, the session
@@ -122,6 +102,27 @@
       enable = true;
 
       enableNushellIntegration = true;
+
+      settings = {
+        auto_sync = false;
+        update_check = false;
+      };
+    };
+
+    bottom = {
+      enable = true;
+
+      settings = {
+        flags = {
+          battery = true;
+          disable_advanced_kill = true;
+          temperature_type = "c";
+        };
+
+        styles = {
+          theme = "nord";
+        };
+      };
     };
 
     direnv = {
@@ -168,23 +169,25 @@
 
     nushell = {
       enable = true;
-      extraConfig = ''
-        $env.config = {
-          show_banner: false
-          edit_mode: vi
-        }
-      '';
-      extraEnv = ''
-        $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
-        $env.EDITOR = "hx"
-        $env.VISUAL = "hx"
-        $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
-        $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
+      extraConfig = # nu
+        ''
+          $env.config = {
+            show_banner: false
+            edit_mode: vi
+          }
+        '';
+      extraEnv = # nu
+        ''
+          $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
+          $env.EDITOR = "hx"
+          $env.VISUAL = "hx"
+          $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
+          $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
 
-        def rand_pw [] {
-          open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
-        }
-      '';
+          def rand_pw [] {
+            open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
+          }
+        '';
     };
 
     starship.enable = true;
@@ -192,6 +195,10 @@
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+    };
+
+    zathura = {
+      enable = true;
     };
 
     zoxide.enable = true;
@@ -205,17 +212,24 @@
     mpd = {
       enable = true;
 
-      extraConfig = ''
-        audio_output {
-          type "pipewire"
-          name "PipeWire Sound Server"
-        }
-        auto_update "yes"
+      extraConfig = # config
+        ''
+          audio_output {
+            type "pipewire"
+            name "PipeWire Sound Server"
+          }
 
-        bind_to_address "/tmp/mpd_socket"
-      '';
+          audio_output {
+            type "fifo"
+            name "mpd_fifo"
+            path "/tmp/mpd.fifo"
+            format "44100:16:2"
+          }
+          
+          auto_update "yes"
 
-      musicDirectory = "/home/spencer/Music";
+          bind_to_address "/tmp/mpd_socket"
+        '';
     };
 
     mpd-discord-rpc.enable = true;
@@ -227,37 +241,23 @@
     hyprlock.enable = false;
   };
 
-  xdg.mimeApps = {
+  xdg = {
     enable = true;
-    associations.added = {
-      "x-scheme-handler/http" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/https" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/chrome" = [ "zen-beta.desktop" ];
-      "text/html" = [ "zen-beta.desktop" ];
-      "application/x-extension-htm" = [ "zen-beta.desktop" ];
-      "application/x-extension-html" = [ "zen-beta.desktop" ];
-      "application/x-extension-shtml" = [ "zen-beta.desktop" ];
-      "application/xhtml+xml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xhtml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xht" = [ "zen-beta.desktop" ];
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-      "image/png" = [ "org.gnome.Loupe.desktop" ];
+
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+      };
+      defaultApplications = {
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+      };
     };
-    defaultApplications = {
-      "x-scheme-handler/http" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/https" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/chrome" = [ "zen-beta.desktop" ];
-      "text/html" = [ "zen-beta.desktop" ];
-      "application/x-extension-htm" = [ "zen-beta.desktop" ];
-      "application/x-extension-html" = [ "zen-beta.desktop" ];
-      "application/x-extension-shtml" = [ "zen-beta.desktop" ];
-      "application/xhtml+xml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xhtml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xht" = [ "zen-beta.desktop" ];
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-      "image/png" = [ "org.gnome.Loupe.desktop" ];
-    };
+
+    userDirs.enable = true;
   };
 }

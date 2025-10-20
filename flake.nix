@@ -26,7 +26,10 @@
 
     stylix.url = "github:danth/stylix";
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake/beta";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -40,12 +43,13 @@
 
       overlays = import ./overlays { inherit inputs; };
 
+      nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
         cygnus = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs;
+            inherit inputs outputs system;
           };
           modules = [
             {
