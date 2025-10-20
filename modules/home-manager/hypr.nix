@@ -285,7 +285,9 @@
       };
 
       gesture = [
+        "3, down, special, magic"
         "3, horizontal, workspace"
+        "3, up, fullscreen"
       ];
 
       gestures = {
