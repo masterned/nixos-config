@@ -169,6 +169,7 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
     plugins = [
+      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
     ];
 
     settings = {
@@ -179,29 +180,6 @@
 
       monitor = [
         ",preferred,auto,auto"
-      ];
-
-      workspace = [
-        "eDP-1,1"
-        "DP-2,11"
-        "1,monitor:eDP-1"
-        "2,monitor:eDP-1"
-        "3,monitor:eDP-1"
-        "4,monitor:eDP-1"
-        "5,monitor:eDP-1"
-        "6,monitor:eDP-1"
-        "7,monitor:eDP-1"
-        "8,monitor:eDP-1"
-        "9,monitor:eDP-1"
-        "11,monitor:DP-2"
-        "12,monitor:DP-2"
-        "13,monitor:DP-2"
-        "14,monitor:DP-2"
-        "15,monitor:DP-2"
-        "16,monitor:DP-2"
-        "17,monitor:DP-2"
-        "18,monitor:DP-2"
-        "19,monitor:DP-2"
       ];
 
       env = [
@@ -241,8 +219,6 @@
           passes = 1;
           vibrancy = 0.1696;
         };
-
-        # screen_shader = "/home/spencer/Workspaces/nixos/modules/home-manager/extra_dark.frag";
       };
 
       animations = {
@@ -345,34 +321,26 @@
         "SUPER, K, movefocus, u"
         "SUPER, J, movefocus, d"
 
-        "SUPER, 1, exec, hyprsome workspace 1"
-        "SUPER, 2, exec, hyprsome workspace 2"
-        "SUPER, 3, exec, hyprsome workspace 3"
-        "SUPER, 4, exec, hyprsome workspace 4"
-        "SUPER, 5, exec, hyprsome workspace 5"
-        "SUPER, 6, exec, hyprsome workspace 6"
-        "SUPER, 7, exec, hyprsome workspace 7"
-        "SUPER, 8, exec, hyprsome workspace 8"
-        "SUPER, 9, exec, hyprsome workspace 9"
+        "SUPER, 1, split-workspace, 1"
+        "SUPER, 2, split-workspace, 2"
+        "SUPER, 3, split-workspace, 3"
+        "SUPER, 4, split-workspace, 4"
+        "SUPER, 5, split-workspace, 5"
 
-        "SUPER SHIFT, 1, exec, hyprsome move 1"
-        "SUPER SHIFT, 2, exec, hyprsome move 2"
-        "SUPER SHIFT, 3, exec, hyprsome move 3"
-        "SUPER SHIFT, 4, exec, hyprsome move 4"
-        "SUPER SHIFT, 5, exec, hyprsome move 5"
-        "SUPER SHIFT, 6, exec, hyprsome move 6"
-        "SUPER SHIFT, 7, exec, hyprsome move 7"
-        "SUPER SHIFT, 8, exec, hyprsome move 8"
-        "SUPER SHIFT, 9, exec, hyprsome move 9"
+        "SUPER SHIFT, 1, split-movetoworkspacesilent, 1"
+        "SUPER SHIFT, 2, split-movetoworkspacesilent, 2"
+        "SUPER SHIFT, 3, split-movetoworkspacesilent, 3"
+        "SUPER SHIFT, 4, split-movetoworkspacesilent, 4"
+        "SUPER SHIFT, 5, split-movetoworkspacesilent, 5"
 
         "SUPER, S, togglespecialworkspace, magic"
         "SUPER SHIFT, S, movetoworkspace, special:magic"
         "SUPER, G, togglegroup"
 
-        "SUPER, mouse_down, workspace, e+1"
-        "SUPER, mouse_up, workspace, e-1"
-        "SUPER, mouse_left, workspace, e+1"
-        "SUPER, mouse_right, workspace, e-1"
+        "SUPER, mouse_down, workspace, m+1"
+        "SUPER, mouse_up, workspace, m-1"
+        "SUPER, mouse_left, workspace, m+1"
+        "SUPER, mouse_right, workspace, m-1"
 
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
         "CTRL, Print, exec, pkill wl-screenrec || wl-screenrec -g \"$(slurp)\""
@@ -400,16 +368,11 @@
       ];
 
       plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 5;
-          bg_col = "rgb(111111)";
-          workspace_method = "center current";
-
-          enable_gesture = true;
-          gesture_fingers = 3;
-          gesture_distance = 300;
-          gesture_positive = true;
+        "split-monitor-workspaces" = {
+          count = 10;
+          keep_focused = 0;
+          enable_notifications = 0;
+          enable_persistent_workspaces = 0;
         };
       };
 
