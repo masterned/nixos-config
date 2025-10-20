@@ -344,6 +344,10 @@
         "SUPER, mouse_left, workspace, m+1"
         "SUPER, mouse_right, workspace, m-1"
 
+        "SUPER, mouse:274, killactive"
+        "SUPER, mouse:275, workspace, m+1"
+        "SUPER, mouse:276, workspace, m-1"
+
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
         "CTRL, Print, exec, pkill wl-screenrec || wl-screenrec -g \"$(slurp)\""
       ];
