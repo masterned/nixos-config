@@ -3,8 +3,6 @@
   modifications = final: prev: {
     atuin = inputs.atuin.packages.${final.system}.default;
 
-    helix = inputs.helix.packages.${final.system}.default;
-
     hyprland = inputs.hyprland.packages.${final.system}.hyprland;
 
     mpv = prev.mpv.override {
