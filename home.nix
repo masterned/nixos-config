@@ -43,41 +43,20 @@
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = with pkgs; [
-      bacon
-      bat
       brave
-      cargo-expand
       discord
       ffmpeg
-      fzf
-      ghostty
       gimp3
       inkscape
-      obs-studio
       helvum
-      mangohud
-      newsboat
-      onlyoffice-desktopeditors
       posting
       protonup
-      remmina
-      ripgrep
-      rmpc
       rustup
       signal-desktop
-      taskwarrior3
       thunderbird
-      vscode-langservers-extracted
-      zoxide
     ];
 
-    file = {
-      ".config/ghostty/config".text = # config
-        ''
-          theme = Nord
-          background-opacity = 0.9
-        '';
-    };
+    file = { };
 
     # > Since I'm using nushell as my default shell, the session
     # > session variables are overwritten by the nushell config.
@@ -104,6 +83,16 @@
         auto_sync = false;
         update_check = false;
       };
+    };
+
+    bacon.enable = true;
+
+    bat = {
+      enable = true;
+
+      extraPackages = with pkgs.bat-extras; [
+        core
+      ];
     };
 
     bottom = {
@@ -139,6 +128,17 @@
 
     fzf.enable = true;
 
+    ghostty = {
+      enable = true;
+
+      installBatSyntax = true;
+
+      settings = {
+        theme = "Nord";
+        background-opacity = 0.9;
+      };
+    };
+
     jujutsu = {
       enable = true;
 
@@ -155,6 +155,8 @@
         };
       };
     };
+
+    mangohud.enable = true;
 
     mpv = {
       enable = true;
@@ -187,7 +189,41 @@
         '';
     };
 
+    obs-studio.enable = true;
+
+    onlyoffice = {
+      enable = true;
+      settings = {
+        UITheme = "theme-dark";
+        appdata = "@ByteArray(eyJ1c2VybmFtZSI6InNwZW5jZXIiLCJkb2NvcGVubW9kZSI6ImVkaXQiLCJyZXN0YXJ0Ijp0cnVlLCJsYW5naWQiOiJlbi1VUyIsInVpc2NhbGluZyI6IjEwMCIsInVpdGhlbWUiOiJ0aGVtZS1kYXJrIiwiZWRpdG9yd2luZG93bW9kZSI6ZmFsc2UsInJ0bCI6ZmFsc2UsInVzZWdwdSI6dHJ1ZX0=)";
+        editorWindowMode = false;
+        forcedRtl = false;
+        lastPrinterName = "";
+        openPath = "/home/spencer/Pictures";
+        position = "@Rect(12 48 1416 900)";
+        savePath = "/home/spencer/Documents";
+        titlebar = "custom";
+      };
+    };
+
+    ripgrep.enable = true;
+
     starship.enable = true;
+
+    taskwarrior = {
+      enable = true;
+      package = pkgs.taskwarrior3;
+    };
+
+    tealdeer.enable = true;
+
+    # thunderbird = {
+    #   enable = true;
+
+    #   profiles.default = {
+    #     isDefault = true;
+    #   };
+    # };
 
     yazi = {
       enable = true;
@@ -235,7 +271,7 @@
             path "/tmp/mpd.fifo"
             format "44100:16:2"
           }
-          
+
           auto_update "yes"
 
           bind_to_address "/tmp/mpd_socket"
@@ -244,6 +280,8 @@
 
     mpd-discord-rpc.enable = true;
     mpd-mpris.enable = true;
+
+    remmina.enable = true;
   };
 
   stylix.targets = {
