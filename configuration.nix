@@ -60,7 +60,14 @@
     # };
 
     # Enable networking
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+
+      insertNameservers = [
+        "9.9.9.9" # Quad9
+        "1.1.1.1" # Cloudflare
+      ];
+    };
 
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
