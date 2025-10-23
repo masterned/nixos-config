@@ -68,7 +68,6 @@
       taskwarrior3
       thunderbird
       vscode-langservers-extracted
-      yt-dlp
       zoxide
     ];
 
@@ -193,6 +192,19 @@
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+    };
+
+    yt-dlp = {
+      enable = true;
+
+      settings = {
+        embed-chapters = true;
+
+        embed-subs = true;
+        sub-langs = "en";
+
+        embed-thumbnail = true;
+      };
     };
 
     zathura = {
