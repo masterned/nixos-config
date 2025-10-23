@@ -43,7 +43,6 @@
     hyprpaper
     hyprpicker
     hyprsunset
-    hyprsysteminfo
     hyprpolkitagent
     libnotify
     networkmanagerapplet
