@@ -54,6 +54,7 @@
       rustup
       signal-desktop
       thunderbird
+      typst
     ];
 
     file = { };

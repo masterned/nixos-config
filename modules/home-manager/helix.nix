@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    tinymist
     vscode-langservers-extracted
   ];
 
