@@ -169,8 +169,13 @@
 
     power-profiles-daemon.enable = lib.mkForce false;
 
-    # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = with pkgs; [
+        gutenprint
+        hplip
+      ];
+    };
 
     pulseaudio.enable = false;
 
