@@ -1,5 +1,9 @@
 { pkgs, inputs, ... }:
 {
+  home.packages = [
+    inputs.hyprlauncher.packages.${pkgs.stdenv.hostPlatform.system}.hyprlauncher
+  ];
+
   programs.hyprlock = {
     enable = true;
 
@@ -192,6 +196,7 @@
         "hypridle"
         "systemctl --user start hyprpolkitagent"
         "swaync"
+        "hyprlauncher -d"
       ];
 
       general = {
@@ -234,7 +239,7 @@
         ];
 
         animation = [
-        # NAME,           ONOFF, SPEED, CURVE,        [STYLE]
+          # NAME,           ONOFF, SPEED, CURVE,        [STYLE]
           "global,        1,     10,    default"
           "border,        1,     5.39,  easeOutQuint"
           "borderangle,   1,     8,     default"
@@ -358,7 +363,7 @@
       ];
 
       bindr = [
-        "SUPER, SUPER_L, exec, pkill fuzzel || fuzzel"
+        "SUPER, SUPER_L, exec, hyprlauncher"
       ];
 
       bindel = [
