@@ -36,6 +36,8 @@
       ffmpeg
       gimp3
       inkscape
+      libnotify
+      networkmanagerapplet
       rustup
       signal-desktop
       thunderbird
@@ -250,6 +252,8 @@
 
     mpd-discord-rpc.enable = true;
     mpd-mpris.enable = true;
+
+    playerctld.enable = true;
 
     remmina.enable = true;
   };
