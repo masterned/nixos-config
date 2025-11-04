@@ -255,7 +255,6 @@
   };
 
   stylix.targets = {
-    helix.enable = false;
     hyprlock.enable = false;
   };
 
