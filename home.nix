@@ -18,8 +18,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    # Home Manager needs a bit of information about you and the paths it should
-    # manage.
     username = "spencer";
     homeDirectory = "/home/spencer";
 
@@ -32,8 +30,6 @@
     # release notes.
     stateVersion = "24.11"; # Please read the comment before changing.
 
-    # The home.packages option allows you to install Nix packages into your
-    # environment.
     packages = with pkgs; [
       brave
       discord
@@ -47,10 +43,6 @@
     ];
 
     file = { };
-
-    # > Since I'm using nushell as my default shell, the session
-    # > session variables are overwritten by the nushell config.
-    # sessionVariables = { };
 
     shell.enableNushellIntegration = true;
   };
