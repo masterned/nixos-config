@@ -1,7 +1,6 @@
 {
   pkgs,
   outputs,
-  lib,
   ...
 }:
 
@@ -16,14 +15,7 @@
     outputs.homeManagerModules.zen-browser
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = with outputs.overlays; [
-      modifications
-      stable-packages
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     # Home Manager needs a bit of information about you and the paths it should
@@ -48,8 +40,6 @@
       ffmpeg
       gimp3
       inkscape
-      helvum
-      posting
       protonup
       rustup
       signal-desktop
@@ -71,7 +61,6 @@
     settings = { };
   };
 
-  # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
 
@@ -118,15 +107,6 @@
       nix-direnv.enable = true;
     };
 
-    fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          font = lib.mkForce "DejaVu Sans:size=16";
-        };
-      };
-    };
-
     fzf.enable = true;
 
     ghostty = {
@@ -135,7 +115,7 @@
       installBatSyntax = true;
 
       settings = {
-        theme = "Nord";
+        theme = "stylix";
         background-opacity = 0.9;
       };
     };
@@ -157,10 +137,16 @@
       };
     };
 
-    mangohud.enable = true;
-
     mpv = {
       enable = true;
+
+      package = pkgs.mpv.override {
+        scripts = with pkgs.mpvScripts; [
+          mpris
+          mpv-discord
+          skipsilence
+        ];
+      };
 
       config = {
         ytdl-format = "bestvideo[height<=?720]+bestaudio";
@@ -169,23 +155,20 @@
 
     nushell = {
       enable = true;
+
+      environmentVariables = {
+        NH_FLAKE = "/home/spencer/Workspaces/nixos";
+        EDITOR = "hx";
+        VISUAL = "hx";
+        STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$env.HOME/.steam/root/compatibilitytools.d";
+        SSH_AUTH_SOCK = "($env.XDG_RUNTIME_DIR)/ssh-agent";
+      };
+
       extraConfig = # nu
         ''
           $env.config = {
             show_banner: false
             edit_mode: vi
-          }
-        '';
-      extraEnv = # nu
-        ''
-          $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
-          $env.EDITOR = "hx"
-          $env.VISUAL = "hx"
-          $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
-          $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
-
-          def rand_pw [] {
-            open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
           }
         '';
     };
@@ -210,11 +193,6 @@
     ripgrep.enable = true;
 
     starship.enable = true;
-
-    taskwarrior = {
-      enable = true;
-      package = pkgs.taskwarrior3;
-    };
 
     tealdeer.enable = true;
 

@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -12,16 +11,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    atuin = {
-      url = "github:atuinsh/atuin";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
     hyprlauncher = {
       url = "github:hyprwm/hyprlauncher";
       inputs.nixpkgs.url = "nixpkgs";
     };
+
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
@@ -43,8 +42,6 @@
     in
     {
       formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
-
-      overlays = import ./overlays { inherit inputs; };
 
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
