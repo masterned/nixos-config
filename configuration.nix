@@ -13,7 +13,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     outputs.nixosModules.hypr
-    outputs.nixosModules.regreet
+    # outputs.nixosModules.regreet
     outputs.nixosModules.steam
     outputs.nixosModules.stylix
     outputs.nixosModules.syncthing
@@ -98,6 +98,16 @@
     ssh = {
       startAgent = true;
     };
+
+    uwsm = {
+      waylandCompositors = {
+        hyprland = {
+          prettyName = "Hyprland";
+          comment = "Hyprland compositor managed by UWSM";
+          binPath = "/run/current-system/sw/bin/Hyprland";
+        };
+      };
+    };
   };
 
   services = {
@@ -108,6 +118,15 @@
     };
 
     blueman.enable = true;
+
+    desktopManager.gnome.enable = true;
+    displayManager = {
+      defaultSession = "hyprland-uwsm";
+
+      gdm = {
+        enable = true;
+      };
+    };
 
     fwupd.enable = true;
 
