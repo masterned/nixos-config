@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-      protonup
+    protonup-ng
   ];
 
   programs = {

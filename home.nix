@@ -40,7 +40,6 @@
       ffmpeg
       gimp3
       inkscape
-      protonup
       rustup
       signal-desktop
       thunderbird
