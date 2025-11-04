@@ -61,6 +61,18 @@
           "on-click" = "${pkgs.wlogout}/bin/wlogout -p layer-shell";
         };
 
+        "hyprland/workspaces" = {
+          "format" = "{icon}";
+          "format-icons" = {
+            "urgent" = "";
+            "active" = ""; # focused workspace on current monitor 
+            "visible" = ""; # focused workspace on other monitors
+            "default" = "";
+            "empty" = ""; # persistent (created by this plugin)
+          };
+          "all-outputs" = false; # recommended
+        };
+
         network = {
           "format-wifi" = "{essid} ({signalStrength}%) ";
           "format-ethernet" = "{ipadder}/{cidr} ";

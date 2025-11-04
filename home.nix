@@ -1,7 +1,6 @@
 {
   pkgs,
   outputs,
-  lib,
   ...
 }:
 
@@ -13,22 +12,12 @@
     outputs.homeManagerModules.newsboat
     outputs.homeManagerModules.rmpc
     outputs.homeManagerModules.waybar
-    outputs.homeManagerModules.youtube-tui
     outputs.homeManagerModules.zen-browser
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = with outputs.overlays; [
-      modifications
-      stable-packages
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   home = {
-    # Home Manager needs a bit of information about you and the paths it should
-    # manage.
     username = "spencer";
     homeDirectory = "/home/spencer";
 
@@ -41,50 +30,19 @@
     # release notes.
     stateVersion = "24.11"; # Please read the comment before changing.
 
-    # The home.packages option allows you to install Nix packages into your
-    # environment.
     packages = with pkgs; [
-      bacon
-      bat
       brave
-      cargo-expand
       discord
       ffmpeg
-      fzf
-      ghostty
       gimp3
       inkscape
-      obs-studio
-      helvum
-      mangohud
-      newsboat
-      onlyoffice-desktopeditors
-      posting
-      protonup
-      remmina
-      ripgrep
-      rmpc
       rustup
       signal-desktop
-      taskwarrior3
       thunderbird
-      vscode-langservers-extracted
-      yt-dlp
-      youtube-tui
-      zoxide
+      typst
     ];
 
-    file = {
-      ".config/ghostty/config".text = # config
-        ''
-          theme = Nord
-          background-opacity = 0.9
-        '';
-    };
-
-    # > Since I'm using nushell as my default shell, the session
-    # > session variables are overwritten by the nushell config.
-    # sessionVariables = { };
+    file = { };
 
     shell.enableNushellIntegration = true;
   };
@@ -94,7 +52,6 @@
     settings = { };
   };
 
-  # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
 
@@ -107,6 +64,16 @@
         auto_sync = false;
         update_check = false;
       };
+    };
+
+    bacon.enable = true;
+
+    bat = {
+      enable = true;
+
+      extraPackages = with pkgs.bat-extras; [
+        core
+      ];
     };
 
     bottom = {
@@ -131,16 +98,18 @@
       nix-direnv.enable = true;
     };
 
-    fuzzel = {
+    fzf.enable = true;
+
+    ghostty = {
       enable = true;
+
+      installBatSyntax = true;
+
       settings = {
-        main = {
-          font = lib.mkForce "DejaVu Sans:size=16";
-        };
+        theme = "stylix";
+        background-opacity = 0.9;
       };
     };
-
-    fzf.enable = true;
 
     jujutsu = {
       enable = true;
@@ -162,6 +131,14 @@
     mpv = {
       enable = true;
 
+      package = pkgs.mpv.override {
+        scripts = with pkgs.mpvScripts; [
+          mpris
+          mpv-discord
+          skipsilence
+        ];
+      };
+
       config = {
         ytdl-format = "bestvideo[height<=?720]+bestaudio";
       };
@@ -169,6 +146,15 @@
 
     nushell = {
       enable = true;
+
+      environmentVariables = {
+        NH_FLAKE = "/home/spencer/Workspaces/nixos";
+        EDITOR = "hx";
+        VISUAL = "hx";
+        STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$env.HOME/.steam/root/compatibilitytools.d";
+        SSH_AUTH_SOCK = "($env.XDG_RUNTIME_DIR)/ssh-agent";
+      };
+
       extraConfig = # nu
         ''
           $env.config = {
@@ -176,25 +162,55 @@
             edit_mode: vi
           }
         '';
-      extraEnv = # nu
-        ''
-          $env.NH_FLAKE = "/home/spencer/Workspaces/nixos"
-          $env.EDITOR = "hx"
-          $env.VISUAL = "hx"
-          $env.STEAM_EXTRA_COMPAT_TOOLS_PATHS = $"(''\$env.HOME)/.steam/root/compatibilitytools.d";
-          $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent"
-
-          def rand_pw [] {
-            open /dev/urandom | tr -dc r#'[:alnum:] !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'# | head -c 32
-          }
-        '';
     };
 
+    obs-studio.enable = true;
+
+    onlyoffice = {
+      enable = true;
+      settings = {
+        UITheme = "theme-dark";
+        appdata = "@ByteArray(eyJ1c2VybmFtZSI6InNwZW5jZXIiLCJkb2NvcGVubW9kZSI6ImVkaXQiLCJyZXN0YXJ0Ijp0cnVlLCJsYW5naWQiOiJlbi1VUyIsInVpc2NhbGluZyI6IjEwMCIsInVpdGhlbWUiOiJ0aGVtZS1kYXJrIiwiZWRpdG9yd2luZG93bW9kZSI6ZmFsc2UsInJ0bCI6ZmFsc2UsInVzZWdwdSI6dHJ1ZX0=)";
+        editorWindowMode = false;
+        forcedRtl = false;
+        lastPrinterName = "";
+        openPath = "/home/spencer/Pictures";
+        position = "@Rect(12 48 1416 900)";
+        savePath = "/home/spencer/Documents";
+        titlebar = "custom";
+      };
+    };
+
+    ripgrep.enable = true;
+
     starship.enable = true;
+
+    tealdeer.enable = true;
+
+    # thunderbird = {
+    #   enable = true;
+
+    #   profiles.default = {
+    #     isDefault = true;
+    #   };
+    # };
 
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+    };
+
+    yt-dlp = {
+      enable = true;
+
+      settings = {
+        embed-chapters = true;
+
+        embed-subs = true;
+        sub-langs = "en";
+
+        embed-thumbnail = true;
+      };
     };
 
     zathura = {
@@ -225,7 +241,7 @@
             path "/tmp/mpd.fifo"
             format "44100:16:2"
           }
-          
+
           auto_update "yes"
 
           bind_to_address "/tmp/mpd_socket"
@@ -234,6 +250,8 @@
 
     mpd-discord-rpc.enable = true;
     mpd-mpris.enable = true;
+
+    remmina.enable = true;
   };
 
   stylix.targets = {

@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   pkgs,
   inputs,
@@ -42,30 +38,18 @@
   };
 
   networking = {
-    hostName = "cygnus"; # Define your hostname.
+    hostName = "cygnus";
 
-    # firewall = {
-    # Open ports in the firewall.
-    # allowedTCPPorts = [ ... ];
-    # allowedUDPPorts = [ ... ];
+    networkmanager = {
+      enable = true;
 
-    # Or disable the firewall altogether.
-    # enable = false;
-    # };
-
-    # Configure network proxy if necessary
-    # proxy = {
-    # default = "http://user:password@proxy:port/";
-    # noProxy = "127.0.0.1,localhost,internal.domain";
-    # };
-
-    # Enable networking
-    networkmanager.enable = true;
-
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+      insertNameservers = [
+        "9.9.9.9" # Quad9
+        "1.1.1.1" # Cloudflare
+      ];
+    };
   };
 
-  # Set your time zone.
   time.timeZone = "America/New_York";
 
   hardware = {
@@ -78,7 +62,6 @@
     };
   };
 
-  # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
 
@@ -112,23 +95,12 @@
       };
     };
 
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    # mtr.enable = true;
-    # gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
-
     ssh = {
       startAgent = true;
     };
   };
 
-  # List services that you want to enable:
   services = {
-    # auto-cpufreq.enable = true;
-
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -146,9 +118,6 @@
 
     gvfs.enable = true;
 
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
-
     pipewire = {
       enable = true;
 
@@ -160,10 +129,13 @@
       wireplumber.enable = true;
     };
 
-    power-profiles-daemon.enable = lib.mkForce false;
-
-    # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = with pkgs; [
+        gutenprint
+        hplip
+      ];
+    };
 
     pulseaudio.enable = false;
 
@@ -176,13 +148,6 @@
 
   security.rtkit.enable = true;
 
-  system = {
-    # autoUpgrade = {
-    #   enable = true;
-    # };
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.nushell;
 
@@ -192,7 +157,6 @@
       extraGroups = [
         "networkmanager"
         "wheel"
-        "input"
       ];
       useDefaultShell = true;
     };
@@ -220,22 +184,10 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs = {
-    config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-    overlays = with outputs.overlays; [
-      modifications
-      stable-packages
-    ];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
-      bottom
-      dust
       gcc
       git
       helix
@@ -244,12 +196,10 @@
       nixfmt-rfc-style
       nushell
       mpv
-      mprocs
       starship
       tealdeer
       vulnix
       yazi
-      zen-browser
     ];
 
     variables = {
@@ -260,7 +210,7 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     material-symbols
   ];
 

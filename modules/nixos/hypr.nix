@@ -42,9 +42,7 @@
     grimblast
     hyprpaper
     hyprpicker
-    hyprsome
     hyprsunset
-    hyprsysteminfo
     hyprpolkitagent
     libnotify
     networkmanagerapplet

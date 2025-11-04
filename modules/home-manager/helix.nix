@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    tinymist
+    vscode-langservers-extracted
+  ];
+
   programs.helix = {
     enable = true;
 
@@ -7,14 +12,29 @@
 
     languages = {
       language-server = {
+        marksman = {
+          command = "${pkgs.marksman}/bin/marksman";
+        };
         nixd = {
           command = "${pkgs.nixd}/bin/nixd";
+        };
+        typos = {
+          command = "${pkgs.typos-lsp}/bin/typos-lsp";
+          config.diagnosticSeverity = "Info";
         };
       };
       language = [
         {
           name = "nix";
           language-servers = [ "nixd" ];
+        }
+        {
+          name = "markdown";
+
+          language-servers = [
+            "marksman"
+            "typos"
+          ];
         }
       ];
     };
