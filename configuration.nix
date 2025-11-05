@@ -20,6 +20,8 @@
   ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+
     loader = {
       # Bootloader.
       systemd-boot.enable = true;
