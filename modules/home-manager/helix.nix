@@ -1,14 +1,16 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    tinymist
-    vscode-langservers-extracted
-  ];
-
   programs.helix = {
     enable = true;
 
     defaultEditor = true;
+
+    extraPackages = with pkgs; [
+      lldb
+      rust-analyzer
+      tinymist
+      vscode-langservers-extracted
+    ];
 
     languages = {
       language-server = {
