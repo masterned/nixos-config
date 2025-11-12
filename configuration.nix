@@ -121,7 +121,6 @@
 
     blueman.enable = true;
 
-    desktopManager.gnome.enable = true;
     displayManager = {
       defaultSession = "hyprland-uwsm";
 
