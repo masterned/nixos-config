@@ -178,7 +178,6 @@ in
           "SUPER, F, exec, nautilus"
           "SUPER, B, exec, zen-beta"
           "SUPER, M, exec, discord"
-          "SUPER, V, exec, alacritty --class clipse -e clipse"
 
           "SUPER, left, movefocus, l"
           "SUPER, right, movefocus, r"
@@ -250,10 +249,23 @@ in
         };
 
         windowrule = [
-          "suppressevent maximize, class:.*"
-          "float, class:(clipse)"
-          "size 622 652, class:(clipse)"
-          "idleinhibit focus, fullscreen: 1"
+          {
+            # Ignore maximize requests from all apps. You'll probably like this.
+            name = "suppress-maximize-events";
+            "match:class" = ".*";
+            suppress_event = "maximize";
+          }
+          {
+            # Fix some dragging issues with XWayland
+            name = "fix-xwayland-drags";
+            "match:class" = "^$";
+            "match:title" = "^$";
+            "match:xwayland" = true;
+            "match:float" = true;
+            "match:fullscreen" = false;
+            "match:pin" = false;
+            no_focus = true;
+          }
         ];
       };
 
