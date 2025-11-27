@@ -58,7 +58,6 @@ in
           "hyprlauncher -d"
           "swaync"
           "systemctl --user start hyprpolkitagent"
-          "waybar"
         ];
 
         general = {
