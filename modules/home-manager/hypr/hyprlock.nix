@@ -12,28 +12,9 @@
       };
 
       background = {
-        color = "rgba(000000ff)";
-        path = "/home/spencer/Workspaces/nixos/assets/images/neo_EPCOT.jpg";
         blur_passes = 2;
         blur_size = 5;
       };
-
-      input-field = [
-        {
-          monitor = "";
-          size = "500, 100";
-          outline_thickness = 3;
-          dots_size = 0.2;
-          dots_spacing = 0.6;
-          outer_color = "rgba(3b3b3b55)";
-          inner_color = "rgba(33333311)";
-          font_color = "rgba(ffffffff)";
-
-          position = "0, 20";
-          halign = "center";
-          valign = "center";
-        }
-      ];
 
       label = [
         # clock

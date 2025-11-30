@@ -163,11 +163,6 @@
       enable = true;
 
       installBatSyntax = true;
-
-      settings = {
-        theme = "stylix";
-        background-opacity = 0.9;
-      };
     };
 
     jujutsu = {
@@ -313,10 +308,6 @@
     playerctld.enable = true;
 
     remmina.enable = true;
-  };
-
-  stylix.targets = {
-    hyprlock.enable = false;
   };
 
   xdg = {
