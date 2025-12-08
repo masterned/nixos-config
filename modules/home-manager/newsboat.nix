@@ -23,6 +23,15 @@
 
     urls = [
       {
+        title = "Bardic Aggravation";
+        tags = [
+          "dc20"
+          "ttrpgs"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCg7JrN8jLxzSX8Te3NRldNA";
+      }
+      {
         title = "Brodie Robertson";
         tags = [
           "linux"
@@ -248,6 +257,15 @@
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4DavIB24rEr5waVY5AgZLg";
+      }
+      {
+        title = "Willowares";
+        tags = [
+          "dnd"
+          "ttrpgs"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCvzjoK-ypiDiWvq9jzgpHXg";
       }
       {
         title = "Zee Bashew";
