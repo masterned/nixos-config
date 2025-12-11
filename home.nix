@@ -313,6 +313,8 @@
   xdg = {
     enable = true;
 
+    configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; 
+
     mimeApps = {
       enable = true;
       associations.added = {

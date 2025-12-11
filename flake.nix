@@ -21,14 +21,6 @@
       };
     };
 
-    hyprlauncher = {
-      url = "github:hyprwm/hyprlauncher";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";

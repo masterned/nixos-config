@@ -3,17 +3,14 @@ let
   system = pkgs.stdenv.hostPlatform.system;
 in
 {
-  home.packages = [
-    inputs.hyprlauncher.packages.${system}.hyprlauncher
-  ]
-  ++ (with pkgs; [
+  home.packages = with pkgs; [
     brightnessctl
     grimblast
     hyprpolkitagent
     slurp
     swaynotificationcenter
     wl-screenrec
-  ]);
+  ];
 
   imports = [
     ./hyprlock.nix
@@ -21,7 +18,16 @@ in
     ./hyprsunset.nix
   ];
 
-  services.hyprpaper.enable = true;
+  services = {
+    hyprlauncher = {
+      enable = true;
+      settings = {
+        finders.desktop_launch_prefix = "uwsm app -- ";
+      };
+    };
+
+    hyprpaper.enable = true;
+  };
 
   wayland.windowManager.hyprland =
     let
@@ -55,7 +61,6 @@ in
 
         "exec-once" = [
           "hypridle"
-          "hyprlauncher -d"
           "swaync"
           "systemctl --user start hyprpolkitagent"
         ];
@@ -171,12 +176,12 @@ in
 
         bind = [
           "CTRL ALT, DELETE, exec, uwsm stop"
-          "SUPER, T, exec, ghostty"
+          "SUPER, T, exec, uwsm app -- ghostty"
           "SUPER, Q, killactive"
           "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
-          "SUPER, F, exec, nautilus"
-          "SUPER, B, exec, zen-beta"
-          "SUPER, M, exec, discord"
+          "SUPER, F, exec, uwsm app -- nautilus"
+          "SUPER, B, exec, uwsm app -- zen-beta"
+          "SUPER, M, exec, uwsm app -- discord"
 
           "SUPER, left, movefocus, l"
           "SUPER, right, movefocus, r"
