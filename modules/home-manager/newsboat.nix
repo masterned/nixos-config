@@ -50,12 +50,21 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCiSIL42pQRpc-8JNiYDFyzQ";
       }
       {
-        title = "Continuous Delivery";
+        title = "Code to the Moon";
+        tags = [
+          "rust"
+          "software-development"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCjREVt2ZJU8ql-NC9Gu-TJw";
+      }
+      {
+        title = "CodeAesthetic";
         tags = [
           "software-development"
           "youtube"
         ];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCCfqyGl3nq_V0bo64CjZh8g";
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCaSCt8s_4nfkRglWCvNSDrg";
       }
       {
         title = "Cowboy Kent Rollins";
@@ -121,12 +130,12 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCwosUnVH6AINmxtqkNJ3Fbg";
       }
       {
-        title = "Feral Foraging";
+        title = "fasterthanlime";
         tags = [
-          "food"
+          "software-development"
           "youtube"
         ];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCmngd6QbE67Dvc9kRnrlToA";
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCs4fQRyl1TJvoeOdekW6lYA";
       }
       {
         title = "FortNine";
@@ -135,6 +144,23 @@
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCNSMdQtn1SuFzCZjfK2C7dQ";
+      }
+      {
+        title = "Ginny Di";
+        tags = [
+          "dnd"
+          "ttrpgs"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCe5KNXqT7970K8vkHb5BQ5Q";
+      }
+      {
+        title = "Grace Covenant Church PCA";
+        tags = [
+          "church"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCapTRNfNo37L96IyVCP94JA";
       }
       {
         title = "Jacob Sorber";
@@ -149,7 +175,7 @@
         tags = [
           "bevy"
           "rust"
-          "software development"
+          "software-development"
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCtLGtHHHkr_UBuRcp9pDiYw";
@@ -173,6 +199,14 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC_iD0xppBwwsrM9DegC5cQQ";
       }
       {
+        title = "Jonathan Barouch";
+        tags = [
+          "music-theory"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC6iqdLTx5CYwjP5D9cadXqw";
+      }
+      {
         title = "Logan Smith";
         tags = [
           "rust"
@@ -191,12 +225,12 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA";
       }
       {
-        title = "Mental Outlaw";
+        title = "Mystic Arts";
         tags = [
-          "linux"
+          "ttrpgs"
           "youtube"
         ];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCJQEEltSpi8LXqMH8uTrCQQ";
       }
       {
         title = "Slow Your Roll";
@@ -232,6 +266,14 @@
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCz8xkTADYdRQR7GP-f2PjOA";
+      }
+      {
+        title = "The Fantasy Forge";
+        tags = [
+          "ttrpgs"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCnVqE5aiTqVJdRxhszBaHoQ";
       }
       {
         title = "TnTori";
