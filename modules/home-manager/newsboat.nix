@@ -75,20 +75,20 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UClrMJRlvoyoWsVlB-7c61PQ";
       }
       {
-        title = "DevOps Toolbox";
-        tags = [
-          "devops"
-          "youtube"
-        ];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCYeiozh-4QwuC1sjgCmB92w";
-      }
-      {
         title = "DFBGuide";
         tags = [
           "disney"
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCnpWedLQdHpZqhgTLdB9Yyg";
+      }
+      {
+        title = "DevOps Toolbox";
+        tags = [
+          "devops"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCYeiozh-4QwuC1sjgCmB92w";
       }
       {
         title = "Disney Parks";
