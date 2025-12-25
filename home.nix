@@ -68,6 +68,9 @@
         clock = {
           format = "%F %X";
         };
+        media_player = {
+          max_title_length = 55;
+        };
         modules = {
           center = [
             "Clock"
@@ -104,6 +107,9 @@
         };
         workspaces = {
           visibility_mode = "MonitorSpecific";
+        };
+        window_title = {
+          truncate_title_after_length = 75;
         };
       };
       systemd.enable = true;
