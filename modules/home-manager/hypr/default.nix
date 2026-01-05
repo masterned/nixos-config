@@ -193,18 +193,6 @@ in
           "SUPER, K, movefocus, u"
           "SUPER, J, movefocus, d"
 
-          "SUPER, 1, split-workspace, 1"
-          "SUPER, 2, split-workspace, 2"
-          "SUPER, 3, split-workspace, 3"
-          "SUPER, 4, split-workspace, 4"
-          "SUPER, 5, split-workspace, 5"
-
-          "SUPER SHIFT, 1, split-movetoworkspacesilent, 1"
-          "SUPER SHIFT, 2, split-movetoworkspacesilent, 2"
-          "SUPER SHIFT, 3, split-movetoworkspacesilent, 3"
-          "SUPER SHIFT, 4, split-movetoworkspacesilent, 4"
-          "SUPER SHIFT, 5, split-movetoworkspacesilent, 5"
-
           "SUPER, S, togglespecialworkspace, magic"
           "SUPER SHIFT, S, movetoworkspace, special:magic"
           "SUPER, G, togglegroup"
