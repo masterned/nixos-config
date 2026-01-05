@@ -176,6 +176,7 @@
       description = "Spencer Dent";
       extraGroups = [
         "networkmanager"
+        "seat"
         "wheel"
       ];
       useDefaultShell = true;
