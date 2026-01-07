@@ -180,7 +180,7 @@ in
           "SUPER, Q, killactive"
           "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
           "SUPER, F, exec, uwsm app -- nautilus"
-          "SUPER, B, exec, uwsm app -- zen-beta"
+          "SUPER, B, exec, uwsm app -- zen-twilight"
           "SUPER, M, exec, uwsm app -- discord"
 
           "SUPER, left, movefocus, l"

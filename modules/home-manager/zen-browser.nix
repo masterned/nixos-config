@@ -7,7 +7,7 @@
 
 {
   imports = [
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight
   ];
 
   programs.zen-browser = {
@@ -187,7 +187,7 @@
     let
       value =
         let
-          zen-browser = inputs.zen-browser.packages.${system}.beta;
+          zen-browser = inputs.zen-browser.packages.${system}.twilight;
         in
         zen-browser.meta.desktopFileName;
 
