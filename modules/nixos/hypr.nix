@@ -1,21 +1,16 @@
 { inputs, pkgs, ... }:
 let
   system = pkgs.stdenv.hostPlatform.system;
+  hyprpkgs = inputs.hyprland.packages;
 in
 {
-  programs =
-    let
-      packages = inputs.hyprland.packages;
-    in
-    {
-      hyprland = {
-        enable = true;
-        withUWSM = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
 
-        package = packages.${system}.hyprland;
-        portalPackage = packages.${system}.xdg-desktop-portal-hyprland;
-      };
-    };
+    package = hyprpkgs.${system}.hyprland;
+    portalPackage = hyprpkgs.${system}.xdg-desktop-portal-hyprland;
+  };
 
   security.pam.services.hyprlock = { };
 
