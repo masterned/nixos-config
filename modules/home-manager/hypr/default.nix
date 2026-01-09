@@ -26,7 +26,13 @@ in
       };
     };
 
-    hyprpaper.enable = true;
+    hyprpaper = {
+      enable = true;
+
+      settings = {
+        splash = false;
+      };
+    };
   };
 
   wayland.windowManager.hyprland =
