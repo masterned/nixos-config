@@ -214,7 +214,7 @@
       helix
       imv
       jujutsu
-      nixfmt-rfc-style
+      nixfmt
       nushell
       mpv
       starship

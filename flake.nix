@@ -50,7 +50,7 @@
       system = "x86_64-linux";
     in
     {
-      formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      formatter = nixpkgs.legacyPackages.${system}.nixfmt;
 
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
