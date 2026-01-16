@@ -1,4 +1,5 @@
 {
+  ashell = import ./ashell.nix;
   gnome-software = import ./gnome-software.nix;
   helix = import ./helix.nix;
   hypr = import ./hypr/default.nix;
