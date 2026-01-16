@@ -201,6 +201,9 @@
 
       config = {
         ytdl-format = "bestvideo[height<=?720]+bestaudio";
+        vo = "gpu";
+        hwdec = "auto-copy-safe";
+        hwdec-codecs = "all";
       };
     };
 
