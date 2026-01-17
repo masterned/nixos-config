@@ -158,6 +158,7 @@
       description = "Spencer Dent";
       extraGroups = [
         "networkmanager"
+        "podman"
         "seat"
         "wheel"
       ];
@@ -196,9 +197,10 @@
       helix
       imv
       jujutsu
+      mpv
       nixfmt
       nushell
-      mpv
+      podman-compose
       starship
       tealdeer
       vulnix
@@ -228,6 +230,15 @@
   systemd.services = {
     mpd.environment = {
       XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
+    };
+  };
+
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 }
