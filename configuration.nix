@@ -192,6 +192,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      fd
       gcc
       git
       helix
