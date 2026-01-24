@@ -32,7 +32,6 @@
     stateVersion = "24.11"; # Please read the comment before changing.
 
     packages = with pkgs; [
-      brave
       discord
       ffmpeg
       gimp3
