@@ -4,6 +4,8 @@ let
   hyprpkgs = inputs.hyprland.packages;
 in
 {
+  environment.variables.NIXOS_OZONE_WL = "1";
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;

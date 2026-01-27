@@ -29,6 +29,8 @@ in
     hyprpaper = {
       enable = true;
 
+      package = inputs.hyprpaper.packages.${system}.default;
+
       settings = {
         splash = false;
       };
