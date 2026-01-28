@@ -81,10 +81,6 @@
   };
 
   programs = {
-    direnv = {
-      enable = true;
-    };
-
     nh = {
       enable = true;
 
