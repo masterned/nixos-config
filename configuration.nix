@@ -14,9 +14,7 @@
     inputs.home-manager.nixosModules.default
     outputs.nixosModules.hypr
     outputs.nixosModules.regreet
-    outputs.nixosModules.steam
     outputs.nixosModules.stylix
-    outputs.nixosModules.syncthing
   ];
 
   boot = {
