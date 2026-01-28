@@ -91,6 +91,7 @@
     {
       formatter = nixpkgs.legacyPackages.${system}.nixfmt;
 
+      hosts = import ./modules/hosts;
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
@@ -99,20 +100,7 @@
           specialArgs = {
             inherit inputs outputs system;
           };
-          modules = [
-            {
-              nix.settings = {
-                substituters = [
-                  "https://hyprland.cachix.org"
-                ];
-                trusted-public-keys = [
-                  "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-                ];
-              };
-            }
-            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-            ./configuration.nix
-          ];
+          modules = [ ./configuration.nix ];
         };
       };
     };

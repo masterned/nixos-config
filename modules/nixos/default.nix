@@ -1,7 +1,7 @@
 {
   hypr = import ./hypr.nix;
-  regreet = import ./regreet.nix;
-  steam = import ./steam.nix;
+  podman = import ./podman.nix;
+  programs = import ./programs/default.nix;
+  services = import ./services/default.nix;
   stylix = import ./stylix.nix;
-  syncthing = import ./syncthing.nix;
 }
