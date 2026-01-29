@@ -7,6 +7,7 @@
 
     extraPackages = with pkgs; [
       lldb
+      nixfmt
       rust-analyzer
       tinymist
       vscode-langservers-extracted

@@ -53,10 +53,7 @@
       gcc
       git
       helix
-      imv
       jujutsu
-      mpv
-      nixfmt
       nushell
       starship
       tealdeer

@@ -114,6 +114,8 @@
       installBatSyntax = true;
     };
 
+    imv.enable = true;
+
     jujutsu = {
       enable = true;
 
