@@ -7,13 +7,20 @@
 
 {
   imports = [
-    outputs.homeManagerModules.ashell
-    outputs.homeManagerModules.gnome-software
-    outputs.homeManagerModules.helix
-    outputs.homeManagerModules.hypr
-    outputs.homeManagerModules.newsboat
-    outputs.homeManagerModules.rmpc
-    outputs.homeManagerModules.zen-browser
+    outputs.hmModules.gnome-software
+    outputs.hmModules.hypr
+    outputs.hmModules.programs.atuin
+    outputs.hmModules.programs.ashell
+    outputs.hmModules.programs.bottom
+    outputs.hmModules.programs.helix
+    outputs.hmModules.programs.jujutsu
+    outputs.hmModules.programs.mpv
+    outputs.hmModules.programs.newsboat
+    outputs.hmModules.programs.nushell
+    outputs.hmModules.programs.onlyoffice
+    outputs.hmModules.programs.rmpc
+    outputs.hmModules.programs.yt-dlp
+    outputs.hmModules.programs.zen-browser
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -58,180 +65,42 @@
   programs = {
     home-manager.enable = true;
 
-    atuin = {
-      enable = true;
-
-      enableNushellIntegration = true;
-
-      settings = {
-        auto_sync = false;
-        update_check = false;
-      };
-    };
-
     bacon.enable = true;
-
     bat = {
       enable = true;
-
       extraPackages = with pkgs.bat-extras; [
         core
       ];
     };
-
-    bottom = {
-      enable = true;
-
-      settings = {
-        flags = {
-          battery = true;
-          disable_advanced_kill = true;
-          temperature_type = "c";
-        };
-
-        styles = {
-          theme = "nord";
-        };
-      };
-    };
-
     carapace = {
       enable = true;
       enableNushellIntegration = true;
     };
-
     direnv = {
       enable = true;
       enableNushellIntegration = true;
       nix-direnv.enable = true;
     };
-
     fzf.enable = true;
-
     ghostty = {
       enable = true;
-
       installBatSyntax = true;
     };
-
     imv.enable = true;
-
-    jujutsu = {
-      enable = true;
-
-      settings = {
-        user = {
-          email = "mr.spencerdent@gmail.com";
-          name = "Spencer Dent";
-        };
-
-        ui = {
-          default-command = "log";
-          pager = ":builtin";
-          diff-editor = ":builtin";
-        };
-      };
-    };
-
-    mpv = {
-      enable = true;
-
-      package = pkgs.mpv.override {
-        scripts = with pkgs.mpvScripts; [
-          mpris
-          mpv-discord
-          skipsilence
-        ];
-      };
-
-      config = {
-        ytdl-format = "bestvideo[height<=?720]+bestaudio";
-        vo = "gpu";
-        hwdec = "auto-copy-safe";
-        hwdec-codecs = "all";
-      };
-    };
-
-    nushell = {
-      enable = true;
-
-      environmentVariables = {
-        NH_FLAKE = "/home/spencer/Workspaces/nixos";
-        EDITOR = "hx";
-        VISUAL = "hx";
-        STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$env.HOME/.steam/root/compatibilitytools.d";
-        SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
-      };
-
-      extraConfig = # nu
-        ''
-          $env.config = {
-            show_banner: false
-            edit_mode: vi
-          }
-        '';
-    };
-
     obs-studio.enable = true;
-
-    onlyoffice = {
-      enable = true;
-      settings = {
-        UITheme = "theme-dark";
-        appdata = "@ByteArray(eyJ1c2VybmFtZSI6InNwZW5jZXIiLCJkb2NvcGVubW9kZSI6ImVkaXQiLCJyZXN0YXJ0Ijp0cnVlLCJsYW5naWQiOiJlbi1VUyIsInVpc2NhbGluZyI6IjEwMCIsInVpdGhlbWUiOiJ0aGVtZS1kYXJrIiwiZWRpdG9yd2luZG93bW9kZSI6ZmFsc2UsInJ0bCI6ZmFsc2UsInVzZWdwdSI6dHJ1ZX0=)";
-        editorWindowMode = false;
-        forcedRtl = false;
-        lastPrinterName = "";
-        openPath = "/home/spencer/Pictures";
-        position = "@Rect(12 48 1416 900)";
-        savePath = "/home/spencer/Documents";
-        titlebar = "custom";
-      };
-    };
-
     ripgrep.enable = true;
-
     starship.enable = true;
-
     tealdeer.enable = true;
-
-    # thunderbird = {
-    #   enable = true;
-
-    #   profiles.default = {
-    #     isDefault = true;
-    #   };
-    # };
-
     yazi = {
       enable = true;
       enableNushellIntegration = true;
     };
-
-    yt-dlp = {
-      enable = true;
-
-      settings = {
-        embed-chapters = true;
-
-        embed-subs = true;
-        sub-langs = "en";
-
-        embed-thumbnail = true;
-      };
-    };
-
-    zathura = {
-      enable = true;
-    };
-
+    zathura.enable = true;
     zoxide.enable = true;
   };
 
   services = {
-    gpg-agent = {
-      enable = true;
-    };
+    gpg-agent.enable = true;
 
     mpd = {
       enable = true;
@@ -267,7 +136,8 @@
   xdg = {
     enable = true;
 
-    configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; 
+    configFile."uwsm/env".source =
+      "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
 
     mimeApps = {
       enable = true;

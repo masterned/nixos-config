@@ -91,9 +91,9 @@
     {
       formatter = nixpkgs.legacyPackages.${system}.nixfmt;
 
+      hmModules = import ./modules/home-manager;
       hosts = import ./modules/hosts;
       nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
         cygnus = nixpkgs.lib.nixosSystem {
