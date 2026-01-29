@@ -46,12 +46,6 @@
     file = { };
     shell.enableNushellIntegration = true;
   };
-
-  dconf = {
-    enable = true;
-    settings = { };
-  };
-
   programs = {
     home-manager.enable = true;
 
