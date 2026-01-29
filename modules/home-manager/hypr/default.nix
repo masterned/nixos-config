@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   system = pkgs.stdenv.hostPlatform.system;
 in
@@ -11,13 +11,11 @@ in
     swaynotificationcenter
     wl-screenrec
   ];
-
   imports = [
     ./hyprlock.nix
     ./hypridle.nix
     ./hyprsunset.nix
   ];
-
   services = {
     hyprlauncher = {
       enable = true;
@@ -25,73 +23,56 @@ in
         finders.desktop_launch_prefix = "uwsm app -- ";
       };
     };
-
     hyprpaper = {
       enable = true;
-
       package = inputs.hyprpaper.packages.${system}.default;
-
       settings = {
         splash = false;
       };
     };
   };
-
   wayland.windowManager.hyprland =
     let
       hypr-pkgs = inputs.hyprland.packages;
     in
     {
       enable = true;
-
       package = hypr-pkgs.${system}.hyprland;
       portalPackage = hypr-pkgs.${system}.xdg-desktop-portal-hyprland;
-
       plugins = [
         inputs.split-monitor-workspaces.packages.${system}.split-monitor-workspaces
       ];
-
       settings = {
         debug = {
           disable_logs = false;
           enable_stdout_logs = true;
         };
-
         monitor = [
           ",preferred,auto,auto"
         ];
-
         env = [
           "XCURSOR_THEME,Bibata-Original-Ice"
           "XCURSOR_SIZE,24"
           "HYPRCURSOR_SIZE,24"
         ];
-
         "exec-once" = [
           "hypridle"
           "swaync"
           "systemctl --user start hyprpolkitagent"
         ];
-
         general = {
           gaps_in = 5;
           gaps_out = 10;
-
           border_size = 2;
-
           resize_on_border = false;
-
           allow_tearing = false;
-
           layout = "dwindle";
         };
 
         decoration = {
           rounding = 10;
-
           active_opacity = 1.0;
           inactive_opacity = 0.9;
-
           blur = {
             enabled = true;
             size = 3;
@@ -99,10 +80,8 @@ in
             vibrancy = 0.1696;
           };
         };
-
         animations = {
           enabled = true;
-
           bezier = [
             # NAME,          X0,   Y0,   X1,   Y1
             "easeOutQuint,   0.23, 1,    0.32, 1"
@@ -111,7 +90,6 @@ in
             "almostLinear,   0.5,  0.5,  0.75, 1"
             "quick,          0.15, 0,    0.1,  1"
           ];
-
           animation = [
             # NAME,         ONOFF, SPEED, CURVE,        [STYLE]
             "global,        1,     10,    default"
@@ -134,16 +112,13 @@ in
             "zoomFactor,    1,     7,     quick"
           ];
         };
-
         dwindle = {
           pseudotile = true;
           preserve_split = true;
         };
-
         master = {
           new_status = "master";
         };
-
         misc = {
           force_default_wallpaper = 0;
           disable_hyprland_logo = true;
@@ -153,7 +128,6 @@ in
           swallow_regex = "^com\.mitchellh\.ghostty$";
           vfr = true;
         };
-
         input = {
           kb_layout = "us";
           follow_mouse = 1;
@@ -162,17 +136,14 @@ in
             natural_scroll = false;
           };
         };
-
         gesture = [
           "3, down, special, magic"
           "3, horizontal, workspace"
           "3, up, fullscreen"
         ];
-
         gestures = {
           workspace_swipe_invert = false;
         };
-
         group = {
           groupbar = {
             font_size = 20;
@@ -181,7 +152,6 @@ in
         };
 
         "$mod" = "SUPER";
-
         bind = [
           "CTRL ALT, DELETE, exec, uwsm stop"
           "SUPER, T, exec, uwsm app -- ghostty"
@@ -229,16 +199,13 @@ in
           ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
           "CTRL, Print, exec, pkill wl-screenrec || wl-screenrec -g \"$(slurp)\""
         ];
-
         bindm = [
           "$mod, mouse:272, movewindow"
           "$mod, mouse:273, resizewindow"
         ];
-
         bindr = [
           "SUPER, SUPER_L, exec, hyprlauncher"
         ];
-
         bindel = [
           ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
           ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -250,7 +217,6 @@ in
           ",XF86AudioPrev, exec, playerctl previous"
           ",XF86AudioNext, exec, playerctl next"
         ];
-
         plugin = {
           "split-monitor-workspaces" = {
             count = 10;
@@ -259,7 +225,6 @@ in
             enable_persistent_workspaces = 0;
           };
         };
-
         windowrule = [
           {
             # Ignore maximize requests from all apps. You'll probably like this.
@@ -280,10 +245,11 @@ in
           }
         ];
       };
-
       systemd = {
         enable = false;
         variables = [ "--all" ];
       };
     };
+  xdg.configFile."uwsm/env".source =
+    "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
 }
