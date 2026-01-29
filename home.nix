@@ -21,6 +21,7 @@
     outputs.hmModules.programs.yt-dlp
     outputs.hmModules.programs.zen-browser
     outputs.hmModules.services.mpd
+    outputs.hmModules.xdg
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -94,21 +95,16 @@
     remmina.enable = true;
   };
 
-  xdg = {
-    enable = true;
-    mimeApps = {
-      enable = true;
-      associations.added = {
-        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-        "image/jpeg" = [ "imv.desktop" ];
-        "image/png" = [ "imv.desktop" ];
-      };
-      defaultApplications = {
-        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-        "image/jpeg" = [ "imv.desktop" ];
-        "image/png" = [ "imv.desktop" ];
-      };
+  xdg.mimeApps = {
+    associations.added = {
+      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      "image/jpeg" = [ "imv.desktop" ];
+      "image/png" = [ "imv.desktop" ];
     };
-    userDirs.enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+      "image/jpeg" = [ "imv.desktop" ];
+      "image/png" = [ "imv.desktop" ];
+    };
   };
 }
