@@ -21,6 +21,7 @@
     outputs.hmModules.programs.rmpc
     outputs.hmModules.programs.yt-dlp
     outputs.hmModules.programs.zen-browser
+    outputs.hmModules.services.mpd
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -101,44 +102,14 @@
 
   services = {
     gpg-agent.enable = true;
-
-    mpd = {
-      enable = true;
-
-      extraConfig = # config
-        ''
-          audio_output {
-            type "pipewire"
-            name "PipeWire Sound Server"
-          }
-
-          audio_output {
-            type "fifo"
-            name "mpd_fifo"
-            path "/tmp/mpd.fifo"
-            format "44100:16:2"
-          }
-
-          auto_update "yes"
-
-          bind_to_address "/tmp/mpd_socket"
-        '';
-    };
-
-    mpd-discord-rpc.enable = true;
-    mpd-mpris.enable = true;
-
     playerctld.enable = true;
-
     remmina.enable = true;
   };
 
   xdg = {
     enable = true;
-
     configFile."uwsm/env".source =
       "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
-
     mimeApps = {
       enable = true;
       associations.added = {
@@ -152,7 +123,6 @@
         "image/png" = [ "imv.desktop" ];
       };
     };
-
     userDirs.enable = true;
   };
 }
