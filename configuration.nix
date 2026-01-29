@@ -12,14 +12,6 @@
     inputs.home-manager.nixosModules.default
     outputs.hosts.cygnus
   ];
-  programs.nh = {
-    enable = true;
-    flake = "/home/spencer/Workspaces/nixos";
-    clean = {
-      enable = true;
-      extraArgs = "--keep 5 --keep-since 3d";
-    };
-  };
   services.gnome = {
     gcr-ssh-agent.enable = false;
     gnome-keyring.enable = true;

@@ -19,10 +19,12 @@
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
     outputs.hosts.common
     outputs.nixosModules.podman
+    outputs.nixosModules.programs.nh
     outputs.nixosModules.services.printing
     outputs.nixosModules.stylix
   ];
   networking.hostName = "cygnus";
+  programs.nh.flake = "/home/spencer/Workspaces/nixos";
   services = {
     blueman.enable = true;
     tlp.enable = lib.mkForce false;
