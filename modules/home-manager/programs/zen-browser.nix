@@ -136,48 +136,39 @@
           Locked = true;
         };
       };
-    profiles = {
-      "default" = {
-        containers = {
+    profiles.default = {
+      containers = {
+        Personal = {
+          color = "blue";
+          icon = "fingerprint";
+          id = 1;
+        };
+        Work = {
+          color = "red";
+          icon = "briefcase";
+          id = 2;
+        };
+      };
+      containersForce = true;
+      spaces =
+        let
+          containers = config.programs.zen-browser.profiles.default.containers;
+        in
+        {
           Personal = {
-            color = "blue";
-            icon = "fingerprint";
-            id = 1;
+            id = "42c57b7b-15a7-4e00-889a-88fb5c0fa5ce";
+            icon = "🧙🏻‍♂️";
+            container = containers.Personal.id;
+            position = 1000;
           };
-          Work = {
-            color = "red";
-            icon = "briefcase";
-            id = 2;
+          AFI = {
+            id = "0ffb657b-b76a-4f3c-852a-8a20c80b1d0c";
+            icon = "🧑🏻‍🔬";
+            container = containers.Work.id;
+            position = 2000;
           };
         };
-        containersForce = true;
-        spaces =
-          let
-            containers = config.programs.zen-browser.profiles."default".containers;
-          in
-          {
-            "Personal" = {
-              id = "42c57b7b-15a7-4e00-889a-88fb5c0fa5ce";
-              icon = "🧙🏻‍♂️";
-              container = containers."Personal".id;
-              position = 1000;
-              # theme.color = [
-              #   {
-              #     red = 153;
-              #     green = 211;
-              #     blue = 255;
-              #   }
-              # ];
-            };
-            "AFI" = {
-              id = "0ffb657b-b76a-4f3c-852a-8a20c80b1d0c";
-              icon = "🧑🏻‍🔬";
-              container = containers."Work".id;
-              position = 2000;
-            };
-          };
-        spacesForce = true;
-      };
+      spacesForce = true;
     };
   };
 
