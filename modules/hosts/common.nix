@@ -18,7 +18,8 @@
   hardware.keyboard.zsa.enable = true;
   imports = [
     outputs.nixosModules.hypr
-    outputs.nixosModules.programs.regreet
+    # outputs.nixosModules.programs.regreet
+    outputs.nixosModules.services.ly
     outputs.nixosModules.services.pipewire
   ];
   i18n = {
