@@ -1,7 +1,6 @@
 {
   inputs,
   system,
-  config,
   ...
 }:
 
@@ -136,7 +135,7 @@
           Locked = true;
         };
       };
-    profiles.default = {
+    profiles.default = let
       containers = {
         Personal = {
           color = "blue";
@@ -149,11 +148,73 @@
           id = 2;
         };
       };
-      containersForce = true;
+      pins = {
+        Monkeytype = {
+          id = "1d6e72f6-d7a9-4dc0-9357-bade6592e616";
+          container = containers.Personal.id;
+          workspace = spaces.Personal.id;
+          url = "https://monkeytype.com/";
+          isEssential = true;
+          position = 101;
+        };
+        "GitHub masterned" = {
+          id = "40474dc3-dbfe-42df-b43a-046febedfc97";
+          container = containers.Personal.id;
+          workspace = spaces.Personal.id;
+          url = "https://github.com/masterned";
+          isEssential = true;
+          position = 102;
+        };
+        # ChatGPT = {
+        #   id = "89b940c8-5343-4bd5-ad20-3c4ee72f5387";
+        #   container = containers.Personal.id;
+        #   workspace = spaces.Personal.id;
+        #   url = "https://chatgpt.com/";
+        #   isEssential = true;
+        #   position = 103;
+        # };
+        "Microsoft Teams" = {
+          id = "c836823f-cd49-4448-adab-ab0f262425b3";
+          container = containers.Work.id;
+          workspace = spaces.AFI.id;
+          url = "https://teams.cloud.microsoft/";
+          isEssential = true;
+          position = 101;
+        };
+        Outlook = {
+          id = "5cc2f689-abd8-42ed-bd44-823e49d5d060";
+          container = containers.Work.id;
+          workspace = spaces.AFI.id;
+          url = "https://outlook.cloud.microsoft/mail/";
+          isEssential = true;
+          position = 102;
+        };
+        spiceworks = {
+          id = "10a0dadc-a4b7-455a-a124-906dfe4c4354";
+          container = containers.Work.id;
+          workspace = spaces.AFI.id;
+          url = "https://on.spiceworks.com/tickets/open/1";
+          isEssential = true;
+          position = 103;
+        };
+        "Ops Meeting Notes" = {
+          id = "1a659460-cd94-4c12-aa9c-bea2be3e0187";
+          container = containers.Work.id;
+          workspace = spaces.AFI.id;
+          url = "https://aromaticfragrancesintl-my.sharepoint.com/:w:/r/personal/spencer_afi-usa_com/_layouts/15/doc2.aspx?sourcedoc={EE8DFD07-A35C-494C-ACAF-568ABA310F61}&file=Document.docx&action=editnew&mobileredirect=true&wdPreviousSession=710e5b0c-0e41-e93f-0553-73e1911c86ba&wdNewAndOpenCt=1768311122471&wdo=4&wdOrigin=wacFileNew&wdPreviousCorrelation=1d78fb98-ec02-4277-8917-85dd8da29407&wdnd=1";
+          isEssential = true;
+          position = 201;
+        };
+        OneDrive = {
+          id = "778df7c0-b0e3-437a-af2e-f01e453e9f32";
+          container = containers.Work.id;
+          workspace = spaces.AFI.id;
+          url = "https://aromaticfragrancesintl-my.sharepoint.com/shared";
+          isEssential = true;
+          position = 202;
+        };
+      };
       spaces =
-        let
-          containers = config.programs.zen-browser.profiles.default.containers;
-        in
         {
           Personal = {
             id = "42c57b7b-15a7-4e00-889a-88fb5c0fa5ce";
@@ -168,7 +229,11 @@
             position = 2000;
           };
         };
+    in {
+      containersForce = true;
+      pinsForce = true;
       spacesForce = true;
+      inherit containers pins spaces;
     };
   };
 
