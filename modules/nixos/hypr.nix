@@ -16,6 +16,8 @@ in
 
   security.pam.services.hyprlock = { };
 
+  services.udisks2.enable = true;
+
   xdg.portal = {
     enable = true;
 
