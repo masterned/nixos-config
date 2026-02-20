@@ -78,6 +78,7 @@
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+      shellWrapperName = "yy";
     };
     zathura.enable = true;
     zoxide.enable = true;
