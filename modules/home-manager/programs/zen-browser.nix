@@ -235,6 +235,7 @@
       spacesForce = true;
       inherit containers pins spaces;
     };
+    suppressXdgMigrationWarning = true;
   };
 
   stylix.targets.zen-browser.profileNames = [ "default" ];
