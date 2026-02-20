@@ -21,6 +21,7 @@
       inherit inputs outputs system;
     };
     users.spencer = import ./home.nix;
+    backupFileExtension = "backup";
   };
   nix = {
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
