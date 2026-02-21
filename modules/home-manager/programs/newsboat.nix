@@ -146,15 +146,6 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCNSMdQtn1SuFzCZjfK2C7dQ";
       }
       {
-        title = "Ginny Di";
-        tags = [
-          "dnd"
-          "ttrpgs"
-          "youtube"
-        ];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCe5KNXqT7970K8vkHb5BQ5Q";
-      }
-      {
         title = "Grace Covenant Church PCA";
         tags = [
           "church"
