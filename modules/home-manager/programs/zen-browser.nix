@@ -165,14 +165,14 @@
           isEssential = true;
           position = 102;
         };
-        # ChatGPT = {
-        #   id = "89b940c8-5343-4bd5-ad20-3c4ee72f5387";
-        #   container = containers.Personal.id;
-        #   workspace = spaces.Personal.id;
-        #   url = "https://chatgpt.com/";
-        #   isEssential = true;
-        #   position = 103;
-        # };
+        ChatGPT = {
+          id = "89b940c8-5343-4bd5-ad20-3c4ee72f5387";
+          container = containers.Personal.id;
+          workspace = spaces.Personal.id;
+          url = "https://chatgpt.com/";
+          isEssential = true;
+          position = 103;
+        };
         "Microsoft Teams" = {
           id = "c836823f-cd49-4448-adab-ab0f262425b3";
           container = containers.Work.id;
