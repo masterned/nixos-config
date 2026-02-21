@@ -37,6 +37,7 @@
       inkscape
       libnotify
       networkmanagerapplet
+      ouch
       pavucontrol
       rustup
       signal-desktop
