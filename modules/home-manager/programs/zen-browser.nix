@@ -221,12 +221,38 @@
             icon = "🧙🏻‍♂️";
             container = containers.Personal.id;
             position = 1000;
+            theme = {
+              colors = [
+                {
+                  algorithm = "floating";
+                  red = 153;
+                  green = 211;
+                  blue = 255;
+                }
+              ];
+              opacity = 0.5;
+              texture = 0.0;
+              type = "gradient";
+            };
           };
           AFI = {
             id = "0ffb657b-b76a-4f3c-852a-8a20c80b1d0c";
             icon = "🧑🏻‍🔬";
             container = containers.Work.id;
             position = 2000;
+            theme = {
+              colors = [
+                {
+                  algorithm = "floating";
+                  red = 196;
+                  green = 20;
+                  blue = 37;
+                }
+              ];
+              opacity = 0.5;
+              texture = 0.0;
+              type = "gradient";
+            };
           };
         };
     in {
@@ -238,7 +264,10 @@
     suppressXdgMigrationWarning = true;
   };
 
-  stylix.targets.zen-browser.profileNames = [ "default" ];
+  stylix.targets.zen-browser = {
+    enable = false;
+    profileNames = [ "default" ];
+  };
 
   xdg.mimeApps =
     let
