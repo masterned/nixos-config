@@ -244,7 +244,7 @@
       {
         title = "Technology Connections";
         tags = [
-          "linux"
+          "technology"
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q";
@@ -276,9 +276,17 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCEa1G5kDN_xOcGUmq8utbNQ";
       }
       {
+        title = "Untitled Linux Show";
+        tags = [
+          "linux"
+          "youtube"
+        ];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCsGdWQMkl4Yv4fLBQ3aCC1Q";
+      }
+      {
         title = "Vimjoyer";
         tags = [
-          "technology"
+          "nixos"
           "youtube"
         ];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC_zBdZ0_H_jn41FDRG7q4Tw";
