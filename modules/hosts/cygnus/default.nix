@@ -13,6 +13,10 @@
   hardware = {
     bluetooth.enable = true;
     graphics.enable = true;
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
   };
   imports = [
     ./hardware-configuration.nix
