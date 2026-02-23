@@ -65,7 +65,7 @@
           "format" = "{icon}";
           "format-icons" = {
             "urgent" = "";
-            "active" = ""; # focused workspace on current monitor 
+            "active" = ""; # focused workspace on current monitor
             "visible" = ""; # focused workspace on other monitors
             "default" = "";
             "empty" = ""; # persistent (created by this plugin)
