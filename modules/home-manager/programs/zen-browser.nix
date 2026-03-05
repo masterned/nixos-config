@@ -198,11 +198,11 @@
             isEssential = true;
             position = 103;
           };
-          "Ops Meeting Notes" = {
-            id = "1a659460-cd94-4c12-aa9c-bea2be3e0187";
+          "Ops Report" = {
+            id = "b7c02a50-b478-4fe2-83c8-a06a8a2a5b58";
             container = containers.Work.id;
             workspace = spaces.AFI.id;
-            url = "https://aromaticfragrancesintl-my.sharepoint.com/:w:/r/personal/spencer_afi-usa_com/_layouts/15/doc2.aspx?sourcedoc={EE8DFD07-A35C-494C-ACAF-568ABA310F61}&file=Document.docx&action=editnew&mobileredirect=true&wdPreviousSession=710e5b0c-0e41-e93f-0553-73e1911c86ba&wdNewAndOpenCt=1768311122471&wdo=4&wdOrigin=wacFileNew&wdPreviousCorrelation=1d78fb98-ec02-4277-8917-85dd8da29407&wdnd=1";
+            url = "https://aromaticfragrancesintl.sharepoint.com/:x:/r/sites/10amOpsmeeting/_layouts/15/Doc.aspx?sourcedoc=%7BF2B9CE1C-18C9-40E5-872C-41C61D5427F3%7D&file=12%20Programming%202026.xlsx";
             isEssential = true;
             position = 201;
           };
@@ -213,6 +213,14 @@
             url = "https://aromaticfragrancesintl-my.sharepoint.com/shared";
             isEssential = true;
             position = 202;
+          };
+          Planner = {
+            id = "8ce9431c-d669-4cfc-b679-ef6499f0fd76";
+            container = containers.Work.id;
+            workspace = spaces.AFI.id;
+            url = "https://planner.cloud.microsoft";
+            isEssential = true;
+            position = 203;
           };
         };
         spaces = {
