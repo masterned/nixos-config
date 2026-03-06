@@ -87,9 +87,10 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      formatter = nixpkgs.legacyPackages.${system}.nixfmt;
+      formatter.${system} = pkgs.nixfmt-tree;
 
       hmModules = import ./modules/home-manager;
       hosts = import ./modules/hosts;
