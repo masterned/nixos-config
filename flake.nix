@@ -16,8 +16,10 @@
     hypridle = {
       url = "github:hyprwm/hypridle";
       inputs = {
+        hyprland-protocols.follows = "hyprland/hyprland-protocols";
         hyprlang.follows = "hyprland/hyprlang";
         hyprutils.follows = "hyprland/hyprutils";
+        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
         nixpkgs.follows = "hyprland/nixpkgs";
         systems.follows = "hyprland/systems";
       };
@@ -61,7 +63,7 @@
     };
 
     split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
+      url = "github:zjeffer/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
 
