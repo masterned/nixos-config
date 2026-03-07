@@ -52,6 +52,9 @@ in
           disable_logs = false;
           enable_stdout_logs = true;
         };
+        cursor = {
+          no_hardware_cursors = 1;
+        };
         monitor = [
           ",preferred,auto,auto"
         ];

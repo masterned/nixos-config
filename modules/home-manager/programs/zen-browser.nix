@@ -1,6 +1,5 @@
 {
   inputs,
-  system,
   ...
 }:
 
@@ -270,7 +269,6 @@
         spacesForce = true;
         inherit containers pins spaces;
       };
-    suppressXdgMigrationWarning = true;
   };
 
   stylix.targets.zen-browser = {
@@ -284,7 +282,7 @@
         map
           (name: {
             inherit name;
-            value = inputs.zen-browser.packages.${system}.twilight.meta.desktopFileName;
+            value = "zen-twilight.desktop";
           })
           [
             "application/x-extension-shtml"
