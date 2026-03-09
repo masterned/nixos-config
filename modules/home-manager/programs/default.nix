@@ -10,6 +10,7 @@
   onlyoffice = import ./onlyoffice.nix;
   rmpc = import ./rmpc.nix;
   waybar = import ./waybar.nix;
+  youtube-tui = import ./youtube-tui.nix;
   yt-dlp = import ./yt-dlp.nix;
   zen-browser = import ./zen-browser.nix;
 }

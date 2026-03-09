@@ -18,6 +18,7 @@
     outputs.hmModules.programs.nushell
     outputs.hmModules.programs.onlyoffice
     outputs.hmModules.programs.rmpc
+    outputs.hmModules.programs.youtube-tui
     outputs.hmModules.programs.yt-dlp
     outputs.hmModules.programs.zen-browser
     outputs.hmModules.services.mpd
