@@ -1,5 +1,14 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home.packages = with pkgs; [
+    pavucontrol
+  ];
+
   programs.ashell = {
     enable = true;
     settings = {
