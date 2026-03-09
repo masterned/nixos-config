@@ -12,6 +12,7 @@
     outputs.hmModules.programs.ashell
     outputs.hmModules.programs.bottom
     outputs.hmModules.programs.helix
+    outputs.hmModules.programs.imv
     outputs.hmModules.programs.jujutsu
     outputs.hmModules.programs.mpv
     outputs.hmModules.programs.newsboat
@@ -20,6 +21,7 @@
     outputs.hmModules.programs.rmpc
     outputs.hmModules.programs.youtube-tui
     outputs.hmModules.programs.yt-dlp
+    outputs.hmModules.programs.zathura
     outputs.hmModules.programs.zen-browser
     outputs.hmModules.services.mpd
     outputs.hmModules.xdg
@@ -72,7 +74,6 @@
       enable = true;
       installBatSyntax = true;
     };
-    imv.enable = true;
     obs-studio.enable = true;
     ripgrep.enable = true;
     starship.enable = true;
@@ -82,7 +83,6 @@
       enableNushellIntegration = true;
       shellWrapperName = "yy";
     };
-    zathura.enable = true;
     zoxide.enable = true;
   };
 
@@ -90,18 +90,5 @@
     gpg-agent.enable = true;
     playerctld.enable = true;
     remmina.enable = true;
-  };
-
-  xdg.mimeApps = {
-    associations.added = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "image/jpeg" = [ "imv.desktop" ];
-      "image/png" = [ "imv.desktop" ];
-    };
-    defaultApplications = {
-      "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-      "image/jpeg" = [ "imv.desktop" ];
-      "image/png" = [ "imv.desktop" ];
-    };
   };
 }
