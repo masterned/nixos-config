@@ -1,7 +1,6 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, system, ... }:
 let
-  system = pkgs.stdenv.hostPlatform.system;
-  hyprpkgs = inputs.hyprland.packages;
+  hyprpkgs = inputs.hyprland.packages.${system};
 in
 {
   environment.variables.NIXOS_OZONE_WL = "1";
@@ -19,8 +18,8 @@ in
     enable = true;
     withUWSM = true;
 
-    package = hyprpkgs.${system}.hyprland;
-    portalPackage = hyprpkgs.${system}.xdg-desktop-portal-hyprland;
+    package = hyprpkgs.hyprland;
+    portalPackage = hyprpkgs.xdg-desktop-portal-hyprland;
   };
 
   security.pam.services.hyprlock = { };
@@ -30,11 +29,9 @@ in
   xdg.portal = {
     enable = true;
 
-    extraPortals =
-      with pkgs;
-      lib.mkForce [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-      ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      hyprpkgs.xdg-desktop-portal-hyprland
+    ];
   };
 }
