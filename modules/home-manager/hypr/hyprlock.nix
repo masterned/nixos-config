@@ -1,8 +1,8 @@
-{ inputs, pkgs, ... }:
+{ inputs, system, ... }:
 {
   programs.hyprlock = {
     enable = true;
-    package = inputs.hyprlock.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.hyprlock.packages.${system}.default;
 
     settings = {
       general = {

@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }:
+{ inputs, system, ... }:
 {
   services = {
     hypridle = {
       enable = true;
-      package = inputs.hypridle.packages.${pkgs.stdenv.hostPlatform.system}.hypridle;
+      package = inputs.hypridle.packages.${system}.hypridle;
 
       settings = {
         general = {

@@ -2,11 +2,9 @@
   config,
   pkgs,
   inputs,
+  system,
   ...
 }:
-let
-  system = pkgs.stdenv.hostPlatform.system;
-in
 {
   home.packages = with pkgs; [
     brightnessctl
@@ -38,12 +36,12 @@ in
   };
   wayland.windowManager.hyprland =
     let
-      hypr-pkgs = inputs.hyprland.packages;
+      hyprpkgs = inputs.hyprland.packages.${system};
     in
     {
       enable = true;
-      package = hypr-pkgs.${system}.hyprland;
-      portalPackage = hypr-pkgs.${system}.xdg-desktop-portal-hyprland;
+      package = hyprpkgs.hyprland;
+      portalPackage = hyprpkgs.xdg-desktop-portal-hyprland;
       plugins = [
         inputs.split-monitor-workspaces.packages.${system}.split-monitor-workspaces
       ];
@@ -52,9 +50,7 @@ in
           disable_logs = false;
           enable_stdout_logs = true;
         };
-        cursor = {
-          # no_hardware_cursors = 1;
-        };
+        cursor = { };
         monitor = [
           ",preferred,auto,auto"
         ];
