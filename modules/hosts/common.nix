@@ -1,4 +1,9 @@
-{ outputs, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
 {
   boot = {
     initrd.systemd.enable = true;
@@ -8,6 +13,21 @@
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      fd
+      gcc
+      git
+      helix
+      jujutsu
+      nushell
+      starship
+      tealdeer
+      yazi
+    ];
+    variables.EDITOR = "hx";
   };
 
   fonts.packages = with pkgs; [
@@ -20,6 +40,7 @@
   hardware.keyboard.zsa.enable = true;
 
   imports = [
+    inputs.home-manager.nixosModules.default
     outputs.nixosModules.hypr
     outputs.nixosModules.programs.regreet
     # outputs.nixosModules.services.ly
@@ -49,11 +70,15 @@
     ];
   };
 
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
