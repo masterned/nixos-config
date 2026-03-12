@@ -95,7 +95,7 @@
       formatter.${system} = pkgs.nixfmt-tree;
 
       hmModules = import ./modules/home-manager;
-      hosts = import ./modules/hosts;
+      hostModules = import ./modules/hosts;
       nixosModules = import ./modules/nixos;
 
       nixosConfigurations = {

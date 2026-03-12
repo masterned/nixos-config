@@ -1,7 +1,7 @@
 { outputs, ... }:
 
 {
-  imports = [ outputs.hosts.cygnus ];
+  imports = [ outputs.hostModules.cygnus ];
 
   system.stateVersion = "23.05"; # No touchy!
 }

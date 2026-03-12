@@ -33,7 +33,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-    outputs.hosts.common
+    outputs.hostModules.common
     outputs.nixosModules.podman
     outputs.nixosModules.programs.nh
     outputs.nixosModules.services.printing
