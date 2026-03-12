@@ -3,6 +3,7 @@
   lib,
   outputs,
   pkgs,
+  system,
   ...
 }:
 {
@@ -17,6 +18,13 @@
       enable = true;
       enableGraphical = true;
     };
+  };
+  home-manager = {
+    backupFileExtension = "backup";
+    extraSpecialArgs = {
+      inherit inputs outputs system;
+    };
+    users.spencer = import ../../../home.nix;
   };
   imports = [
     ./hardware-configuration.nix

@@ -9,19 +9,23 @@
     };
     plymouth.enable = true;
   };
+
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     material-symbols
   ];
+
   hardware.keyboard.zsa.enable = true;
+
   imports = [
     outputs.nixosModules.hypr
     outputs.nixosModules.programs.regreet
     # outputs.nixosModules.services.ly
     outputs.nixosModules.services.pipewire
   ];
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -36,6 +40,7 @@
       LC_TIME = "en_US.UTF-8";
     };
   };
+
   networking.networkmanager = {
     enable = true;
     insertNameservers = [
@@ -43,11 +48,23 @@
       "1.1.1.1" # Cloudflare
     ];
   };
+
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
   programs.ssh.startAgent = true;
+
   services = {
     fwupd.enable = true;
     gvfs.enable = true;
     seatd.enable = true;
   };
+
   time.timeZone = "America/New_York";
 }
