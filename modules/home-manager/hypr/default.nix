@@ -33,6 +33,9 @@
         splash = false;
       };
     };
+    udiskie = {
+      enable = true;
+    };
   };
   wayland.windowManager.hyprland =
     let
