@@ -34,7 +34,6 @@
       nushell
       starship
       tealdeer
-      vulnix
       yazi
     ];
     variables.EDITOR = "hx";

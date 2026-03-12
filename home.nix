@@ -83,6 +83,7 @@
       signal-desktop
       thunderbird
       typst
+      vulnix
     ];
     file = { };
     shell.enableNushellIntegration = true;
