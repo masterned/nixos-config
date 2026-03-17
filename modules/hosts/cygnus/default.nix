@@ -7,6 +7,9 @@
   system,
   ...
 }:
+let
+  hostName = "cygnus";
+in
 {
   boot.initrd = {
     luks.devices."luks-b9ce3219-26fc-4eca-ba70-d402e918a306".device =
@@ -40,12 +43,32 @@
     outputs.nixosModules.stylix
   ];
 
-  networking.hostName = "cygnus";
+  networking = {
+    inherit hostName;
+  };
 
   programs.nh.flake = "/home/spencer/Workspaces/nixos";
 
   services = {
     blueman.enable = true;
+    caddy = {
+      enable = true;
+      openFirewall = true;
+      virtualHosts =
+        let
+          host_tld = "${hostName}.local";
+          http_root = "/srv/http";
+          md_book = name: {
+            "${name}.${host_tld}" = {
+              extraConfig = ''
+                root * ${http_root}/${name}
+                file_server
+              '';
+            };
+          };
+        in
+        { } // md_book "grimoire" // md_book "rockhopper";
+    };
     flatpak.enable = true;
     gnome = {
       gcr-ssh-agent.enable = false;
