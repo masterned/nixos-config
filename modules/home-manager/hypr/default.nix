@@ -10,6 +10,8 @@
     brightnessctl
     grimblast
     hyprpolkitagent
+    hyprsysteminfo
+    hyprpwcenter
     slurp
     swaynotificationcenter
     wl-screenrec
