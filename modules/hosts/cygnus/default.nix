@@ -67,7 +67,16 @@ in
             };
           };
         in
-        { } // md_book "grimoire" // md_book "rockhopper";
+        {
+          ":80" = {
+            extraConfig = ''
+              root * ${http_root}
+              file_server
+            '';
+          };
+        }
+        // md_book "grimoire"
+        // md_book "rockhopper";
     };
     flatpak.enable = true;
     gnome = {
