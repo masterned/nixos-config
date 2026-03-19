@@ -1,8 +1,7 @@
-{ inputs, system, ... }:
+{ ... }:
 {
   programs.hyprlock = {
     enable = true;
-    package = inputs.hyprlock.packages.${system}.default;
 
     settings = {
       general = {

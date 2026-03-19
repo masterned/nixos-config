@@ -1,9 +1,8 @@
-{ inputs, system, ... }:
+{ ... }:
 {
   services = {
     hypridle = {
       enable = true;
-      package = inputs.hypridle.packages.${system}.hypridle;
 
       settings = {
         general = {
