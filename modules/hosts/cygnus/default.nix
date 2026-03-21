@@ -47,7 +47,20 @@ in
     inherit hostName;
   };
 
-  programs.nh.flake = "/home/spencer/Workspaces/nixos";
+  programs = {
+    nh.flake = "/home/spencer/Workspaces/nixos";
+    ssh = {
+      extraConfig = ''
+        Host diakonos
+          Hostname 10.0.0.2
+          Port 22
+          User cygnus
+
+          IdentitiesOnly yes
+          IdentityFile ~/.ssh/diakonos
+      '';
+    };
+  };
 
   services = {
     blueman.enable = true;
