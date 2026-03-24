@@ -1,5 +1,5 @@
 {
-  ashell = import ./ashell.nix;
+  # ashell = import ./ashell.nix;
   atuin = import ./atuin.nix;
   bottom = import ./bottom.nix;
   helix = import ./helix.nix;

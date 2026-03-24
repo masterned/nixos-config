@@ -39,6 +39,7 @@ in
     outputs.hostModules.common
     outputs.nixosModules.podman
     outputs.nixosModules.programs.nh
+    outputs.nixosModules.programs.noctalia
     outputs.nixosModules.services.printing
     outputs.nixosModules.stylix
   ];

@@ -9,7 +9,6 @@
     outputs.hmModules.gnome-software
     outputs.hmModules.hypr
     outputs.hmModules.programs.atuin
-    outputs.hmModules.programs.ashell
     outputs.hmModules.programs.bottom
     outputs.hmModules.programs.helix
     outputs.hmModules.programs.imv
@@ -78,7 +77,6 @@
       ffmpeg
       gimp3
       inkscape
-      libnotify
       networkmanagerapplet
       ouch
       rustup

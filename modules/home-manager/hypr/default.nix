@@ -1,39 +1,19 @@
 {
   config,
+  lib,
   pkgs,
-  inputs,
-  system,
   ...
 }:
 {
   home.packages = with pkgs; [
-    brightnessctl
     grimblast
     hyprpolkitagent
     hyprsysteminfo
-    hyprpwcenter
     slurp
-    swaynotificationcenter
     wl-screenrec
   ];
-  imports = [
-    ./hyprlock.nix
-    ./hypridle.nix
-    ./hyprsunset.nix
-  ];
+  imports = [ ];
   services = {
-    hyprlauncher = {
-      enable = true;
-      settings = {
-        finders.desktop_launch_prefix = "uwsm app -- ";
-      };
-    };
-    hyprpaper = {
-      enable = true;
-      settings = {
-        splash = false;
-      };
-    };
     udiskie = {
       enable = true;
     };
@@ -46,40 +26,61 @@
         disable_logs = false;
         enable_stdout_logs = true;
       };
+
       cursor = { };
+
       monitor = [
         ",preferred,auto,auto"
       ];
+
       env = [
         "XCURSOR_THEME,Bibata-Original-Ice"
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
       ];
+
       "exec-once" = [
-        "hypridle"
-        "swaync"
+        "noctalia-shell"
         "systemctl --user start hyprpolkitagent"
       ];
+
       general = {
+        allow_tearing = false;
+
+        border_size = 2;
+
         gaps_in = 5;
         gaps_out = 10;
-        border_size = 2;
-        resize_on_border = false;
-        allow_tearing = false;
+
         layout = "dwindle";
+
+        resize_on_border = false;
       };
 
       decoration = {
-        rounding = 10;
-        active_opacity = 1.0;
-        inactive_opacity = 0.9;
         blur = {
           enabled = true;
+          passes = 2;
           size = 3;
-          passes = 1;
           vibrancy = 0.1696;
         };
+
+        # opacity
+        active_opacity = 1.0;
+        inactive_opacity = 0.9;
+
+        # rounding
+        rounding = 10;
+        rounding_power = 2;
+
+        shadow = {
+          enabled = true;
+          color = lib.mkDefault "rgba(1a1a1aee)";
+          range = 4;
+          render_power = 3;
+        };
       };
+
       animations = {
         enabled = true;
         bezier = [
@@ -116,6 +117,17 @@
         pseudotile = true;
         preserve_split = true;
       };
+
+      layerrule = [
+        {
+          name = "noctalia";
+          "match:namespace" = "noctalia-background-.*$";
+          ignore_alpha = 0.5;
+          blur = true;
+          blur_popups = true;
+        }
+      ];
+
       master = {
         new_status = "master";
       };
@@ -151,12 +163,13 @@
         };
       };
 
-      "$mod" = "SUPER";
+      "$ipc" = "noctalia-shell ipc call";
+
       bind = [
         "CTRL ALT, DELETE, exec, uwsm stop"
         "SUPER, T, exec, uwsm app -- ghostty"
         "SUPER, Q, killactive"
-        "SUPER, ESCAPE, exec, hyprlock & (sleep 1 && hyprctl dispatch dpms off)"
+        "SUPER, ESCAPE, exec, $ipc lockScreen lock"
         "SUPER, F, exec, uwsm app -- nautilus"
         "SUPER, B, exec, uwsm app -- zen-twilight"
         "SUPER, M, exec, uwsm app -- discord"
@@ -199,25 +212,39 @@
         ", Print, exec, grimblast copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
         "CTRL, Print, exec, pkill wl-screenrec || wl-screenrec -g \"$(slurp)\""
       ];
+
       bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
+
       bindr = [
-        "SUPER, SUPER_L, exec, hyprlauncher"
+        "SUPER, SUPER_L, exec, $ipc launcher toggle"
       ];
+
       bindel = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        ",XF86AudioPlay, exec, playerctl play-pause"
-        ",XF86AudioPrev, exec, playerctl previous"
-        ",XF86AudioNext, exec, playerctl next"
+        # Brightness
+        ",XF86MonBrightnessDown, exec, $ipc brightness decrease"
+        ",XF86MonBrightnessUp, exec, $ipc brightness increase"
+
+        # Volume
+        ",XF86AudioLowerVolume, exec, $ipc volume decrease"
+        ",XF86AudioRaiseVolume, exec, $ipc volume increase"
       ];
+
+      bindl = [
+        # Media
+        ",XF86AudioPrev, exec, $ipc media previous"
+        ",XF86AudioPlay, exec, $ipc media playPause"
+        ",XF86AudioNext, exec, $ipc media next"
+
+        # Volume
+        ",XF86AudioMicMute, exec, $ipc volumne muteInput"
+        ",XF86AudioMute, exec, $ipc volume muteOutput"
+      ];
+
       plugin = { };
+
       windowrule = [
         {
           # Ignore maximize requests from all apps. You'll probably like this.
