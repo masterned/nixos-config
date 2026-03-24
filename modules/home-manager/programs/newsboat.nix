@@ -227,6 +227,14 @@
           url = yt_url "UCJQEEltSpi8LXqMH8uTrCQQ";
         }
         {
+          title = "Sascha Koenig";
+          tags = [
+            "nixos"
+            "youtube"
+          ];
+          url = yt_url "UCnrVJrE6JLB75nU7tZZ7BSw";
+        }
+        {
           title = "Slow Your Roll";
           tags = [
             "dc20"
