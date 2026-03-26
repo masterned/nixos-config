@@ -7,6 +7,7 @@
 {
   home.packages = with pkgs; [
     grimblast
+    gpu-screen-recorder
     hyprsysteminfo
     slurp
     wl-screenrec
