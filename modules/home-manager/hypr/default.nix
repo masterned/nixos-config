@@ -7,7 +7,6 @@
 {
   home.packages = with pkgs; [
     grimblast
-    hyprpolkitagent
     hyprsysteminfo
     slurp
     wl-screenrec
@@ -41,7 +40,6 @@
 
       "exec-once" = [
         "noctalia-shell"
-        "systemctl --user start hyprpolkitagent"
       ];
 
       general = {
