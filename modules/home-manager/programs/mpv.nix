@@ -9,6 +9,11 @@
         skipsilence
       ];
     };
+    bindings = {
+      "-" = "add volume -5";
+      "+" = "add volume 5";
+      "=" = "set volume 100";
+    };
     config = {
       ytdl-format = "bestvideo[height<=?720]+bestaudio";
       vo = "gpu";
