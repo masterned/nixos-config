@@ -16,6 +16,10 @@ in
       "/dev/disk/by-uuid/b9ce3219-26fc-4eca-ba70-d402e918a306";
   };
 
+  fonts.packages = [
+    (pkgs.google-fonts.override { fonts = [ "Genos" ]; })
+  ];
+
   hardware = {
     bluetooth.enable = true;
     graphics.enable = true;
