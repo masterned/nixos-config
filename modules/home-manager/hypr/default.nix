@@ -238,7 +238,7 @@
         ",XF86AudioNext, exec, $ipc media next"
 
         # Volume
-        ",XF86AudioMicMute, exec, $ipc volumne muteInput"
+        ",XF86AudioMicMute, exec, $ipc volume muteInput"
         ",XF86AudioMute, exec, $ipc volume muteOutput"
       ];
 
