@@ -16,6 +16,8 @@ in
       "/dev/disk/by-uuid/b9ce3219-26fc-4eca-ba70-d402e918a306";
   };
 
+  environment.systemPackages = [ pkgs.xwayland-satellite ];
+
   fonts.packages = [
     (pkgs.google-fonts.override { fonts = [ "Genos" ]; })
   ];
@@ -54,6 +56,7 @@ in
 
   programs = {
     nh.flake = "/home/spencer/Workspaces/nixos";
+    niri.enable = true;
     ssh = {
       extraConfig = ''
         Host diakonos
@@ -122,4 +125,10 @@ in
 
   systemd.services.mpd.environment.XDG_RUNTIME_DIR =
     "/run/user/${toString config.users.users.spencer.uid}";
+
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+  ];
 }
