@@ -6,7 +6,7 @@
   imv = import ./imv.nix;
   jujutsu = import ./jujutsu.nix;
   mpv = import ./mpv.nix;
-  newsboat = import ./newsboat.nix;
+  newsboat = import ./newsboat;
   nushell = import ./nushell.nix;
   onlyoffice = import ./onlyoffice.nix;
   rmpc = import ./rmpc.nix;
