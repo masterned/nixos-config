@@ -66,6 +66,14 @@ in
 
           IdentitiesOnly yes
           IdentityFile ~/.ssh/diakonos
+
+        Host ambroxan
+          Hostname 192.168.12.178
+          Port 22
+          User afi-spencerd
+
+          IdentitiesOnly yes
+          IdentityFile ~/.ssh/ambroxan
       '';
     };
   };
