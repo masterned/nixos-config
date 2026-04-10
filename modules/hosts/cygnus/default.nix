@@ -131,8 +131,20 @@ in
     };
   };
 
-  systemd.services.mpd.environment.XDG_RUNTIME_DIR =
-    "/run/user/${toString config.users.users.spencer.uid}";
+  systemd.services = {
+    mpd.environment.XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
+    nixos-upgrade.environment =
+      let
+        name = "NixOS Auto-upgrade";
+        email = "root@&lt;${hostName}&gt;";
+      in
+      {
+        GIT_AUTHOR_NAME = name;
+        GIT_AUTHOR_EMAIL = email;
+        GIT_COMMITTER_NAME = name;
+        GIT_COMMITTER_EMAIL = email;
+      };
+  };
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal

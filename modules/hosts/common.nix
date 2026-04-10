@@ -87,5 +87,17 @@
     seatd.enable = true;
   };
 
+  system.autoUpgrade = {
+    enable = true;
+
+    dates = "daily";
+    flake = "/home/spencer/Workspaces/nixos";
+    flags = [
+      "--print-build-logs"
+      "--commit-lock-file"
+    ];
+    randomizedDelaySec = "45min";
+  };
+
   time.timeZone = "America/New_York";
 }
