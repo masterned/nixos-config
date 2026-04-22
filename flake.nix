@@ -71,7 +71,7 @@
           specialArgs = {
             inherit inputs outputs system;
           };
-          modules = [ ./configuration.nix ];
+          modules = [ outputs.hostModules.cygnus ];
         };
       };
     };

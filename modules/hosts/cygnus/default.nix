@@ -131,6 +131,8 @@ in
     };
   };
 
+  system.stateVersion = "23.05"; # No touchy!
+
   systemd.services = {
     mpd.environment.XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
     nixos-upgrade.environment =
