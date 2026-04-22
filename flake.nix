@@ -2,6 +2,8 @@
   description = "Config flake for cygnus";
 
   inputs = {
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     systems.url = "github:nix-systems/x86_64-linux";
@@ -53,26 +55,43 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      flake-parts,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
-    {
-      formatter.${system} = pkgs.nixfmt-tree;
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { ... }:
+      {
+        flake = {
+          formatter.${system} = pkgs.nixfmt-tree;
 
-      hmModules = import ./modules/home-manager;
-      hostModules = import ./modules/hosts;
-      nixosModules = import ./modules/nixos;
+          homeModules = import ./modules/home-manager;
+          nixosModules = import ./modules/nixos // import ./modules/hosts;
 
-      nixosConfigurations = {
-        cygnus = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs system;
+          nixosConfigurations = {
+            cygnus = nixpkgs.lib.nixosSystem {
+              specialArgs = {
+                inherit inputs outputs system;
+              };
+              modules = [ outputs.nixosModules.cygnus ];
+            };
           };
-          modules = [ outputs.hostModules.cygnus ];
         };
-      };
-    };
+
+        imports = [
+          inputs.home-manager.flakeModules.home-manager
+        ];
+
+        systems = [
+          "${system}"
+        ];
+      }
+    );
 }

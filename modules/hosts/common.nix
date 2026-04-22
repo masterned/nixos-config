@@ -42,9 +42,9 @@
   imports = [
     inputs.home-manager.nixosModules.default
     outputs.nixosModules.hypr
-    outputs.nixosModules.programs.regreet
-    # outputs.nixosModules.services.ly
-    outputs.nixosModules.services.pipewire
+    outputs.nixosModules.regreet
+    # outputs.nixosModules.ly
+    outputs.nixosModules.pipewire
   ];
 
   i18n = {

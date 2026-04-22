@@ -6,24 +6,24 @@
 
 {
   imports = [
-    outputs.hmModules.gnome-software
-    outputs.hmModules.hypr
-    outputs.hmModules.programs.atuin
-    outputs.hmModules.programs.bottom
-    outputs.hmModules.programs.helix
-    outputs.hmModules.programs.imv
-    outputs.hmModules.programs.jujutsu
-    outputs.hmModules.programs.mpv
-    outputs.hmModules.programs.newsboat
-    outputs.hmModules.programs.nushell
-    outputs.hmModules.programs.onlyoffice
-    outputs.hmModules.programs.rmpc
-    outputs.hmModules.programs.youtube-tui
-    outputs.hmModules.programs.yt-dlp
-    outputs.hmModules.programs.zathura
-    outputs.hmModules.programs.zen-browser
-    outputs.hmModules.services.mpd
-    outputs.hmModules.xdg
+    outputs.homeModules.gnome-software
+    outputs.homeModules.hypr
+    outputs.homeModules.atuin
+    outputs.homeModules.bottom
+    outputs.homeModules.helix
+    outputs.homeModules.imv
+    outputs.homeModules.jujutsu
+    outputs.homeModules.mpv
+    outputs.homeModules.newsboat
+    outputs.homeModules.nushell
+    outputs.homeModules.onlyoffice
+    outputs.homeModules.rmpc
+    outputs.homeModules.youtube-tui
+    outputs.homeModules.yt-dlp
+    outputs.homeModules.zathura
+    outputs.homeModules.zen-browser
+    outputs.homeModules.mpd
+    outputs.homeModules.xdg
   ];
 
   nixpkgs.config.allowUnfree = true;

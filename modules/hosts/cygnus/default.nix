@@ -42,11 +42,12 @@ in
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-    outputs.hostModules.common
+    outputs.nixosModules.common
+    # outputs.hostModules.common
     outputs.nixosModules.podman
-    outputs.nixosModules.programs.nh
-    outputs.nixosModules.programs.noctalia
-    outputs.nixosModules.services.printing
+    outputs.nixosModules.nh
+    outputs.nixosModules.noctalia
+    outputs.nixosModules.printing
     outputs.nixosModules.stylix
   ];
 

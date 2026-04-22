@@ -1,3 +1,0 @@
-{
-  mpd = import ./mpd.nix;
-}
