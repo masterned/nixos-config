@@ -4,16 +4,14 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    systems.url = "github:nix-systems/x86_64-linux";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -39,6 +37,8 @@
         systems.follows = "systems";
       };
     };
+
+    systems.url = "github:nix-systems/x86_64-linux";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
