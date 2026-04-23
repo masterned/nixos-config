@@ -50,9 +50,10 @@
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           self.nixosModules.common
           self.nixosModules.cygnusHardware
-          self.nixosModules.podman
           self.nixosModules.nh
+          self.nixosModules.niri
           self.nixosModules.noctalia
+          self.nixosModules.podman
           self.nixosModules.printing
           self.nixosModules.stylix
         ];
@@ -63,7 +64,6 @@
 
         programs = {
           nh.flake = "/home/spencer/Workspaces/nixos";
-          niri.enable = true;
           ssh = {
             extraConfig = ''
               Host diakonos
@@ -154,12 +154,10 @@
               GIT_COMMITTER_EMAIL = email;
             };
         };
-
-        xdg.portal.extraPortals = with pkgs; [
-          xdg-desktop-portal
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal-gnome
-        ];
+        xdg.portal = {
+          enable = true;
+          extraPortals = with pkgs; [ xdg-desktop-portal ];
+        };
       };
   };
 }
