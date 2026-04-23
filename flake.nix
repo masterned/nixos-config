@@ -58,13 +58,11 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       flake-parts,
       ...
     }@inputs:
     let
-      inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
@@ -74,17 +72,7 @@
         flake = {
           formatter.${system} = pkgs.nixfmt-tree;
 
-          homeModules = import ./modules/home-manager;
-          nixosModules = import ./modules/hosts;
-
-          nixosConfigurations = {
-            cygnus = nixpkgs.lib.nixosSystem {
-              specialArgs = {
-                inherit inputs outputs system;
-              };
-              modules = [ outputs.nixosModules.cygnus ];
-            };
-          };
+          homeModules = import ./modules/_home-manager;
         };
 
         imports = [
@@ -95,6 +83,6 @@
           system
         ];
       }
-      // inputs.import-tree ./modules/nixos
+      // inputs.import-tree ./modules
     );
 }
