@@ -43,7 +43,7 @@
             outputs = self;
             system = pkgs.stdenv.hostPlatform.system;
           };
-          users.spencer = import ../../../home.nix;
+          users.spencer = import ../../_homes/spencer;
         };
 
         imports = [
