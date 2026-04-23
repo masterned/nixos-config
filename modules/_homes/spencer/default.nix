@@ -7,7 +7,6 @@
 {
   imports = [
     outputs.homeModules.gnome-software
-    outputs.homeModules.hypr
     outputs.homeModules.atuin
     outputs.homeModules.bottom
     outputs.homeModules.helix

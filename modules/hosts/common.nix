@@ -39,9 +39,7 @@
 
       imports = [
         inputs.home-manager.nixosModules.default
-        self.nixosModules.hypr
         self.nixosModules.regreet
-        # self.nixosModules.ly
         self.nixosModules.pipewire
       ];
 
