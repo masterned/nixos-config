@@ -1,15 +1,19 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  environment.systemPackages = with pkgs; [
-    protonup-ng
-  ];
+  flake.nixosModules.steam =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        protonup-ng
+      ];
 
-  programs = {
-    gamemode.enable = true;
+      programs = {
+        gamemode.enable = true;
 
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
+        steam = {
+          enable = true;
+          gamescopeSession.enable = true;
+        };
+      };
     };
-  };
 }

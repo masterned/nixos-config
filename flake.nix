@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    import-tree.url = "github:vic/import-tree";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -73,7 +75,7 @@
           formatter.${system} = pkgs.nixfmt-tree;
 
           homeModules = import ./modules/home-manager;
-          nixosModules = import ./modules/nixos // import ./modules/hosts;
+          nixosModules = import ./modules/hosts;
 
           nixosConfigurations = {
             cygnus = nixpkgs.lib.nixosSystem {
@@ -90,8 +92,9 @@
         ];
 
         systems = [
-          "${system}"
+          system
         ];
       }
+      // inputs.import-tree ./modules/nixos
     );
 }

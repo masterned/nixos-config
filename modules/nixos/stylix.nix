@@ -1,55 +1,59 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-  ];
+  flake.nixosModules.stylix =
+    { pkgs, ... }:
+    {
+      imports = [
+        inputs.stylix.nixosModules.stylix
+      ];
 
-  stylix = {
-    enable = true;
+      stylix = {
+        enable = true;
 
-    image = ../../assets/images/neo_EPCOT.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+        image = ../../assets/images/neo_EPCOT.jpg;
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Ice";
-      size = 24;
+        cursor = {
+          package = pkgs.bibata-cursors;
+          name = "Bibata-Original-Ice";
+          size = 24;
+        };
+
+        fonts = {
+          monospace = {
+            package = pkgs.nerd-fonts.fira-code;
+            name = "FiraCode Nerd Font Mono";
+          };
+          sansSerif = {
+            # package = pkgs.google-fonts.override { fonts = [ "Genos" ]; };
+            # name = "Genos";
+            package = pkgs.dejavu_fonts;
+            name = "DejaVu Sans";
+          };
+          serif = {
+            package = pkgs.dejavu_fonts;
+            name = "DejaVu Serif";
+          };
+          emoji = {
+            package = pkgs.noto-fonts-color-emoji;
+            name = "Noto Color Emoji";
+          };
+          sizes = {
+            applications = 12;
+            terminal = 12;
+            desktop = 10;
+            popups = 10;
+          };
+        };
+
+        opacity = {
+          applications = 1.0;
+          terminal = 0.95;
+          desktop = 0.9;
+          popups = 0.95;
+        };
+
+        polarity = "dark";
+      };
     };
-
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.fira-code;
-        name = "FiraCode Nerd Font Mono";
-      };
-      sansSerif = {
-        # package = pkgs.google-fonts.override { fonts = [ "Genos" ]; };
-        # name = "Genos";
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-      sizes = {
-        applications = 12;
-        terminal = 12;
-        desktop = 10;
-        popups = 10;
-      };
-    };
-
-    opacity = {
-      applications = 1.0;
-      terminal = 0.95;
-      desktop = 0.9;
-      popups = 0.95;
-    };
-
-    polarity = "dark";
-  };
 }

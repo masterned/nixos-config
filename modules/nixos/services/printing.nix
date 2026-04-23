@@ -1,17 +1,21 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
+  flake.nixosModules.printing =
+    { pkgs, ... }:
+    {
+      services = {
+        avahi = {
+          enable = true;
+          nssmdns4 = true;
+          openFirewall = true;
+        };
+        printing = {
+          enable = true;
+          drivers = with pkgs; [
+            gutenprint
+            hplip
+          ];
+        };
+      };
     };
-    printing = {
-      enable = true;
-      drivers = with pkgs; [
-        gutenprint
-        hplip
-      ];
-    };
-  };
 }
