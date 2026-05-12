@@ -80,6 +80,7 @@
       ouch
       rustup
       signal-desktop
+      tagutil
       thunderbird
       typst
       vulnix
