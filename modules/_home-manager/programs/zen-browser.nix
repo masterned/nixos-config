@@ -197,11 +197,11 @@
             isEssential = true;
             position = 103;
           };
-          "Ops Report" = {
-            id = "b7c02a50-b478-4fe2-83c8-a06a8a2a5b58";
+          Action1 = {
+            id = "fc0094d1-403b-4d3c-8cf6-f0d86b23ecde";
             container = containers.Work.id;
             workspace = spaces.AFI.id;
-            url = "https://aromaticfragrancesintl.sharepoint.com/:x:/r/sites/10amOpsmeeting/_layouts/15/Doc.aspx?sourcedoc=%7BF2B9CE1C-18C9-40E5-872C-41C61D5427F3%7D&file=12%20Programming%202026.xlsx";
+            url = "https://app.action1.com/console/endpoints";
             isEssential = true;
             position = 201;
           };
@@ -213,11 +213,11 @@
             isEssential = true;
             position = 202;
           };
-          Planner = {
-            id = "8ce9431c-d669-4cfc-b679-ef6499f0fd76";
+          Copilot = {
+            id = "f240edf3-9648-493e-8bd2-9f5a03eaa5b3";
             container = containers.Work.id;
             workspace = spaces.AFI.id;
-            url = "https://planner.cloud.microsoft";
+            url = "https://m365.cloud.microsoft/chat";
             isEssential = true;
             position = 203;
           };
