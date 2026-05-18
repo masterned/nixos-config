@@ -75,7 +75,6 @@
       discord
       ffmpeg
       gimp3
-      inkscape
       networkmanagerapplet
       ouch
       rustup
