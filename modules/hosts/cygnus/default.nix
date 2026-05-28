@@ -133,7 +133,6 @@
             extraGroups = [
               "networkmanager"
               "podman"
-              "seat"
               "wheel"
             ];
             useDefaultShell = true;

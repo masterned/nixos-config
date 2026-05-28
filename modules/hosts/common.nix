@@ -80,7 +80,6 @@
       services = {
         fwupd.enable = true;
         gvfs.enable = true;
-        seatd.enable = true;
       };
 
       system.autoUpgrade = {
