@@ -54,6 +54,8 @@
         };
 
         polarity = "dark";
+
+        targets.kmscon.enable = false;
       };
     };
 }
