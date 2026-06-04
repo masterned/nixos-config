@@ -65,8 +65,6 @@
     };
   };
 
-  gtk.gtk4.theme = null;
-
   home = {
     username = "spencer";
     homeDirectory = "/home/spencer";
