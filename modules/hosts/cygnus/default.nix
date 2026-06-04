@@ -77,7 +77,7 @@
                 IdentityFile ~/.ssh/diakonos
 
               Host ambroxan
-                Hostname 192.168.12.178
+                Hostname 192.168.12.58
                 Port 22
                 User afi-spencerd
 
