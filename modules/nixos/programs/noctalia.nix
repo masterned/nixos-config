@@ -6,6 +6,7 @@
       environment.systemPackages = [
         inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
         pkgs.gpu-screen-recorder
+        pkgs.fastfetch
       ];
 
       nix.settings = {
