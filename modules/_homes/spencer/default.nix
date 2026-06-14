@@ -14,6 +14,7 @@
     outputs.homeModules.jujutsu
     outputs.homeModules.mpv
     outputs.homeModules.newsboat
+    outputs.homeModules.noctalia
     outputs.homeModules.nushell
     outputs.homeModules.onlyoffice
     outputs.homeModules.rmpc

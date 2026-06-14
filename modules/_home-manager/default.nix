@@ -10,6 +10,7 @@
   mpd = import ./services/mpd.nix;
   mpv = import ./programs/mpv.nix;
   newsboat = import ./programs/newsboat;
+  noctalia = import ./programs/noctalia.nix;
   nushell = import ./programs/nushell.nix;
   onlyoffice = import ./programs/onlyoffice.nix;
   programs = import ./programs;
