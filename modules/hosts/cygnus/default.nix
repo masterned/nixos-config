@@ -116,6 +116,7 @@
               // md_book "grimoire"
               // md_book "rockhopper";
           };
+          displayManager.cosmic-greeter.enable = true;
           flatpak.enable = true;
           gnome = {
             gcr-ssh-agent.enable = false;
