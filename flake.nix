@@ -16,22 +16,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        noctalia-qs.follows = "noctalia-qs";
-      };
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-        treefmt-nix.follows = "treefmt-nix";
-      };
-    };
-
+    
     stylix = {
       url = "github:nix-community/stylix";
       inputs = {
