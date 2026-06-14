@@ -39,7 +39,7 @@
 
       imports = [
         inputs.home-manager.nixosModules.default
-        self.nixosModules.regreet
+        # self.nixosModules.regreet
         self.nixosModules.pipewire
       ];
 
