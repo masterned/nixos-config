@@ -62,6 +62,9 @@
 
         networking = {
           inherit hostName;
+          extraHosts = ''
+              127.0.0.1 cygnus.home.arpa
+            '';
         };
 
         programs = {
@@ -94,7 +97,7 @@
             openFirewall = true;
             virtualHosts =
               let
-                host_tld = "${hostName}.local";
+                host_tld = "${hostName}.home.arpa";
                 http_root = "/srv/http";
                 md_book = name: {
                   "${name}.${host_tld}" = {
@@ -106,10 +109,10 @@
                 };
               in
               {
-                ":80" = {
+                "${host_tld}:80, ${host_tld}:443" = {
                   extraConfig = ''
-                    root * ${http_root}
-                    file_server
+                    root * ${http_root}/public
+                    file_server browse
                   '';
                 };
               }

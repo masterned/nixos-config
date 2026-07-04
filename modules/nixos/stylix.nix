@@ -10,6 +10,12 @@
       stylix = {
         enable = true;
 
+        # A more nix idiomatic way of storing the image. Could lead to chicken-and-egg if stored on same machine.
+        # image = pkgs.fetchurl {
+        #   url = "http://cygnus.home.arpa/neo_EPCOT.jpg";
+        #   sha256 = "sha256-XO9mAGBTR2gpzKASPxNEZF3BHuoZ//b4ZIKwBvPKlsA=";
+        # };
+
         image = ../../assets/images/neo_EPCOT.jpg;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
