@@ -22,4 +22,5 @@
   yt-dlp = import ./programs/yt-dlp.nix;
   zathura = import ./programs/zathura.nix;
   zen-browser = import ./programs/zen-browser.nix;
+  zellij = import ./programs/zellij.nix;
 }

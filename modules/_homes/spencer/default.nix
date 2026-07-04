@@ -24,6 +24,7 @@
     outputs.homeModules.zen-browser
     outputs.homeModules.mpd
     outputs.homeModules.xdg
+    outputs.homeModules.zellij
   ];
 
   nixpkgs.config.allowUnfree = true;
