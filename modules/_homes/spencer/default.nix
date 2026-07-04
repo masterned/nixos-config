@@ -115,7 +115,10 @@
       enableNushellIntegration = true;
       nix-direnv.enable = true;
     };
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      historyWidget.command = "";
+    };
     ghostty = {
       enable = true;
       installBatSyntax = true;
