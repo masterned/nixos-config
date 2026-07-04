@@ -31,8 +31,6 @@
             name = "FiraCode Nerd Font Mono";
           };
           sansSerif = {
-            # package = pkgs.google-fonts.override { fonts = [ "Genos" ]; };
-            # name = "Genos";
             package = pkgs.dejavu_fonts;
             name = "DejaVu Sans";
           };
