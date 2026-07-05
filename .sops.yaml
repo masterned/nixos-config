@@ -1,0 +1,8 @@
+keys:
+  - &cygnus age1ugn9zmteqkmjckvr44l2d7anvex8u9te5r3qvq26xnewlwrrkplsxg99nv
+
+creation_rules:
+  - path_regex: secrets/secrets\.yaml$
+    key_groups:
+    - age:
+      - *cygnus
