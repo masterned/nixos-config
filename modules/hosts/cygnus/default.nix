@@ -53,13 +53,65 @@
 
         networking = {
           inherit hostName;
+
           extraHosts = ''
             127.0.0.1 cygnus.home.arpa
           '';
+
           nameservers = [
             "9.9.9.9"
             "149.112.112.112"
           ];
+
+          networkmanager.ensureProfiles =
+            let
+              connection = {
+                id = "Mobulidae";
+
+                # make sure to generate a random one on different machines
+                uuid = "fb3fdaff-6870-48e8-8bd9-f2ea47c9bd7e";
+
+                type = "wifi";
+                interface-name = "wlp1s0";
+              };
+            in
+            {
+              profiles = {
+                Mobulidae = {
+                  inherit connection;
+                  wifi = {
+                    cloned-mac-address = "stable-ssid";
+                    mode = "infrastructure";
+                    ssid = connection.id;
+                  };
+                  wifi-security = {
+                    auth-alg = "open";
+                    key-mgmt = "wpa-psk";
+                  };
+                  ipv4 = {
+                    method = "auto";
+                  };
+                  ipv6 = {
+                    addr-gen-mode = "default";
+                    method = "auto";
+                  };
+                  proxy = { };
+                };
+              };
+              secrets = {
+                entries = [
+                  {
+                    matchId = connection.id;
+                    matchUuid = connection.uuid;
+                    matchType = connection.type;
+                    matchIface = connection.interface-name;
+                    matchSetting = "wifi-security";
+                    key = "psk";
+                    file = config.sops.secrets."wifi/mobulidae_psk".path;
+                  }
+                ];
+              };
+            };
         };
 
         programs = {
