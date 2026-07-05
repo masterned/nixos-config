@@ -63,8 +63,12 @@
         networking = {
           inherit hostName;
           extraHosts = ''
-              127.0.0.1 cygnus.home.arpa
-            '';
+            127.0.0.1 cygnus.home.arpa
+          '';
+          nameservers = [
+            "9.9.9.9"
+            "149.112.112.112"
+          ];
         };
 
         programs = {
@@ -125,6 +129,20 @@
             gcr-ssh-agent.enable = false;
             gnome-keyring.enable = true;
           };
+
+          resolved = {
+            enable = true;
+            settings.Resolve = {
+              DNSOverTLS = true;
+              DNSSEC = true;
+              Domains = [ "~." ];
+              FallbackDNS = [
+                "9.9.9.9"
+                "149.112.112.112"
+              ];
+            };
+          };
+
           tlp.enable = lib.mkForce false;
           tuned.enable = true;
         };
