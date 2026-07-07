@@ -50,11 +50,8 @@
   };
 
   outputs =
-    { flake-parts, ... }@inputs:
-    let
-      system = "x86_64-linux";
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } (
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
       { ... }:
       {
         perSystem = { pkgs, ... }: { formatter = pkgs.nixfmt-tree; };
@@ -64,7 +61,7 @@
         ]
         ++ (inputs.import-tree ./modules).imports;
 
-        systems = [ system ];
+        systems = [ "x86_64-linux" ];
       }
     );
 }

@@ -7,6 +7,8 @@
         self.homeModules.gnome-software
         self.homeModules.atuin
         self.homeModules.bottom
+        self.homeModules.direnv
+        self.homeModules.ghostty
         self.homeModules.helix
         self.homeModules.imv
         self.homeModules.jujutsu
@@ -22,6 +24,7 @@
         self.homeModules.zen-browser
         self.homeModules.mpd
         self.homeModules.xdg
+        self.homeModules.yazi
         self.homeModules.zellij
         {
           home = {
@@ -33,48 +36,11 @@
         }
         self.homeModules.spencer
         self.homeModules.stylix-spencer
+        self.homeModules.email-spencer
       ];
     };
 
     homeModules.spencer = { pkgs, ... }: {
-      accounts.email.accounts = {
-        "mr.spencerdent" = {
-          enable = true;
-          address = "mr.spencerdent@gmail.com";
-          flavor = "gmail.com";
-          imap = {
-            authentication = "xoauth2";
-            host = "imap.gmail.com";
-            port = 993;
-            tls = {
-              enable = true;
-              useStartTls = false;
-            };
-          };
-          primary = true;
-          realName = "Spencer Dent";
-          signature = {
-            showSignature = "append";
-            text = ''
-              --
-              For Christ, for family, for mankind.
-            '';
-          };
-          smtp = {
-            authentication = "xoauth2";
-            host = "smtp.gmail.com";
-            port = 465;
-            tls = {
-              enable = true;
-              useStartTls = false;
-            };
-          };
-          thunderbird = {
-            enable = true;
-          };
-        };
-      };
-
       dconf = {
         enable = true;
         settings = {
@@ -115,20 +81,9 @@
           enableNushellIntegration = true;
         };
 
-        direnv = {
-          enable = true;
-          enableNushellIntegration = true;
-          nix-direnv.enable = true;
-        };
-
         fzf = {
           enable = true;
           historyWidget.command = "";
-        };
-
-        ghostty = {
-          enable = true;
-          installBatSyntax = true;
         };
 
         obs-studio.enable = true;
@@ -138,12 +93,6 @@
         starship.enable = true;
 
         tealdeer.enable = true;
-
-        yazi = {
-          enable = true;
-          enableNushellIntegration = true;
-          shellWrapperName = "yy";
-        };
 
         zoxide.enable = true;
       };
