@@ -39,13 +39,15 @@
         };
 
         home-manager = {
-          backupFileExtension = "backup";
+          backupFileExtension = "hm-bak";
           extraSpecialArgs = {
             inherit inputs;
             outputs = self;
             system = pkgs.stdenv.hostPlatform.system;
           };
           users.spencer = import ../../_homes/spencer;
+          useGlobalPkgs = true;
+          useUserPackages = true;
         };
 
         imports = [
