@@ -38,18 +38,6 @@
           };
         };
 
-        home-manager = {
-          backupFileExtension = "hm-bak";
-          extraSpecialArgs = {
-            inherit inputs;
-            outputs = self;
-            system = pkgs.stdenv.hostPlatform.system;
-          };
-          users.spencer = import ../../_homes/spencer;
-          useGlobalPkgs = true;
-          useUserPackages = true;
-        };
-
         imports = [
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.sops-nix.nixosModules.sops

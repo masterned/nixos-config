@@ -50,32 +50,21 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      flake-parts,
-      ...
-    }@inputs:
+    { flake-parts, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in
     flake-parts.lib.mkFlake { inherit inputs; } (
       { ... }:
       {
-        flake = {
-          formatter.${system} = pkgs.nixfmt-tree;
-
-          homeModules = import ./modules/_home-manager;
-        };
+        perSystem = { pkgs, ... }: { formatter = pkgs.nixfmt-tree; };
 
         imports = [
           inputs.home-manager.flakeModules.home-manager
-        ];
+        ]
+        ++ (inputs.import-tree ./modules).imports;
 
-        systems = [
-          system
-        ];
+        systems = [ system ];
       }
-      // inputs.import-tree ./modules
     );
 }
