@@ -63,6 +63,7 @@
         };
 
         programs = {
+          dconf.enable = true;
           nh.flake = "/home/spencer/Workspaces/nixos";
           ssh = {
             extraConfig = ''

@@ -78,6 +78,7 @@
       services = {
         fwupd.enable = true;
         gvfs.enable = true;
+        udisks2.enable = true;
       };
 
       system.autoUpgrade = {
