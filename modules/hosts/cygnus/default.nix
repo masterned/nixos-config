@@ -63,55 +63,46 @@
             "149.112.112.112"
           ];
 
-          networkmanager.ensureProfiles =
-            let
-              connection = {
-                id = "Mobulidae";
+          networkmanager = {
+            ensureProfiles =
+              let
+                ssid = "Mobulidae";
+              in
+              {
+                environmentFiles = [ config.sops.templates."mobulidae_psk.env".path ];
+                profiles = {
+                  Mobulidae = {
+                    connection = {
+                      id = ssid;
 
-                # make sure to generate a random one on different machines
-                uuid = "fb3fdaff-6870-48e8-8bd9-f2ea47c9bd7e";
+                      # make sure to generate a random one on different machines
+                      uuid = "fb3fdaff-6870-48e8-8bd9-f2ea47c9bd7e";
 
-                type = "wifi";
-                interface-name = "wlp1s0";
-              };
-            in
-            {
-              profiles = {
-                Mobulidae = {
-                  inherit connection;
-                  wifi = {
-                    cloned-mac-address = "stable-ssid";
-                    mode = "infrastructure";
-                    ssid = connection.id;
+                      type = "wifi";
+                      interface-name = "wlp1s0";
+                    };
+                    wifi = {
+                      cloned-mac-address = "stable-ssid";
+                      mode = "infrastructure";
+                      inherit ssid;
+                    };
+                    wifi-security = {
+                      auth-alg = "open";
+                      key-mgmt = "wpa-psk";
+                      psk = "$mobulidae_psk";
+                    };
+                    ipv4 = {
+                      method = "auto";
+                    };
+                    ipv6 = {
+                      addr-gen-mode = "default";
+                      method = "auto";
+                    };
+                    proxy = { };
                   };
-                  wifi-security = {
-                    auth-alg = "open";
-                    key-mgmt = "wpa-psk";
-                  };
-                  ipv4 = {
-                    method = "auto";
-                  };
-                  ipv6 = {
-                    addr-gen-mode = "default";
-                    method = "auto";
-                  };
-                  proxy = { };
                 };
               };
-              secrets = {
-                entries = [
-                  {
-                    matchId = connection.id;
-                    matchUuid = connection.uuid;
-                    matchType = connection.type;
-                    matchIface = connection.interface-name;
-                    matchSetting = "wifi-security";
-                    key = "psk";
-                    file = config.sops.secrets."wifi/mobulidae_psk".path;
-                  }
-                ];
-              };
-            };
+          };
         };
 
         programs = {
@@ -211,6 +202,9 @@
           defaultSopsFormat = "yaml";
 
           secrets."wifi/mobulidae_psk" = { };
+          templates."mobulidae_psk.env".content = ''
+            mobulidae_psk=${config.sops.placeholder."wifi/mobulidae_psk"}
+          '';
         };
 
         system.stateVersion = "23.05"; # No touchy!
