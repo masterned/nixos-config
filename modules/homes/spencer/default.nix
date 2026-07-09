@@ -93,6 +93,21 @@
 
         ripgrep.enable = true;
 
+        ssh = {
+          enable = true;
+          enableDefaultConfig = false;
+          settings = {
+            "*" = {
+              AddKeysToAgent = "yes";
+            };
+            "github.com" = {
+              HostName = "github.com";
+              User = "masterned";
+              IdentityFile = "~/.ssh/masterned_github";
+            };
+          };
+        };
+
         starship.enable = true;
 
         tealdeer.enable = true;
