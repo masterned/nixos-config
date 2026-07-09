@@ -43,6 +43,7 @@
           inputs.sops-nix.nixosModules.sops
           self.nixosModules.common
           self.nixosModules.cygnusHardware
+          self.nixosModules.networking
           self.nixosModules.nh
           self.nixosModules.niri
           self.nixosModules.noctalia
@@ -50,60 +51,6 @@
           self.nixosModules.printing
           self.nixosModules.stylix
         ];
-
-        networking = {
-          inherit hostName;
-
-          extraHosts = ''
-            127.0.0.1 cygnus.home.arpa
-          '';
-
-          nameservers = [
-            "9.9.9.9"
-            "149.112.112.112"
-          ];
-
-          networkmanager = {
-            ensureProfiles =
-              let
-                ssid = "Mobulidae";
-              in
-              {
-                environmentFiles = [ config.sops.templates."mobulidae_psk.env".path ];
-                profiles = {
-                  Mobulidae = {
-                    connection = {
-                      id = ssid;
-
-                      # make sure to generate a random one on different machines
-                      uuid = "fb3fdaff-6870-48e8-8bd9-f2ea47c9bd7e";
-
-                      type = "wifi";
-                      interface-name = "wlp1s0";
-                    };
-                    wifi = {
-                      cloned-mac-address = "stable-ssid";
-                      mode = "infrastructure";
-                      inherit ssid;
-                    };
-                    wifi-security = {
-                      auth-alg = "open";
-                      key-mgmt = "wpa-psk";
-                      psk = "$mobulidae_psk";
-                    };
-                    ipv4 = {
-                      method = "auto";
-                    };
-                    ipv6 = {
-                      addr-gen-mode = "default";
-                      method = "auto";
-                    };
-                    proxy = { };
-                  };
-                };
-              };
-          };
-        };
 
         programs = {
           dconf.enable = true;
@@ -201,9 +148,14 @@
           defaultSopsFile = ../../../secrets/secrets.yaml;
           defaultSopsFormat = "yaml";
 
-          secrets."wifi/mobulidae_psk" = { };
-          templates."mobulidae_psk.env".content = ''
-            mobulidae_psk=${config.sops.placeholder."wifi/mobulidae_psk"}
+          secrets = {
+            "wifi/mobulidae_psk" = { };
+            "wifi/petrosiidae_psk" = { };
+          };
+
+          templates."network-manager.env".content = ''
+            MOBULIDAE_PSK=${config.sops.placeholder."wifi/mobulidae_psk"}
+            PETROSIIDAE_PSK=${config.sops.placeholder."wifi/petrosiidae_psk"}
           '';
         };
 
