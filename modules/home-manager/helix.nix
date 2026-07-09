@@ -22,6 +22,20 @@
             };
             nixd = {
               command = "${pkgs.nixd}/bin/nixd";
+              config.nixd =
+                let
+                  hostname = "cygnus";
+                  username = "spencer";
+                  nixFlake = "(builtins.getFlake (toString /home/${username}/Workspaces/nixos))";
+                in
+                {
+                  formatting.command = [ "nixfmt" ];
+                  nixpkgs.expr = "import ${nixFlake}.inputs.nixpkgs { }";
+                  options = {
+                    nixos.expr = ''${nixFlake}.nixosConfigurations."${hostname}".options'';
+                    home-manager.expr = ''${nixFlake}.homeConfigurations."${username}".options'';
+                  };
+                };
             };
             typos = {
               command = "${pkgs.typos-lsp}/bin/typos-lsp";
