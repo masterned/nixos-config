@@ -50,19 +50,22 @@
         };
       };
 
-      home.packages = with pkgs; [
-        discord
-        ffmpeg
-        gimp3
-        networkmanagerapplet
-        ouch
-        rustup
-        signal-desktop
-        tagutil
-        thunderbird
-        typst
-        vulnix
-      ];
+      home = {
+        packages = with pkgs; [
+          discord
+          ffmpeg
+          gimp3
+          networkmanagerapplet
+          ouch
+          rustup
+          signal-desktop
+          tagutil
+          thunderbird
+          typst
+          vulnix
+        ];
+        pointerCursor.enable = true;
+      };
 
       programs = {
         home-manager.enable = true;
