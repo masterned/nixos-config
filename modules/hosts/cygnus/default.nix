@@ -41,6 +41,7 @@
         imports = [
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.sops-nix.nixosModules.sops
+          self.nixosModules.caddy
           self.nixosModules.common
           self.nixosModules.cygnusHardware
           self.nixosModules.networking
@@ -79,33 +80,7 @@
 
         services = {
           blueman.enable = true;
-          caddy = {
-            enable = true;
-            openFirewall = true;
-            virtualHosts =
-              let
-                host_tld = "${hostName}.home.arpa";
-                http_root = "/srv/http";
-                md_book = name: {
-                  "${name}.${host_tld}" = {
-                    extraConfig = ''
-                      root * ${http_root}/${name}
-                      file_server
-                    '';
-                  };
-                };
-              in
-              {
-                "${host_tld}:80, ${host_tld}:443" = {
-                  extraConfig = ''
-                    root * ${http_root}/public
-                    file_server browse
-                  '';
-                };
-              }
-              // md_book "grimoire"
-              // md_book "rockhopper";
-          };
+
           displayManager.cosmic-greeter.enable = true;
           flatpak.enable = true;
           gnome = {
