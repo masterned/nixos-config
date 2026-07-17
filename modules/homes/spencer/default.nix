@@ -40,6 +40,19 @@
       ];
     };
 
+    nixosModules.user-spencer = { ... }: {
+      users.users.spencer = {
+        isNormalUser = true;
+        description = "Spencer Dent";
+        extraGroups = [
+          "networkmanager"
+          "podman"
+          "wheel"
+        ];
+        useDefaultShell = true;
+      };
+    };
+
     homeModules.spencer = { pkgs, ... }: {
       dconf = {
         enable = true;

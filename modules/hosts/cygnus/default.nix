@@ -50,6 +50,7 @@
           self.nixosModules.podman
           self.nixosModules.printing
           self.nixosModules.stylix
+          self.nixosModules.user-spencer
         ];
 
         programs = {
@@ -131,16 +132,6 @@
 
         users = {
           defaultUserShell = pkgs.nushell;
-          users.spencer = {
-            isNormalUser = true;
-            description = "Spencer Dent";
-            extraGroups = [
-              "networkmanager"
-              "podman"
-              "wheel"
-            ];
-            useDefaultShell = true;
-          };
         };
 
         sops = {
