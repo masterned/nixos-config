@@ -40,7 +40,6 @@
 
         imports = [
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          inputs.sops-nix.nixosModules.sops
           self.nixosModules.caddy
           self.nixosModules.common
           self.nixosModules.cygnusHardware
@@ -51,6 +50,7 @@
           self.nixosModules.podman
           self.nixosModules.printing
           self.nixosModules.stylix
+          self.nixosModules.secrets-cygnus
           self.nixosModules.user-spencer
         ];
 
@@ -94,22 +94,6 @@
 
         users = {
           defaultUserShell = pkgs.nushell;
-        };
-
-        sops = {
-          age.keyFile = "/home/spencer/.config/sops/age/keys.txt";
-          defaultSopsFile = ../../../secrets/secrets.yaml;
-          defaultSopsFormat = "yaml";
-
-          secrets = {
-            "wifi/mobulidae_psk" = { };
-            "wifi/petrosiidae_psk" = { };
-          };
-
-          templates."network-manager.env".content = ''
-            MOBULIDAE_PSK=${config.sops.placeholder."wifi/mobulidae_psk"}
-            PETROSIIDAE_PSK=${config.sops.placeholder."wifi/petrosiidae_psk"}
-          '';
         };
 
         system.stateVersion = "23.05"; # No touchy!
