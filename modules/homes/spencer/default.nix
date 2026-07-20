@@ -17,6 +17,7 @@
         self.homeModules.noctalia
         self.homeModules.nushell
         self.homeModules.onlyoffice
+        self.homeModules.rio
         self.homeModules.rmpc
         self.homeModules.youtube-tui
         self.homeModules.yt-dlp
