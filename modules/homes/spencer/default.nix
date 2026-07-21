@@ -68,6 +68,7 @@
           discord
           ffmpeg
           gimp3
+          matcha
           networkmanagerapplet
           ouch
           rustup
