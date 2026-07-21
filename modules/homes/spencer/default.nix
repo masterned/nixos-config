@@ -71,6 +71,7 @@
           matcha
           networkmanagerapplet
           ouch
+          rfc-reader
           rustup
           signal-desktop
           tagutil
