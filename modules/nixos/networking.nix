@@ -35,7 +35,7 @@
                   wifi-security = {
                     auth-alg = "open";
                     key-mgmt = "wpa-psk";
-                    psk = (lib.toUpper "${ssid}_PSK");
+                    psk = (lib.toUpper "\$${ssid}_PSK");
                   };
                   ipv4 = {
                     method = "auto";
@@ -51,6 +51,7 @@
               {
                 Mobulidae = stable_ssid_wifi "Mobulidae";
                 Petrosiidae = stable_ssid_wifi "Petrosiidae";
+                AFIUSA-Private = stable_ssid_wifi "AFIUSA-Private";
               };
           };
         };
