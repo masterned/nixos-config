@@ -9,7 +9,7 @@
         inherit hostName;
 
         extraHosts = ''
-          127.0.0.1 cygnus.home.arpa
+          127.0.0.1 cygnus.home.arpa grimoire.cygnus.home.arpa rockhopper.cygnus.home.arpa
         '';
 
         nameservers = [
