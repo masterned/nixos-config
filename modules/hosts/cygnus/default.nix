@@ -32,10 +32,7 @@
         hardware = {
           bluetooth.enable = true;
           graphics.enable = true;
-          logitech.wireless = {
-            enable = true;
-            enableGraphical = true;
-          };
+          logitech.wireless.enable = true;
         };
 
         imports = [
@@ -56,7 +53,11 @@
 
         programs = {
           dconf.enable = true;
+
           nh.flake = "/home/spencer/Workspaces/nixos";
+
+          solaar.enable = true;
+
           ssh = {
             extraConfig = ''
               Host diakonos
@@ -102,6 +103,7 @@
           };
 
           tlp.enable = lib.mkForce false;
+
           tuned.enable = true;
         };
 
