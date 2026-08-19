@@ -81,8 +81,21 @@
         services = {
           blueman.enable = true;
 
-          displayManager.cosmic-greeter.enable = true;
+          displayManager.noctalia-greeter = {
+            enable = true;
+            cursorTheme = {
+              name = "Bibata-Original-Ice";
+              package = pkgs.bibata-cursors;
+            };
+            settings = {
+              appearance = {
+                hide_logo = true;
+              };
+            };
+          };
+
           flatpak.enable = true;
+
           gnome = {
             gcr-ssh-agent.enable = false;
             gnome-keyring.enable = true;
