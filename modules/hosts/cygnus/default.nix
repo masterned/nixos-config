@@ -44,6 +44,7 @@
           self.nixosModules.nh
           self.nixosModules.niri
           self.nixosModules.noctalia
+          self.nixosModules.netextender
           self.nixosModules.podman
           self.nixosModules.printing
           self.nixosModules.stylix

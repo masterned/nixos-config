@@ -11,6 +11,11 @@
 
     import-tree.url = "github:vic/import-tree";
 
+    netextender = {
+      url = "github:afi-spencerd/SonicWall-NetExtender_flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
