@@ -12,13 +12,15 @@
         "wifi/mobulidae_psk" = { };
         "wifi/petrosiidae_psk" = { };
         "wifi/afiusa-private_psk" = { };
+        "wifi/afiusa-secure_psk" = { };
       };
 
       templates = {
         "network-manager.env".content = ''
           MOBULIDAE_PSK=${config.sops.placeholder."wifi/mobulidae_psk"}
           PETROSIIDAE_PSK=${config.sops.placeholder."wifi/petrosiidae_psk"}
-          AFIUSA-PRIVATE_PSK=${config.sops.placeholder."wifi/afiusa-private_psk"}
+          AFIUSA_PRIVATE_PSK=${config.sops.placeholder."wifi/afiusa-private_psk"}
+          AFIUSA_SECURE_PSK=${config.sops.placeholder."wifi/afiusa-secure_psk"}
         '';
       };
     };

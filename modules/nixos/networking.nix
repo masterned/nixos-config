@@ -22,7 +22,7 @@
             environmentFiles = [ config.sops.templates."network-manager.env".path ];
             profiles =
               let
-                normal_wifi = ssid: {
+                mkWifi = ssid: {
                   connection = {
                     id = ssid;
                     type = "wifi";
@@ -35,7 +35,7 @@
                   wifi-security = {
                     auth-alg = "open";
                     key-mgmt = "wpa-psk";
-                    psk = (lib.toUpper "\$${ssid}_PSK");
+                    psk = "\$${lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] ssid)}_PSK";
                   };
                   ipv4 = {
                     method = "auto";
@@ -46,13 +46,15 @@
                   };
                   proxy = { };
                 };
-                stable_ssid_wifi = ssid: (normal_wifi ssid) // { wifi.cloned-mac-address = "stable-ssid"; };
+                mkWifiStableMAC =
+                  ssid: lib.recursiveUpdate (mkWifi ssid) { wifi.cloned-mac-address = "stable-ssid"; };
               in
-              {
-                Mobulidae = stable_ssid_wifi "Mobulidae";
-                Petrosiidae = stable_ssid_wifi "Petrosiidae";
-                AFIUSA-Private = stable_ssid_wifi "AFIUSA-Private";
-              };
+              lib.genAttrs [
+                "Mobulidae"
+                "Petrosiidae"
+                "AFIUSA-Private"
+                "AFIUSA-Secure"
+              ] mkWifiStableMAC;
           };
         };
       };
