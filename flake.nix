@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    import-tree.url = "github:vic/import-tree";
+    import-tree.url = "github:denful/import-tree";
 
     netextender = {
       url = "github:afi-spencerd/SonicWall-NetExtender_flake";
@@ -59,7 +59,7 @@
         imports = [
           inputs.home-manager.flakeModules.home-manager
         ]
-        ++ (inputs.import-tree ./modules).imports;
+        ++ ((inputs.import-tree ./modules) { }).imports;
 
         systems = [ "x86_64-linux" ];
       }
