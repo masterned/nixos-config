@@ -1,125 +1,101 @@
-{ inputs, self, ... }:
+{ config, inputs, ... }:
 {
   flake = {
-    nixosConfigurations.cygnus = inputs.nixpkgs.lib.nixosSystem {
-      modules = [ self.nixosModules.cygnus ];
-    };
-
-    nixosModules.cygnus =
-      {
-        config,
-        lib,
-        pkgs,
-        ...
-      }:
+    modules.nixos."hosts/cygnus" =
       let
         hostName = "cygnus";
       in
       {
-        boot = {
-          initrd = {
-            luks.devices."luks-b9ce3219-26fc-4eca-ba70-d402e918a306".device =
-              "/dev/disk/by-uuid/b9ce3219-26fc-4eca-ba70-d402e918a306";
-          };
-        };
+        imports =
+          (with config.flake.modules.nixos; [
+            audio
+            base
+            bluetooth
+            boot
+            desktop
+            media
+            netextender
+            networking
+            nh
+            noctalia
+            podman
+            printing
+            secrets
+            theme
+          ])
+          ++ [
+            config.flake.modules.nixos."users/spencer"
+            ./_hardware.nix
+            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+          ];
 
-        environment.systemPackages = [ pkgs.xwayland-satellite ];
-
-        fonts.packages = [
-          (pkgs.google-fonts.override { fonts = [ "Genos" ]; })
-        ];
+        boot.initrd.luks.devices."luks-b9ce3219-26fc-4eca-ba70-d402e918a306".device =
+          "/dev/disk/by-uuid/b9ce3219-26fc-4eca-ba70-d402e918a306";
 
         hardware = {
-          bluetooth.enable = true;
           graphics.enable = true;
+          keyboard.zsa.enable = true;
           logitech.wireless.enable = true;
         };
 
-        imports = [
-          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          self.nixosModules.caddy
-          self.nixosModules.common
-          self.nixosModules.cygnusHardware
-          self.nixosModules.networking
-          self.nixosModules.nh
-          self.nixosModules.niri
-          self.nixosModules.noctalia
-          self.nixosModules.netextender
-          self.nixosModules.podman
-          self.nixosModules.printing
-          self.nixosModules.stylix
-          self.nixosModules.secrets-cygnus
-          self.nixosModules.user-spencer
-        ];
+        networking = {
+          hostName = "cygnus";
+
+          extraHosts = ''
+            127.0.0.1 cygnus.home.arpa grimoire.cygnus.home.arpa rockhopper.cygnus.home.arpa
+          '';
+        };
 
         programs = {
-          dconf.enable = true;
-
-          nh.flake = "/home/spencer/Workspaces/nixos";
-
           solaar.enable = true;
-
-          ssh = {
-            extraConfig = ''
-              Host diakonos
-                Hostname 10.0.0.2
-                Port 22
-                User cygnus
-
-                IdentitiesOnly yes
-                IdentityFile ~/.ssh/diakonos
-
-              Host ambroxan
-                Hostname 10.57.50.227
-                Port 22
-                User afi-spencerd
-
-                IdentitiesOnly yes
-                IdentityFile ~/.ssh/ambroxan
-            '';
-          };
         };
 
         services = {
-          blueman.enable = true;
+          caddy =
+            let
+              localdomain = "${hostName}.home.arpa";
+            in
+            {
+              enable = true;
+              openFirewall = true;
+              virtualHosts =
+                let
+                  http_root = "/srv/http";
+                  md_book = name: {
+                    "${name}.${localdomain}" = {
+                      extraConfig = ''
+                        root * ${http_root}/${name}
+                        file_server
+                      '';
+                    };
+                  };
+                in
+                {
+                  "${localdomain}:80, ${localdomain}:443" = {
+                    extraConfig = ''
+                      root * ${http_root}/public
+                      file_server browse
+                    '';
+                  };
+                }
+                // md_book "grimoire"
+                // md_book "rockhopper";
+            };
 
           flatpak.enable = true;
-
-          gnome = {
-            gcr-ssh-agent.enable = false;
-            gnome-keyring.enable = true;
-          };
-
-          tlp.enable = lib.mkForce false;
-
-          tuned.enable = true;
-        };
-
-        users = {
-          defaultUserShell = pkgs.nushell;
         };
 
         system.stateVersion = "23.05"; # No touchy!
 
-        systemd.services = {
-          mpd.environment.XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.spencer.uid}";
-          nixos-upgrade.environment =
-            let
-              name = "NixOS Auto-upgrade";
-              email = "root@&lt;${hostName}&gt;";
-            in
-            {
-              GIT_AUTHOR_NAME = name;
-              GIT_AUTHOR_EMAIL = email;
-              GIT_COMMITTER_NAME = name;
-              GIT_COMMITTER_EMAIL = email;
-            };
-        };
-
-        xdg.portal = {
-          enable = true;
-          extraPortals = with pkgs; [ xdg-desktop-portal ];
-        };
+        time.timeZone = "America/New_York";
       };
+
+    nixosConfigurations.cygnus = inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs;
+      };
+
+      modules = [ config.flake.modules.nixos."hosts/cygnus" ];
+    };
   };
 }
