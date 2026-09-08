@@ -17,6 +17,7 @@
             netextender
             networking
             nh
+            niri
             noctalia
             podman
             printing

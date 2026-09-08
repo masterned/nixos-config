@@ -1,8 +1,6 @@
 {
   flake.modules = {
     nixos.desktop = { pkgs, ... }: {
-      environment.systemPackages = [ pkgs.xwayland-satellite ];
-
       fonts.packages = with pkgs; [
         (google-fonts.override { fonts = [ "Genos" ]; })
         material-symbols
@@ -12,8 +10,6 @@
       ];
 
       hardware.graphics.enable = true;
-
-      programs.niri.enable = true;
 
       services = {
         fwupd.enable = true;

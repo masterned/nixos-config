@@ -18,6 +18,7 @@
           jujutsu
           media
           newsboat
+          niri
           noctalia
           podman
           rio
