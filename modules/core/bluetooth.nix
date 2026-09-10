@@ -14,22 +14,33 @@
       { config, pkgs, ... }:
       let
         notify = pkgs.writers.writeNu "bluetooth-notify" /* nu */ ''
+          def device-name [path: string] {
+            let alias = (${pkgs.systemd}/bin/busctl --system --json=short get-property org.bluez $path org.bluez.Device1 Alias
+              | complete
+            )
+            
+            if $alias.exit_code == 0 {
+              $alias.stdout | from json | get data
+            } else {
+              $path | split row '/dev_' | last | str replace --all '_' ':'
+            }
+          }
+
           def main [] {
             ${pkgs.glib}/bin/gdbus monitor --system --dest org.bluez
               | lines
-              | where {|line| ($line | str contains "org.bluez.Device1" ) and ($line | str contains "'Connected':")}
+              | where {|line| ($line | str contains "PropertiesChanged ('org.bluez.Device1'") and ($line | str contains "'Connected': <")}
               | each {|line|
-                  { state: (if ($line | str contains "'Connected': <true>") {"Connected"} else {"Disconnected"}),
-                    path: ($line | split row ':' | first),
+                let path = ($line | split row ':' | first)
+                  { name: (device-name $path)
+                    state: (if ($line | str contains "'Connected': <true>") {"Connected"} else {"Disconnected"}),
                   }
                 }
-              | insert name {|dev|
-                  ${pkgs.systemd}/bin/busctl --system --json=short get-property org.bluez $dev.path org.bluez.Device1 Alias
+              | each {|dev|
+                  ${pkgs.libnotify}/bin/notify-send -a Bluetooth $dev.name $dev.state
                     | complete
-                    | if $in.exit_code == 0 { $in.stdout | from json | get data } else { null }
+                    | ignore
                 }
-              | compact name
-              | each {|dev| (${pkgs.libnotify}/bin/notify-send -a Bluetooth $dev.name $dev.state)}
               | ignore
           }
         '';
