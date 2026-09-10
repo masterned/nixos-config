@@ -11,6 +11,7 @@
       modules =
         (with config.flake.modules.homeManager; [
           apps
+          bluetooth
           desktop
           ghostty
           helix
