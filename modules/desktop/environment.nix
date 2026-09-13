@@ -31,7 +31,15 @@
       };
     };
 
-    homeManager.desktop = {
+    homeManager.desktop = { pkgs, ... }: {
+      gtk = {
+        enable = true;
+        iconTheme = {
+          package = pkgs.adwaita-icon-theme;
+          name = "Adwaita";
+        };
+      };
+
       services = {
         udiskie = {
           enable = true;
