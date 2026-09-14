@@ -4,71 +4,128 @@
       services.playerctld.enable = true;
     };
 
-    homeManager.media = { pkgs, ... }: {
-      home.packages = with pkgs; [
-        ffmpeg
-        tagutil
-        youtube-tui
-      ];
+    homeManager.media =
+      { lib, pkgs, ... }:
+      let
+        mkRadioStationString = { name, url }: "#EXTINF:-1,${name}\n${url}\n";
 
-      programs = {
-        mpv = {
-          enable = true;
-          package = pkgs.mpv.override {
-            scripts = with pkgs.mpvScripts; [
-              mpris
-              mpv-discord
-              skipsilence
-            ];
+        sorcererRadio = [
+          {
+            name = "Sorcerer Radio";
+            url = "https://26343.live.streamtheworld.com/SAM05AAC015.mp3";
+          }
+          {
+            name = "Atmospheres";
+            url = "https://18303.live.streamtheworld.com/SP_R3956612.mp3";
+          }
+          {
+            name = "Loop'd";
+            url = "https://14223.live.streamtheworld.com/SP_R4852369.mp3";
+          }
+          {
+            name = "Spa Day";
+            url = "https://18093.live.streamtheworld.com/SP_R3956254.mp3";
+          }
+          {
+            name = "Rope Drop";
+            url = "https://18213.live.streamtheworld.com/SP_R3956488.mp3";
+          }
+          {
+            name = "Seasons";
+            url = "https://18213.live.streamtheworld.com/SP_R2809833.mp3";
+          }
+          {
+            name = "Mocha";
+            url = "https://18213.live.streamtheworld.com/SP_R2670862.mp3";
+          }
+        ];
+
+        subsonicRadio = [
+          {
+            name = "Future Land";
+            url = "https://www.subsonicradio.com:8443/future_land.mp3";
+          }
+        ];
+
+        sorcererRadioPlaylist = pkgs.writeText "sorcerer_radio.m3u" (
+          "#EXTM3U\n" + lib.concatMapStrings mkRadioStationString sorcererRadio
+        );
+
+        subsonicRadioPlaylist = pkgs.writeText "subsonic_radio.m3u" (
+          "#EXTM3U\n" + lib.concatMapStrings mkRadioStationString subsonicRadio
+        );
+      in
+      {
+        home.packages = with pkgs; [
+          ffmpeg
+          tagutil
+          youtube-tui
+        ];
+
+        programs = {
+          mpv = {
+            enable = true;
+            package = pkgs.mpv.override {
+              scripts = with pkgs.mpvScripts; [
+                mpris
+                mpv-discord
+                skipsilence
+              ];
+            };
+            bindings = {
+              "-" = "add volume -5";
+              "=" = "add volume 5";
+            };
+            config = {
+              ytdl-format = "bestvideo[height<=?720]+bestaudio";
+              vo = "gpu";
+              hwdec = "auto-copy-safe";
+              hwdec-codecs = "all";
+              volume-max = 100;
+            };
           };
-          bindings = {
-            "-" = "add volume -5";
-            "=" = "add volume 5";
-          };
-          config = {
-            ytdl-format = "bestvideo[height<=?720]+bestaudio";
-            vo = "gpu";
-            hwdec = "auto-copy-safe";
-            hwdec-codecs = "all";
-            volume-max = 100;
+
+          yt-dlp = {
+            enable = true;
+            settings = {
+              embed-chapters = true;
+              embed-subs = true;
+              sub-langs = "en";
+              embed-thumbnail = true;
+            };
           };
         };
 
-        yt-dlp = {
-          enable = true;
-          settings = {
-            embed-chapters = true;
-            embed-subs = true;
-            sub-langs = "en";
-            embed-thumbnail = true;
+        services = {
+          mpd = {
+            enable = true;
+            extraConfig = # config
+              ''
+                audio_output {
+                  type "pipewire"
+                  name "PipeWire Sound Server"
+                }
+
+                audio_output {
+                  type "fifo"
+                  name "mpd_fifo"
+                  path "/tmp/mpd.fifo"
+                  format "44100:16:2"
+                }
+
+                auto_update "yes"
+
+                bind_to_address "/tmp/mpd_socket"
+              '';
           };
+          mpd-discord-rpc.enable = true;
+          mpd-mpris.enable = true;
+        };
+
+        xdg.dataFile = {
+          "mpd/playlists/sorcerer_radio.m3u".source = sorcererRadioPlaylist;
+          "mpd/playlists/subsonic_radio.m3u".source = subsonicRadioPlaylist;
         };
       };
-      services = {
-        mpd = {
-          enable = true;
-          extraConfig = # config
-            ''
-              audio_output {
-                type "pipewire"
-                name "PipeWire Sound Server"
-              }
-
-              audio_output {
-                type "fifo"
-                name "mpd_fifo"
-                path "/tmp/mpd.fifo"
-                format "44100:16:2"
-              }
-
-              auto_update "yes"
-
-              bind_to_address "/tmp/mpd_socket"
-            '';
-        };
-        mpd-discord-rpc.enable = true;
-        mpd-mpris.enable = true;
-      };
-    };
   };
 }
