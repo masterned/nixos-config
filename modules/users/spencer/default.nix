@@ -28,7 +28,10 @@
           thunderbird
           zen-browser
         ])
-        ++ [ ./_home.nix ];
+        ++ [
+          ./_home.nix
+          ./_zen-browser.nix
+        ];
 
       pkgs = import inputs.nixpkgs {
         system = "x86_64-linux";

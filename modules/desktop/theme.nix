@@ -56,9 +56,13 @@ in
       imports = [ inputs.stylix.homeModules.stylix ];
 
       stylix = commonSettings { inherit lib pkgs; } // {
-        targets.qt = {
-          enable = true;
-          platform = lib.mkDefault "qtct";
+
+        targets = {
+          qt = {
+            enable = true;
+            platform = lib.mkDefault "qtct";
+          };
+          zen-browser.enable = false;
         };
       };
 
@@ -70,9 +74,7 @@ in
     nixos.theme = { lib, pkgs, ... }: {
       imports = [ inputs.stylix.nixosModules.stylix ];
 
-      stylix = commonSettings { inherit lib pkgs; } // {
-        targets.kmscon.enable = false;
-      };
+      stylix = commonSettings { inherit lib pkgs; };
     };
   };
 }
