@@ -75,26 +75,39 @@ in
       email = "mr.spencerdent@gmail.com";
     };
 
-    ssh.settings = {
-      "github.com" = {
-        HostName = "github.com";
-        IdentitiesOnly = true;
-        IdentityFile = "~/.ssh/masterned_github";
-        User = "masterned";
-      };
-      diakonos = {
-        HostName = "10.0.0.2";
-        Port = 22;
-        User = "cygnus";
-        IdentitiesOnly = true;
-        IdentityFile = "~/.ssh/diakonos";
-      };
-      ambroxan = {
-        HostName = "10.57.50.227";
-        Port = 22;
-        User = "afi-spencerd";
-        IdentitiesOnly = true;
-        IdentityFile = "~/.ssh/ambroxan";
+    ssh = {
+      enable = true;
+
+      enableDefaultConfig = false;
+
+      settings = {
+        "*" = {
+          AddKeysToAgent = "yes";
+          ServerAliveInterval = 60;
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/control-%C";
+          ControlPersist = "10m";
+        };
+        "github.com" = {
+          HostName = "github.com";
+          IdentitiesOnly = true;
+          IdentityFile = "~/.ssh/masterned_github";
+          User = "git";
+        };
+        diakonos = {
+          HostName = "10.0.0.2";
+          Port = 22;
+          User = "cygnus";
+          IdentitiesOnly = true;
+          IdentityFile = "~/.ssh/diakonos";
+        };
+        ambroxan = {
+          HostName = "ambroxan.afi-usa.com";
+          Port = 22;
+          User = "afi-spencerd";
+          IdentitiesOnly = true;
+          IdentityFile = "~/.ssh/ambroxan";
+        };
       };
     };
   };
