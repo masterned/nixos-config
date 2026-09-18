@@ -152,7 +152,7 @@ window-rule  {
 binds {
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
-    Mod+T hotkey-overlay-title="Open Terminal: rio" { spawn "rio"; }
+    Mod+T hotkey-overlay-title="Open Terminal: ghostty" { spawn "ghostty"; }
 	Mod+Space hotkey-overlay-title="Toggle Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Escape hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
     Mod+B hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen-twilight"; }
