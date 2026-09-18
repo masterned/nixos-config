@@ -15,6 +15,7 @@
           desktop
           ghostty
           helix
+          herdr
           jujutsu
           media
           newsboat
