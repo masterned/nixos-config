@@ -2,6 +2,8 @@
   flake.modules = {
     nixos.desktop = { pkgs, ... }: {
       fonts.packages = with pkgs; [
+        atkinson-hyperlegible-mono
+        atkinson-hyperlegible
         (google-fonts.override { fonts = [ "Genos" ]; })
         material-symbols
         noto-fonts
