@@ -14,6 +14,8 @@ input {
 }
 
 layout {
+	background-color "transparent"
+
     gaps 8
     center-focused-column "never"
 
@@ -132,14 +134,31 @@ animations {
 }
 
 layer-rule {
-  match namespace="^.*noctalia.*$"
-  background-effect {
-    blur false
-    xray false
-  }
+	match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+	background-effect {
+		// blur false
+		xray false
+	}
+}
+
+layer-rule {
+  match namespace="^noctalia-wallpaper"
+  place-within-backdrop true
+}
+
+layer-rule {
+	match namespace="noctalia-window-switcher"
+	background-effect {
+		blur true
+		xray false
+	}
 }
 
 window-rule {
+	background-effect {
+		blur true
+		xray false
+	}
     geometry-corner-radius 12
     clip-to-geometry true
 }
@@ -149,6 +168,13 @@ window-rule  {
 	opacity 0.95
 }
 
+blur {
+	passes 2        // more passes = stronger blur (default: 3)
+	offset 3.0      // sample distance per pass (default: 3.0)
+	noise 0.03      // grain overlay (default: 0.02)
+	saturation 1.0  // color saturation boost (default: 1.5)
+}
+
 binds {
     Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
@@ -156,6 +182,9 @@ binds {
 	Mod+Space hotkey-overlay-title="Toggle Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Escape hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
     Mod+B hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen-twilight"; }
+    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+    Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
@@ -240,9 +269,6 @@ binds {
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
-
     Mod+R { switch-preset-column-width; }
 
     Mod+Shift+R { switch-preset-window-height; }
@@ -262,11 +288,23 @@ binds {
 
     Mod+G { toggle-column-tabbed-display; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Print { spawn-sh "noctalia msg screenshot-region"; }
+    Ctrl+Print { spawn-sh "noctalia msg screenshot-fullscreen"; }
     Alt+Print { screenshot-window; }
 
     Ctrl+Alt+Delete { quit skip-confirmation=true; }
 }
 
-// include "noctalia.kdl"
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
+switch-events {
+	lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
+}
