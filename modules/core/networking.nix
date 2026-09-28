@@ -18,6 +18,8 @@
         networkmanager = {
           enable = true;
 
+          dns = "systemd-resolved";
+
           ensureProfiles = {
             environmentFiles = [ config.sops.templates."network-manager.env".path ];
             profiles =

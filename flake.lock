@@ -219,11 +219,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789435955,
-        "narHash": "sha256-9x4gGkMQfPam1ceIdQ6m168ScXLin0gyoI4gcLSoP9s=",
+        "lastModified": 1790631068,
+        "narHash": "sha256-skd/MGW5kB+e08rLMS8UvdOcwexTrojiDyyEwFUzkWQ=",
         "owner": "afi-spencerd",
         "repo": "SonicWall-NetExtender_flake",
-        "rev": "f6a8c32691a7d352fd018ae3c83457c83c0fc0bc",
+        "rev": "dec8b49ec0d49c83dd1d224ecf2387c0a27aa64f",
         "type": "github"
       },
       "original": {
