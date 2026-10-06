@@ -58,6 +58,7 @@ in
       stylix = commonSettings { inherit lib pkgs; } // {
 
         targets = {
+          rofi.enable = false;
           qt = {
             enable = true;
             platform = lib.mkDefault "qtct";
