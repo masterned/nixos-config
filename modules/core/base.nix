@@ -29,13 +29,13 @@
     };
 
     nix = {
-      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
       settings = {
         auto-optimise-store = true;
         experimental-features = [
           "nix-command"
           "flakes"
         ];
+        nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
       };
     };
 
