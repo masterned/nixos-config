@@ -180,7 +180,7 @@ binds {
 
     Mod+T hotkey-overlay-title="Open Terminal: ghostty" { spawn "ghostty"; }
 	Mod+Space hotkey-overlay-title="Toggle Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+Escape hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
+    Mod+Escape hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock"; }
     Mod+B hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen-twilight"; }
     Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
