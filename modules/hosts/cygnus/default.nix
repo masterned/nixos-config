@@ -22,6 +22,7 @@
             podman
             printing
             secrets
+            ssh
             theme
           ])
           ++ [
