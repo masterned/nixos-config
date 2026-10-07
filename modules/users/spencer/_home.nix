@@ -108,9 +108,18 @@ in
           IdentitiesOnly = true;
           IdentityFile = "~/.ssh/ambroxan";
         };
+        saira = {
+          HostName = "192.168.1.108";
+          Port = 22;
+          User = "brooke";
+          IdentitiesOnly = true;
+          IdentityFile = "~/.ssh/saira/brooke/id_ed25519";
+        };
       };
     };
   };
+
+  services.remmina.enable = true;
 
   # stylix.image = pkgs.fetchurl {
   #   url = "http://cygnus.home.arpa/neo_EPCOT.jpg";

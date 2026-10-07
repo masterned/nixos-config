@@ -5,7 +5,7 @@ let
     {
       enable = true;
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+      base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
       cursor = {
         package = lib.mkDefault pkgs.bibata-cursors;
@@ -56,7 +56,6 @@ in
       imports = [ inputs.stylix.homeModules.stylix ];
 
       stylix = commonSettings { inherit lib pkgs; } // {
-
         targets = {
           rofi.enable = false;
           qt = {

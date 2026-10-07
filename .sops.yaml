@@ -1,6 +1,8 @@
 keys:
   - &cygnus age1ugn9zmteqkmjckvr44l2d7anvex8u9te5r3qvq26xnewlwrrkplsxg99nv
   - &host_cygnus age1ugn9zmteqkmjckvr44l2d7anvex8u9te5r3qvq26xnewlwrrkplsxg99nv
+  - &host_saira age1w246ukl67m5fav7k4s97n0z92vsendqtlqp9rgpzrtqqnkd2ca0q8hke5p
+  - &user_brooke ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHimMNpccwfw+uuLOJtbGiMe/qaD6lgk2e/U+5MwTQAM brookephillips55@gmail.com
   - &user_spencer age1ugn9zmteqkmjckvr44l2d7anvex8u9te5r3qvq26xnewlwrrkplsxg99nv
 
 creation_rules:
@@ -16,4 +18,6 @@ creation_rules:
     key_groups:
       - age:
           - *host_cygnus
+          - *host_saira
+          - *user_brooke
           - *user_spencer

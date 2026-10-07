@@ -28,10 +28,6 @@
       zathura.enable = true;
     };
 
-    services = {
-      remmina.enable = true;
-    };
-
     xdg = {
       enable = true;
 
