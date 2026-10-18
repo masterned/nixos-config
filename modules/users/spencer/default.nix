@@ -1,11 +1,10 @@
-{
-  config,
-  inputs,
-  ...
-}:
+{ config, inputs, ... }:
+let
+  user = "spencer";
+in
 {
   flake = {
-    homeConfigurations."spencer@cygnus" = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."${user}@cygnus" = inputs.home-manager.lib.homeManagerConfiguration {
       extraSpecialArgs = { inherit inputs; };
 
       modules =
@@ -41,15 +40,17 @@
       };
     };
 
-    modules.nixos."users/spencer" = {
+    modules.nixos."users/${user}" = { config, ... }: {
       programs.nh = {
         enable = true;
-        flake = "/home/spencer/Projects/nixos";
+        flake = "/home/${user}/Projects/nixos";
       };
 
-      services.openssh.settings.AllowUsers = [ "spencer" ];
+      services.openssh.settings.AllowUsers = [ user ];
 
-      users.users.spencer = {
+      sops.secrets."users/${user}_pw_hash".neededForUsers = true;
+
+      users.users.${user} = {
         isNormalUser = true;
         description = "Spencer Dent";
         extraGroups = [
@@ -59,6 +60,7 @@
           "lp"
           "scanner"
         ];
+        hashedPasswordFile = config.sops.secrets."users/${user}_pw_hash".path;
         useDefaultShell = true;
       };
     };

@@ -90,6 +90,8 @@
         system.stateVersion = "23.05"; # No touchy!
 
         time.timeZone = "America/New_York";
+
+        users.mutableUsers = false;
       };
 
     nixosConfigurations.cygnus = inputs.nixpkgs.lib.nixosSystem {
