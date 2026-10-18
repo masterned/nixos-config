@@ -38,7 +38,7 @@ let
         };
       };
 
-      image = lib.mkDefault ../../assets/images/neo_EPCOT.jpg;
+      image = lib.mkDefault ../../assets/images/neo_epcot_3.jpg;
 
       opacity = {
         applications = lib.mkDefault 1.0;
