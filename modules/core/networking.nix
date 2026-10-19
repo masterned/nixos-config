@@ -54,8 +54,6 @@
               lib.genAttrs [
                 "Mobulidae"
                 "Petrosiidae"
-                "AFIUSA-Private"
-                "AFIUSA-Secure"
               ] mkWifiStableMAC;
           };
         };

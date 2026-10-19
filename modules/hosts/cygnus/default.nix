@@ -8,6 +8,7 @@
       {
         imports =
           (with config.flake.modules.nixos; [
+            afi-wifi
             audio
             base
             bluetooth
