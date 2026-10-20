@@ -9,6 +9,11 @@
         sops
       ];
 
+      shells = [
+        "${pkgs.nushell}/bin/nu"
+        "/run/current-system/sw/bin/nu"
+      ];
+
       variables.EDITOR = "hx";
     };
 
@@ -40,6 +45,8 @@
     };
 
     nixpkgs.config.allowUnfree = true;
+
+    programs.nushell.enable = true;
 
     users.defaultUserShell = pkgs.nushell;
   };
