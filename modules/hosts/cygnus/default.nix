@@ -30,6 +30,7 @@
             config.flake.modules.nixos."users/spencer"
             ./_hardware.nix
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+            ./_theme.nix
           ];
 
         boot.initrd.luks.devices."luks-b9ce3219-26fc-4eca-ba70-d402e918a306".device =

@@ -32,6 +32,7 @@ in
         ])
         ++ [
           ./_home.nix
+          ./_theme.nix
           ./_zen-browser.nix
         ];
 
