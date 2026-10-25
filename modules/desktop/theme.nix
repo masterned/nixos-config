@@ -19,8 +19,9 @@ let
           name = lib.mkDefault "FiraCode Nerd Font Mono";
         };
         sansSerif = {
-          package = lib.mkDefault pkgs.atkinson-hyperlegible;
-          name = lib.mkDefault "Atkinson Hyperlegible";
+          package = lib.mkDefault pkgs.dejavu_fonts;
+          name = lib.mkDefault "DejaVu Sans";
+
         };
         serif = {
           package = lib.mkDefault pkgs.dejavu_fonts;
