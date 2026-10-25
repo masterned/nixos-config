@@ -78,8 +78,6 @@
           shellWrapperName = "yy";
         };
 
-        zellij.enable = true;
-
         zoxide.enable = true;
       };
     };
