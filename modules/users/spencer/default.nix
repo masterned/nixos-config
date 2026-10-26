@@ -25,6 +25,7 @@ in
           rmpc
           secrets
           shell
+          ssh
           theme
           thunderbird
           zen-browser

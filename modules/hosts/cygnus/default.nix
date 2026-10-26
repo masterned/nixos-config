@@ -46,6 +46,7 @@
 
           extraHosts = ''
             127.0.0.1 cygnus.home.arpa grimoire.cygnus.home.arpa rockhopper.cygnus.home.arpa
+            192.168.1.108 saira.home.arpa
           '';
         };
 

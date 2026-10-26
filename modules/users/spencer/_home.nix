@@ -75,46 +75,24 @@ in
       email = "mr.spencerdent@gmail.com";
     };
 
-    ssh = {
-      enable = true;
-
-      enableDefaultConfig = false;
-
-      settings = {
-        "*" = {
-          AddKeysToAgent = "yes";
-          ServerAliveInterval = 60;
-          ControlMaster = "auto";
-          ControlPath = "~/.ssh/control-%C";
-          ControlPersist = "10m";
-        };
-        "github.com" = {
-          HostName = "github.com";
-          IdentitiesOnly = true;
-          IdentityFile = "~/.ssh/masterned_github";
-          User = "git";
-        };
-        diakonos = {
-          HostName = "10.0.0.2";
-          Port = 22;
-          User = "cygnus";
-          IdentitiesOnly = true;
-          IdentityFile = "~/.ssh/diakonos";
-        };
-        ambroxan = {
-          HostName = "ambroxan.afi-usa.com";
-          Port = 22;
-          User = "afi-spencerd";
-          IdentitiesOnly = true;
-          IdentityFile = "~/.ssh/ambroxan";
-        };
-        saira = {
-          HostName = "192.168.1.108";
-          Port = 22;
-          User = "brooke";
-          IdentitiesOnly = true;
-          IdentityFile = "~/.ssh/saira/brooke/id_ed25519";
-        };
+    ssh.settings = {
+      ambroxan = {
+        HostName = "ambroxan.afi-usa.com";
+        IdentitiesOnly = "yes";
+        IdentityFile = "~/.ssh/ambroxan";
+        User = "afi-spencerd";
+      };
+      "github.com" = {
+        HostName = "github.com";
+        IdentitiesOnly = "yes";
+        IdentityFile = "~/.ssh/masterned_github";
+        User = "git";
+      };
+      saira = {
+        HostName = "saira.home.arpa";
+        IdentitiesOnly = "yes";
+        IdentityFile = "~/.ssh/saira/brooke/id_ed25519";
+        User = "brooke";
       };
     };
   };
