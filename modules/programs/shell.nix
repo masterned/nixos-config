@@ -63,6 +63,7 @@
                 edit_mode: 'vi'
               }
             '';
+          loadSessionVariables = true;
         };
 
         ripgrep.enable = true;
