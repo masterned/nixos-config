@@ -67,11 +67,6 @@
             DNSSEC = false;
             LLMNR = false;
             MulticastDNS = false;
-            # Domains = [ "~." ];
-            # FallbackDNS = [
-            #   "9.9.9.9"
-            #   "149.112.112.112"
-            # ];
           };
         };
       };

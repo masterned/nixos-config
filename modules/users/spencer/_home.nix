@@ -98,9 +98,4 @@ in
   };
 
   services.remmina.enable = true;
-
-  # stylix.image = pkgs.fetchurl {
-  #   url = "http://cygnus.home.arpa/neo_EPCOT.jpg";
-  #   sha256 = "sha256-XO9mAGBTR2gpzKASPxNEZF3BHuoZ//b4ZIKwBvPKlsA=";
-  # };
 }

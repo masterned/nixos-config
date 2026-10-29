@@ -1,8 +1,6 @@
 {
   flake.modules.nixos.boot = { pkgs, ... }: {
     boot = {
-      # initrd.systemd.enable = true;
-
       kernelPackages = pkgs.linuxPackages_latest;
 
       loader = {
